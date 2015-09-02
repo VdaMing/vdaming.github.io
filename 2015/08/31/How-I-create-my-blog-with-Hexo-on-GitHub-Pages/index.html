@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>How I create my blog with Hexo on GitHub Pages | VdaMing&#39;s Blog</title>
+  <meta name="author" content="Vdaming">
+  
+  <meta name="description" content="Write something to make life better">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="How I create my blog with Hexo on GitHub Pages"/>
+  <meta property="og:site_name" content="VdaMing&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">VdaMing&#39;s Blog</a></h1>
+  <h2><a href="/">Success belongs to the persevering</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-31T14:07:58.000Z"><a href="/2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/">2015-08-31</a></time>
+      
+      
+  
+    <h1 class="title">How I create my blog with Hexo on GitHub Pages</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="Why_would_me_like_to_create_the_blog?">Why would me like to create the blog?</h3><p>一年前，忘了为什么，突然觉的拥有自己的网站是多么酷炫的一件事情，于是二话没说在花生壳搞了个.com域名, 29/年。然后在sina的SAE上建起了自己的第一个blog <a href="http://www.vdaming.cn">Vdamings Blog</a>,是基于wordpress做的。因为SAE上有现成的模板code，点几下鼠标而已很方便，但是使用起来总觉得不是自己想要的那种，可能因为功能太多导致失去了自己想要的简单易用的特性。于是乎有了现在的新的blog，基于Hexo静态架构挂在github上，这下感觉对了，好用了，下面来谈谈该怎么用吧：</p>
+<blockquote>
+<ul>
+<li>日子平淡无奇的过着, 很多美好的事情过去以后只能从脑海里回忆，渐渐忘掉，所以记下来留给明天回忆</li>
+<li><strong>我是一个搞技术的，再好的记性比不过烂笔头，学一点及一点，以后用到的时候还能再翻一翻</strong></li>
+<li>Blog 真是一个装X利器，你懂的！！！</li>
+</ul>
+</blockquote>
+<p><strong> 上面全是扯淡，下面开始正题 </strong></p>
+<hr>
+<h3 id="What_is_Hexo?">What is Hexo?</h3><p>官方网站：<a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io/</a><br>Source Code: <a href="https://github.com/hexojs/hexo/" target="_blank" rel="external">https://github.com/hexojs/hexo/</a><br>Hexo is A fast, simple &amp; powerful blog framework as shown on its official website. It has following powerful features:</p>
+<blockquote>
+<ul>
+<li><strong>Blazing Fast</strong>: It is based on Node.js, and it brings you incredible generating speed. Hundreds of files take only seconds to build.</li>
+<li><strong>Markdown Support</strong>: support the popular text-to-HTML languages. If you don not know it now, please just <a href="https://www.baidu.com/s?tn=baidu&amp;wd=markdown" target="_blank" rel="external">Baidu</a> it.</li>
+<li><strong>One-Command Deployment</strong>: you just need know several commands to generate your blog and to deploy it to your GitHub Pages or other sites</li>
+<li><strong>Various Plugins</strong>: it support various plugins which makes it more powerful.<a id="more"></a>
+上面是总结官方的介绍，以及它的官网和source code, 其实在官网或者github上有所有我们安装使用它的介绍，足够能让我们在短时间搞定它，为了节省大家时间，现在总结成一下几点：<ol>
+<li>Hexo 是一套搭建个人博客的工具或者是框架，它能产生网站要用到的静态页面，然后你把产生的文件部署到GitHub page，再然后你的博客就建成了。</li>
+<li>安装：本文描述的是在ubuntu上安装的方法<br>前提必须要安装有Node.js 和 Git, 对于Git的按照请参照另一篇文章<a href="http://vdaming.github.io/2015/08/30/How-to-use-Git-and-GItHub/" target="_blank" rel="external">How to use Git and GItHub</a>.<br>安装node.js, 根据hexo官方的建议使用nvm安装：</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<p>cURL:</p>
+<blockquote>
+<p>   $ curl <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh</p>
+</blockquote>
+<p>Wget:</p>
+<blockquote>
+<p>   $ wget -qO- <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh</p>
+</blockquote>
+<p>nvm 安装完成后再安装node.js</p>
+<blockquote>
+<p>   $nvm install 0.12</p>
+</blockquote>
+<p>这样V0.12的最新版本node.js就安装好了。<br>安装Hexo:</p>
+<blockquote>
+<p>   $npm install -g hexo-cli</p>
+</blockquote>
+<p>然后初始化一个自己的博客目录</p>
+<blockquote>
+<p>   $hexo init (folder)<br>   $cd (folder)<br>   $npm install</p>
+</blockquote>
+<p>大功告成，现在可使用下面的命令在本地查看你的博客了</p>
+<blockquote>
+<p>   $ hexo new “hello wold”//添加一篇博客<br>   $ hexo g //生成文件<br>   $ hexo s //在本地打开这个个http server</p>
+</blockquote>
+<p>然后访问 <a href="http://127.0.0.1:4000" target="_blank" rel="external">http://127.0.0.1:4000</a> 就能看到自己博客的样子了。至于有很多插件安装，主题配置的方法请参照这篇文章<a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">如何搭建一个独立博客</a></p>
+<h3 id="What_is_GitHub_pages">What is GitHub pages</h3><p>本地的博客网站配置完毕以后，要把它部署到公共空间上，GitHub pages就是这样的一个存放静态页面的网站，它提供了300M的免费空间，并且他本身就是存放在GitHub上的，和github一起使用，很是方便。<br>对于部署页面，需要以下步骤</p>
+<ol>
+<li>在GItHub 上注册一个帐号，create 一个空的特殊的repository，特殊在它的名字是xxxx.github.io, xxx可以自己定义。</li>
+<li><p>在Hexo的配置文件中_config.yml中填写部署的参数，在文件的最后补充如下代码</p>
+<blockquote>
+<p>deploy:<br>   type: git<br>   repository: <a href="https://github.com/VdaMing/vdaming.github.io.git" target="_blank" rel="external">https://github.com/VdaMing/vdaming.github.io.git</a> #填上自己创建的repository链接<br>   branch: master</p>
+</blockquote>
+</li>
+<li><p>用命令部署到github空间</p>
+<blockquote>
+<p>$hexo d</p>
+</blockquote>
+</li>
+</ol>
+<p>输入用户名密码，Done!<br>现在可以浏览器进入xxxx.github.io玩玩自己的博客吧！</p>
+<h3 id="Write_your_own_blog">Write your own blog</h3><p>但是写的博客要怎么提交呢？<br>Hexo使用marddown的格式写自己的博客，先使用命令创建一篇新博客：</p>
+<blockquote>
+<p>$hexo new “new blog”</p>
+</blockquote>
+<p>新的文章产生在blog的安装目录/source/_posts/new-blog.md：<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: How I create my blog with Hexo on GitHub Pages</span><br><span class="line">date: 2015-08-31 22:07:58</span><br><span class="line"><span class="header">tags:</span><br><span class="line">---</span></span><br></pre></td></tr></table></figure></p>
+<p>titile是文章的标题，date 写博客的时间， tags是分类，分割线后面写正文，使用markdown格式。写完后重新部署一下就OK了：<br><code>$hexo d</code></p>
+<h3 id="End"><strong>End</strong></h3><p>Hexo还有很多折腾的地方，主题，各种插件，独立域名等等，我也在学习和完善自己blog的过程中，一起学习一起进步。当前正在练习怎么用markdown, 那么fasion的东西一定得Get!</p>
+<p><strong>文章部分内容参照</strong><br><a href="https://hexo.io/" target="_blank" rel="external">Hexo</a><br><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">如何搭建一个独立博客</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Web/">Web</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Git/">Git</a>, <a href="/tags/Hexo/">Hexo</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+        <div class="ds-thread" data-thread-key="2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/" data-title="How I create my blog with Hexo on GitHub Pages" data-url="http://www.vdaming.cn/2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/"></div>
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:'vdaming'};
+        (function() {
+           var ds = document.createElement('script');
+           ds.type = 'text/javascript';ds.async = true;
+           ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+           ds.charset = 'UTF-8';
+           (document.getElementsByTagName('head')[0] 
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+         })();
+       </script>
+    <!-- 多说公共JS代码 end -->
+  
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.vdaming.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Tool/">Tool</a><small>2</small></li>
+  
+    <li><a href="/categories/Web/">Web</a><small>1</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Git/">Git</a><small>2</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>2</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2556730153&verifier=7ae58262&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://www.vdaming.cn" title="VdaMing's Blog">VdaMing's Blog</a></li>
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Vdaming
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Markdown 用法 | VdaMing&#39;s Blog</title>
+  <meta name="author" content="Vdaming">
+  
+  <meta name="description" content="Write something to make life better">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Markdown 用法"/>
+  <meta property="og:site_name" content="VdaMing&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">VdaMing&#39;s Blog</a></h1>
+  <h2><a href="/">Success belongs to the persevering</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-02T05:58:46.000Z"><a href="/2015/09/02/markdown/">2015-09-02</a></time>
+      
+      
+  
+    <h1 class="title">Markdown 用法</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>用Hexo搭完Blog，要开始记录一些东西了。下面会一点点的记录自己常用的markdown用法，now begin!</p>
+<h3 id="多级标题的使用"><strong>多级标题的使用</strong></h3><h4 id="用法示例">用法示例</h4><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># 一级标题</span></span><br><span class="line"><span class="preprocessor">## 二级标题</span></span><br><span class="line"><span class="preprocessor">### 三级标题</span></span><br><span class="line"><span class="preprocessor">#### 四级标题</span></span><br><span class="line"><span class="preprocessor">##### 五级标题</span></span><br><span class="line"><span class="preprocessor">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+<h4 id="实际效果">实际效果</h4><blockquote>
+<h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6></blockquote>
+<h2 id="<!-more->"><a id="more"></a></h2><h3 id="字体格式的使用"><strong>字体格式的使用</strong></h3><h4 id="粗体">粗体</h4><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span><span class="keyword">*</span>这是粗体<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">__这也是粗体__</span><br><span class="line"><span class="keyword">*</span>这是斜体<span class="keyword">*</span></span><br><span class="line">_这也是斜体_</span><br></pre></td></tr></table></figure>
+<h4 id="实际效果-1">实际效果</h4><blockquote>
+<p><strong>这是粗体</strong><br><strong>这也是粗体</strong><br><em>这是斜体</em><br><em>这也是斜体</em></p>
+</blockquote>
+<hr>
+<h3 id="一些特殊的线"><strong>一些特殊的线</strong></h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">--------    分隔线</span><br><span class="line"></span><span class="bullet">~</span>~我被删除了~~   删除线</span><br></pre></td></tr></table></figure>
+<h4 id="实际效果-2">实际效果</h4><blockquote>
+<h2 id="分隔线">分隔线</h2><p> 删除线<br><del>我被删除了</del>  </p>
+</blockquote>
+<hr>
+<h3 id="代码块"><strong>代码块</strong></h3><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">单行的代码使用前后加‘<span class="escape">`’</span>： <span class="escape">`e</span>cho <span class="string">"hello world"</span><span class="escape">`</span><br><span class="line"></span>多行的代码使用前后加‘<span class="escape">``</span><span class="escape">`’</span>：</span><br><span class="line">\<span class="escape">`\</span><span class="escape">`\</span><span class="escape">`</span><br><span class="line"></span>echo <span class="string">"hello world"</span></span><br><span class="line">echo <span class="string">"hello world again"</span></span><br><span class="line">\<span class="escape">`\</span><span class="escape">`\</span>`</span><br></pre></td></tr></table></figure>
+<h4 id="实际效果-3">实际效果</h4><blockquote>
+<p><code>echo &quot;hello world&quot;</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">echo</span> <span class="string">"hello world"</span></span><br><span class="line">&gt; <span class="built_in">echo</span> <span class="string">"hello world again"</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h3 id="列表的使用"><strong>列表的使用</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">有序列表直接用序号：</span><br><span class="line"><span class="number">1.</span>我是第一列</span><br><span class="line"><span class="number">2.</span>我是第二列</span><br><span class="line"><span class="number">3.</span>我是第三列</span><br><span class="line">无序列表可以用+，-，*:</span><br><span class="line">+ 我是没顺序的</span><br><span class="line">- 我也是没顺序的</span><br><span class="line">* 我更是没序列的</span><br></pre></td></tr></table></figure>
+<h4 id="实际效果-4">实际效果</h4><blockquote>
+<p>1.我是第一列<br>2.我是第二列<br>3.我是第三列</p>
+<ul>
+<li>我是没顺序的</li>
+</ul>
+<ul>
+<li>我也是没顺序的</li>
+</ul>
+<ul>
+<li>我更是没序列的</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="链接的使用"><strong>链接的使用</strong></h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">普通链接可以用：</span><br><span class="line">[<span class="link_label">链接名称</span>](<span class="link_url">链接地址 "title"</span>)</span><br><span class="line">或者是：</span><br><span class="line">[<span class="link_label">链接名称</span>][<span class="link_reference">1</span>], 然后在其他地方用[1]: http://www.baidu.com  "baidu" </span><br><span class="line">图片链接可以用：</span><br><span class="line">![<span class="link_label">图片名称</span>](<span class="link_url">/path/to/img.jpg "图片Title"</span>)</span><br><span class="line">或者是</span><br><span class="line">![<span class="link_label">图片名称</span>][<span class="link_reference">1</span>], 然后在其他地方用[1]: /path/to/img.jpg "图片title"</span><br></pre></td></tr></table></figure>
+<h4 id="实际效果-5">实际效果</h4><blockquote>
+<p><a href="http://www.google.com" title="google" target="_blank" rel="external">我是google</a><br><a href="http://www.baidu.com" title="baidu" target="_blank" rel="external">我是百度</a><br>我是图片啦<br><img src="http://img-storage.qiniudn.com/15-9-2/6590323.jpg" alt="Tedy" title="tedy"><br><img src="http://img-storage.qiniudn.com/15-9-2/31875068.jpg" alt="W图片" title="W"></p>
+</blockquote>
+<hr>
+<h3 id="未完待续"><strong>未完待续</strong></h3><p>Lots of knowledge about markdown will be added with my step of learning it and writing with it…..</p>
+<hr>
+<h3 id="END"><strong>END</strong></h3><p>这边再加一个脚注：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">脚注<span class="attr_selector">[^Demo]</span></span><br><span class="line"><span class="attr_selector">[^Demo]</span>这是一个脚注</span><br></pre></td></tr></table></figure>
+<h4 id="实际效果-6">实际效果</h4><p>脚注<a href="这是一个脚注">^Demo</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Tool/">Tool</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Markdown/">Markdown</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+        <div class="ds-thread" data-thread-key="2015/09/02/markdown/" data-title="Markdown 用法" data-url="http://www.vdaming.cn/2015/09/02/markdown/"></div>
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:'vdaming'};
+        (function() {
+           var ds = document.createElement('script');
+           ds.type = 'text/javascript';ds.async = true;
+           ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+           ds.charset = 'UTF-8';
+           (document.getElementsByTagName('head')[0] 
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+         })();
+       </script>
+    <!-- 多说公共JS代码 end -->
+  
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.vdaming.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Tool/">Tool</a><small>2</small></li>
+  
+    <li><a href="/categories/Web/">Web</a><small>1</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Git/">Git</a><small>2</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>2</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2556730153&verifier=7ae58262&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://www.vdaming.cn" title="VdaMing's Blog">VdaMing's Blog</a></li>
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Vdaming
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

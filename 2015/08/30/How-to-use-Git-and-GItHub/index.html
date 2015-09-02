@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>How to use Git and GItHub | VdaMing&#39;s Blog</title>
+  <meta name="author" content="Vdaming">
+  
+  <meta name="description" content="Write something to make life better">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="How to use Git and GItHub"/>
+  <meta property="og:site_name" content="VdaMing&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">VdaMing&#39;s Blog</a></h1>
+  <h2><a href="/">Success belongs to the persevering</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-30T14:44:16.000Z"><a href="/2015/08/30/How-to-use-Git-and-GItHub/">2015-08-30</a></time>
+      
+      
+  
+    <h1 class="title">How to use Git and GItHub</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ol>
+<li><strong>Git used locally:</strong><ul>
+<li><strong>Set up git in linux</strong> <ul>
+<li>sudo apt-get install git</li>
+<li>git config –global user.name “vdaming”//git 用户姓名</li>
+<li>git config –global user.email “xxxxxxxx@xxx.com” //用户邮箱</li>
+<li>ssh-keygen -t rsa -C “youremail”//输入两次密码后会产生一个本机的SSH key，然后填写到你注册的github账户上（登陆github系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys），然后就可以用SSH连接github了        </li>
+</ul>
+</li>
+<li><strong>Creat a local repository</strong><ul>
+<li>mkdir testGitHub</li>
+<li>git init// 把当前目录init为一个repository,会自动产生一个.git目录</li>
+<li>cd testGitHub &amp;&amp; touch README.md</li>
+<li>vim README.md // write something in it</li>
+<li>git add README.md //添加到git暂存区</li>
+<li>git commit -m “log” //改动提交到本地的repository 工作区</li>
+<li>vim README.md //继续更改文件</li>
+<li>git status //查看当前的改动</li>
+<li>git diff //查看具体的改动</li>
+<li>git add README.md &amp;&amp; git commit -m “log”//依然用add,commit,提交到repository</li>
+<li>git log//显示所有提交的版本号以及log内容</li>
+<li>git reflog//简短的实现所有提交过的log，版本</li>
+<li>git reset –hard 版本号 或者 git reset –hard HEAD^num, 回退到某个版本或者往前回退num个版本</li>
+<li>git checkout –filename //丢弃当前工作区的某个文件改动（退到还未做add前的最后版本）</li>
+<li>rm file &amp;&amp; git commit -m “log” //从repository 删除某个文件</li>
+<li>git checkout –file //rm后未add前时恢复文件<a id="more"></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>How to use GitHub</strong></li>
+</ol>
+<ul>
+<li><p><strong>From local to remote*</strong>   </p>
+<ul>
+<li><p>Create a repository first in the local as the “<strong>1. Git used locally</strong>“.</p>
+<ul>
+<li>Create an empty repository in the GitHub.com (easy to do)</li>
+<li>git remote add origin URL// URL is the repository address created in GitHub.com</li>
+<li>git push -u origin master// 把本地的master push 到远程的repository (-u is only used at the first time of push)</li>
+</ul>
+<ul>
+<li><strong>From remote to local</strong></li>
+</ul>
+<ul>
+<li>create a repository in the GitHub or fork from others’ repository</li>
+<li>git clone URL//the URL of remote, the repository will be added in the local</li>
+<li>git add &amp;&amp; git commit &amp;&amp; git push origin master //本地修改提交再更新到github</li>
+<li>git remote add upstream URL//URL 为仓库源地址，对于clone fork的仓库，需要考虑sync的问题</li>
+</ul>
+<ul>
+<li><strong>Master and Branch</strong></li>
+</ul>
+<ul>
+<li>git branch branch_name// 创建branch</li>
+<li>git checkout branch_name //切换到branch</li>
+<li>git checkout -b branch_name //创建并切换到branch</li>
+<li>git merge branch_name //merge branch 到当前的branch或master</li>
+<li>git checkout -d branch_name //删除branch</li>
+</ul>
+<ul>
+<li><strong>分支管理策略</strong></li>
+</ul>
+<p>通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢掉分支信息，现在我们来使用带参数 –no-ff来禁用”Fast forward”模式。：</p>
+<ol>
+<li>创建一个dev分支。</li>
+<li>修改readme.txt内容。</li>
+<li>添加到暂存区。</li>
+<li>切换回主分支(master)。</li>
+<li>合并dev分支，使用命令 git merge –no-ff  -m “注释” dev</li>
+<li>查看历史记录</li>
+</ol>
+<ul>
+<li><strong>多人协作工作模式</strong></li>
+</ul>
+<ol>
+<li>首先，可以试图用git push origin branch-name推送自己的修改.</li>
+<li>如果推送失败，则因为远程分支比你的本地更新早，需要先用git pull试图合并。</li>
+<li>如果合并有冲突，则需要解决冲突，并在本地提交。再用git push origin branch-name推送。</li>
+</ol>
+<ul>
+<li><strong>Note: origin 就是指remote的repository。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>本文部分内容来自 ：</strong>《推荐！手把手教你使用Git》 <a href="http://blog.jobbole.com/78960/" target="_blank" rel="external">http://blog.jobbole.com/78960/</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Tool/">Tool</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Git/">Git</a>, <a href="/tags/GitHub/">GitHub</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+        <div class="ds-thread" data-thread-key="2015/08/30/How-to-use-Git-and-GItHub/" data-title="How to use Git and GItHub" data-url="http://www.vdaming.cn/2015/08/30/How-to-use-Git-and-GItHub/"></div>
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:'vdaming'};
+        (function() {
+           var ds = document.createElement('script');
+           ds.type = 'text/javascript';ds.async = true;
+           ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+           ds.charset = 'UTF-8';
+           (document.getElementsByTagName('head')[0] 
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+         })();
+       </script>
+    <!-- 多说公共JS代码 end -->
+  
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.vdaming.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Tool/">Tool</a><small>2</small></li>
+  
+    <li><a href="/categories/Web/">Web</a><small>1</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Git/">Git</a><small>2</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>2</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2556730153&verifier=7ae58262&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://www.vdaming.cn" title="VdaMing's Blog">VdaMing's Blog</a></li>
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Vdaming
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
