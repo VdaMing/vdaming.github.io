@@ -55,6 +55,49 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-09-08T12:38:25.000Z"><a href="/2015/09/08/Hello-world-in-Android-Studio/">2015-09-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/08/Hello-world-in-Android-Studio/">Hello world in Android Studio</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>之前写java的小程序或者是android的app都是用的Eclipse, 也有好久没写过android的东西了。现在<a href="http://guge.in">google</a>在力推Android studio,所以也来体验一把，记录下在ubuntu安装android studio的过程，以及用到的工具。</p>
+<h2 id="Google官方安装要求">Google官方安装要求</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Linux</span><br><span class="line">    GNOME <span class="operator">or</span> KDE desktop</span><br><span class="line">    GNU C Library (glibc) <span class="number">2.15</span> <span class="operator">or</span> later</span><br><span class="line">    <span class="number">2</span> GB RAM minimum, <span class="number">4</span> GB RAM recommended</span><br><span class="line">    <span class="number">400</span> MB hard disk <span class="constant">space</span></span><br><span class="line">    At least <span class="number">1</span> GB <span class="keyword">for</span> Android SDK, emulator <span class="keyword">system</span> images, <span class="operator">and</span> caches</span><br><span class="line">    <span class="number">1280</span> x <span class="number">800</span> minimum screen resolution</span><br><span class="line">    Oracle® Java Development Kit (JDK) <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装JDK">安装JDK</h2><p>从oracle官网下载JDK1.7<strong><a href="http://www.oracle.com/technetwork/java/javase/archive-139210.html">链接</a></strong>,android 官方要求是JDK7，所以选择java SE7 下载<a href="http://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-i586.tar.gz">jdk-7u80-linux-i586.tar.gz</a>。另外官方下载是需要登录到oracle的，注册个帐号就行了。</p>
+<h3 id="下载到本地目录，解压，设定环境变量：">下载到本地目录，解压，设定环境变量：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/java/jdk1.<span class="number">7.0</span>_80</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p>把上面的export环境变量放入到/etc/profile的最后让它开机自动执行。</p>
+<h3 id="更新默认java命令">更新默认java命令</h3><p>有些ubuntu版本默认带有java，我们安装以后要用更新一下系统默认执行的版本：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install <span class="regexp">/usr/</span>bin<span class="regexp">/java java /</span>usr<span class="regexp">/lib/</span>java<span class="regexp">/jdk1.7.0_80/</span>bin/java <span class="number">300</span></span><br><span class="line">sudo update-alternatives --install <span class="regexp">/usr/</span>bin<span class="regexp">/javac javac /</span>usr<span class="regexp">/lib/</span>java<span class="regexp">/jdk1.7.0_80/</span>bin/javac <span class="number">300</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="测试一下是否安装OK">测试一下是否安装OK</h3><p>在命令行使用命令java –verion,查看能否正确显示java的版本信息。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vdaming@vdaming-Lenovo-ubuntu:/etc$ java -<span class="built_in">version</span></span><br><span class="line">java <span class="built_in">version</span> <span class="string">"1.7.0_80"</span></span><br><span class="line">Java<span class="params">(TM)</span> SE Runtime Environment <span class="params">(build <span class="number">1.7</span>.<span class="number">0</span>_80-b15)</span></span><br><span class="line">Java HotSpot<span class="params">(TM)</span> Server VM <span class="params">(build <span class="number">24.80</span>-b11, mixed mode)</span></span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/09/08/Hello-world-in-Android-Studio/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-09-02T05:58:46.000Z"><a href="/2015/09/02/markdown/">2015-09-02</a></time>
       
       
@@ -261,7 +304,7 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Tool/">Tool</a><small>2</small></li>
+    <li><a href="/categories/Tool/">Tool</a><small>3</small></li>
   
     <li><a href="/categories/Web/">Web</a><small>1</small></li>
   
@@ -275,6 +318,8 @@
 <div class="widget tag">
   <h3 class="title">标签</h3>
   <ul class="entry">
+  
+    <li><a href="/tags/Android-Studio/">Android Studio</a><small>1</small></li>
   
     <li><a href="/tags/Git/">Git</a><small>2</small></li>
   

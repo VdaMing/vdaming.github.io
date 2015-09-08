@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hello world in Android Studio | VdaMing&#39;s Blog</title>
+  <meta name="author" content="Vdaming">
+  
+  <meta name="description" content="Write something to make life better">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Hello world in Android Studio"/>
+  <meta property="og:site_name" content="VdaMing&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">VdaMing&#39;s Blog</a></h1>
+  <h2><a href="/">Success belongs to the persevering</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-08T12:38:25.000Z"><a href="/2015/09/08/Hello-world-in-Android-Studio/">2015-09-08</a></time>
+      
+      
+  
+    <h1 class="title">Hello world in Android Studio</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>之前写java的小程序或者是android的app都是用的Eclipse, 也有好久没写过android的东西了。现在<a href="http://guge.in" target="_blank" rel="external">google</a>在力推Android studio,所以也来体验一把，记录下在ubuntu安装android studio的过程，以及用到的工具。</p>
+<h2 id="Google官方安装要求">Google官方安装要求</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Linux</span><br><span class="line">    GNOME <span class="operator">or</span> KDE desktop</span><br><span class="line">    GNU C Library (glibc) <span class="number">2.15</span> <span class="operator">or</span> later</span><br><span class="line">    <span class="number">2</span> GB RAM minimum, <span class="number">4</span> GB RAM recommended</span><br><span class="line">    <span class="number">400</span> MB hard disk <span class="constant">space</span></span><br><span class="line">    At least <span class="number">1</span> GB <span class="keyword">for</span> Android SDK, emulator <span class="keyword">system</span> images, <span class="operator">and</span> caches</span><br><span class="line">    <span class="number">1280</span> x <span class="number">800</span> minimum screen resolution</span><br><span class="line">    Oracle® Java Development Kit (JDK) <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装JDK">安装JDK</h2><p>从oracle官网下载JDK1.7<strong><a href="http://www.oracle.com/technetwork/java/javase/archive-139210.html" target="_blank" rel="external">链接</a></strong>,android 官方要求是JDK7，所以选择java SE7 下载<a href="http://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-i586.tar.gz" target="_blank" rel="external">jdk-7u80-linux-i586.tar.gz</a>。另外官方下载是需要登录到oracle的，注册个帐号就行了。</p>
+<h3 id="下载到本地目录，解压，设定环境变量：">下载到本地目录，解压，设定环境变量：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/java/jdk1.<span class="number">7.0</span>_80</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p>把上面的export环境变量放入到/etc/profile的最后让它开机自动执行。</p>
+<h3 id="更新默认java命令">更新默认java命令</h3><p>有些ubuntu版本默认带有java，我们安装以后要用更新一下系统默认执行的版本：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install <span class="regexp">/usr/</span>bin<span class="regexp">/java java /</span>usr<span class="regexp">/lib/</span>java<span class="regexp">/jdk1.7.0_80/</span>bin/java <span class="number">300</span></span><br><span class="line">sudo update-alternatives --install <span class="regexp">/usr/</span>bin<span class="regexp">/javac javac /</span>usr<span class="regexp">/lib/</span>java<span class="regexp">/jdk1.7.0_80/</span>bin/javac <span class="number">300</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="测试一下是否安装OK">测试一下是否安装OK</h3><p>在命令行使用命令java –verion,查看能否正确显示java的版本信息。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vdaming@vdaming-Lenovo-ubuntu:/etc$ java -<span class="built_in">version</span></span><br><span class="line">java <span class="built_in">version</span> <span class="string">"1.7.0_80"</span></span><br><span class="line">Java<span class="params">(TM)</span> SE Runtime Environment <span class="params">(build <span class="number">1.7</span>.<span class="number">0</span>_80-b15)</span></span><br><span class="line">Java HotSpot<span class="params">(TM)</span> Server VM <span class="params">(build <span class="number">24.80</span>-b11, mixed mode)</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="安装Android_Studio">安装Android Studio</h2><p>方法有很多，因为GFW的原因，下载都成为了问题，好在国内有很多网站提供原版的下载，很贴心：<br>AndroidDevTool: <a href="http://www.androiddevtools.cn/" target="_blank" rel="external">http://www.androiddevtools.cn/</a> 提供了很多android开发用到的SDK，studio, 教程等等非常不错的资源.你可以从上面下载单独的android studio，然后下载SDK， sdk tools, build platform 等等自行安装，避免了应为qiang的原因。<br>这里介绍从Google上直接下载包含了IDE，SDK TOOLS， android 6.0 platform, 6.0 emulator system image的完整包的安装，qiang的话可以用<strong>lantern</strong>突破，想用的话可以自行baidu.</p>
+<p>下载android-studio-ide-141.2178183-linux.zip完以后，解压到你想要安装的目录， 然后运行/studio.sh， OK 搞定！</p>
+<hr>
+<h2 id="你想多了！！！">你想多了！！！</h2><p>你会发现第一次启动总是会报错，这是因为GFW的原因，所以你需要在安装目录/bin/idea.properties的最后一句添加disable.android.first.run=true，OK搞定！</p>
+<h2 id="安装Android_SDK">安装Android SDK</h2><p>打开SDK manager，又是因为qiang的原因，很多的source都fetching 不到，所以需要把更新的源更换为国内的网站，然后就能顺利更新了，下面是应用andoirdDevTool网站的说明，想要最新的地址请到它的官网：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Android SDK在线更新镜像服务器</span><br><span class="line">   中国科学院开源协会镜像站地址:</span><br><span class="line">      IPV4<span class="regexp">/IPV6: http:/</span>/mirrors.opencas.cn 端口：<span class="number">80</span></span><br><span class="line">      IPV4<span class="regexp">/IPV6: http:/</span>/mirrors.opencas.org 端口：<span class="number">80</span></span><br><span class="line">      IPV4<span class="regexp">/IPV6: http:/</span>/mirrors.opencas.ac.cn 端口：<span class="number">80</span></span><br><span class="line"></span><br><span class="line">   上海GDG镜像服务器地址:</span><br><span class="line"><span class="label">      http:</span><span class="comment">//sdk.gdgshanghai.com 端口：8000</span></span><br><span class="line"></span><br><span class="line">   北京化工大学镜像服务器地址:</span><br><span class="line"><span class="label">       IPv4:</span> <span class="string">http:</span><span class="comment">//ubuntu.buct.edu.cn/ 端口：80</span></span><br><span class="line"><span class="label">       IPv4:</span> <span class="string">http:</span><span class="comment">//ubuntu.buct.cn/ 端口：80</span></span><br><span class="line"><span class="label">       IPv6:</span> <span class="string">http:</span><span class="comment">//ubuntu.buct6.edu.cn/ 端口：80</span></span><br><span class="line"></span><br><span class="line">   大连东软信息学院镜像服务器地址:\</span><br><span class="line"><span class="label">      http:</span><span class="comment">//mirrors.neusoft.edu.cn 端口：80</span></span><br><span class="line"></span><br><span class="line">   腾讯Bugly 镜像:</span><br><span class="line"><span class="label">      http:</span><span class="comment">//android-mirror.bugly.qq.com 端口：8080</span></span><br><span class="line">   腾讯镜像使用方法: <span class="string">http:</span><span class="comment">//android-mirror.bugly.qq.com:8080/include/usage.html</span></span><br><span class="line">使用方法：</span><br><span class="line">  启动 Android SDK Manager ，打开主界面，依次选择『Tools』、『Options...』，弹出『Android SDK Manager - Settings』窗口；在『Android SDK Manager - Settings』窗口中，在『HTTP Proxy Server」和&gt;「HTTP Proxy Port』输入框内填入上面镜像服务器地址(不包含<span class="string">http:</span><span class="comment">//，如下图)和端口，并且选中『Force https://... sources to be fetched using http://...』复选框。设置完成后单击『Close』按钮关闭『Android SDK Manager - Settings』窗口返回到主界面；</span></span><br><span class="line">依次选择『Packages』、『Reload』。</span><br></pre></td></tr></table></figure>
+<p> <img src="http://i1.tietuku.com/088503721c181f33.png" alt=""></p>
+<p>##END<br>Now i will start to write one new APP to earn money!!!</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Tool/">Tool</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Android-Studio/">Android Studio</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+        <div class="ds-thread" data-thread-key="2015/09/08/Hello-world-in-Android-Studio/" data-title="Hello world in Android Studio" data-url="http://www.vdaming.cn/2015/09/08/Hello-world-in-Android-Studio/"></div>
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:'vdaming'};
+        (function() {
+           var ds = document.createElement('script');
+           ds.type = 'text/javascript';ds.async = true;
+           ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+           ds.charset = 'UTF-8';
+           (document.getElementsByTagName('head')[0] 
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+         })();
+       </script>
+    <!-- 多说公共JS代码 end -->
+  
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.vdaming.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Tool/">Tool</a><small>3</small></li>
+  
+    <li><a href="/categories/Web/">Web</a><small>1</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Android-Studio/">Android Studio</a><small>1</small></li>
+  
+    <li><a href="/tags/Git/">Git</a><small>2</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>2</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2556730153&verifier=7ae58262&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://www.vdaming.cn" title="VdaMing's Blog">VdaMing's Blog</a></li>
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Vdaming
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
