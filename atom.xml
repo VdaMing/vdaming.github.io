@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Success belongs to the persevering]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.vdaming.cn/"/>
-  <updated>2015-09-08T13:51:54.672Z</updated>
+  <updated>2015-09-25T15:07:26.781Z</updated>
   <id>http://www.vdaming.cn/</id>
   
   <author>
@@ -13,6 +13,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Play with RaspberryPi]]></title>
+    <link href="http://www.vdaming.cn/2015/09/20/Play-with-RaspberryPi/"/>
+    <id>http://www.vdaming.cn/2015/09/20/Play-with-RaspberryPi/</id>
+    <published>2015-09-20T09:11:35.000Z</published>
+    <updated>2015-09-25T15:07:26.781Z</updated>
+    <content type="html"><![CDATA[<h1 id="搞定树梅派">搞定树梅派</h1><h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”" target="_blank" rel="external">最新系统镜像文件</a></p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#查看SD卡的对应的设备名称</span></span><br><span class="line">df -l</span><br><span class="line"><span class="preprocessor">#先把SD卡的各个分区卸载</span></span><br><span class="line">umount /media/vdaming/xxxx</span><br><span class="line"><span class="preprocessor">#用dd把下载解压好的系统镜像写入SD卡</span></span><br><span class="line">sudo dd bs=<span class="number">4</span>M if=xxxxx.img of=/dev/sdb</span><br></pre></td></tr></table></figure>
+<h2 id="在windows上把树梅派系统写入SD卡">在windows上把树梅派系统写入SD卡</h2><p>可以是用软件<a href="http://sourceforge.net/projects/win32diskimager/files/Archive/win32diskimager-v0.9-binary.zip/download" target="_blank" rel="external">Win32DiskImager</a> 轻松搞定，或者使用<a href="http://www.alexpage.de/usb-image-tool/download/" target="_blank" rel="external">USB Image Tool</a>, 具体使用就不再介绍了。</p>
+<h2 id="配置raspberrypi">配置raspberrypi</h2><p>插上SD卡，启动树梅派，远程SSH登录(pi/raspberry)上去，使用命令<code>sudo raspi-config</code>配置相关的参数比如: timezone, lang, overlock….  然后reboot， 配置为国内的软件源，然后apt-get update, 然后安装自己常用的工具比如vim, vnc…</p>
+<h3 id="国内的软件源地址">国内的软件源地址</h3><p>中山大学<br>Raspbian <a href="http://mirror.sysu.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirror.sysu.edu.cn/raspbian/raspbian/</a><br>中国科学技术大学<br>Raspbian <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a><br>清华大学<br>Raspbian <a href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a><br>华中科技大学<br>Raspbian <a href="http://mirrors.hustunique.com/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.hustunique.com/raspbian/raspbian/</a><br>Arch Linux ARM <a href="http://mirrors.hustunique.com/archlinuxarm/" target="_blank" rel="external">http://mirrors.hustunique.com/archlinuxarm/</a><br>大连东软信息学院源（北方用户）<br>Raspbian <a href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a><br>重庆大学源（中西部用户）<br>Raspbian <a href="http://mirrors.cqu.edu.cn/Raspbian/raspbian/" target="_blank" rel="external">http://mirrors.cqu.edu.cn/Raspbian/raspbian/</a></p>
+<a id="more"></a>
+<h3 id="没有显示器怎么办">没有显示器怎么办</h3><p>在raspberry上安装tightvncserver:</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install tightvncserver</span><br><span class="line"><span class="preprocessor">#设置密码</span></span><br><span class="line">vncpasswd</span><br><span class="line"><span class="preprocessor">#启动vnc server</span></span><br><span class="line">sudo vncserver</span><br></pre></td></tr></table></figure>
+<p>在PC (ubuntu)上安装vnc viewer:</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install vncviewer</span><br><span class="line"><span class="preprocessor">#链接server</span></span><br><span class="line">vncviwer</span><br></pre></td></tr></table></figure>
+<p>启动vncviwer后输入IP和终端号和密码成功登入。。如图<br><img src="http://i1.tietuku.com/e8439990d4c9ede4.png" alt="图片1"></p>
+<h3 id="视频采集">视频采集</h3><p><a href="https://git.oschina.net/andyspider/Camkit" target="_blank" rel="external">Camkit</a><br>这个开源的camera组件提供了图像的采集，编码，转换，打包，发送功能的API，而且提供了一个例子程序，能够实现所有的过程并可以远程VLC 观看，关键是它是利用GPU实现编码转换的过程不会占用很多CPU，而且利用了H.264硬解,具体可以参考作者的介绍</p>
+<p><a href="http://sourceforge.net/projects/mjpg-streamer/" target="_blank" rel="external">Media-Streamer</a><br>同样很赞的一个开源图像采集和转换工具，可以下载sourceCode，按照介绍编译，然后运行脚本start.sh, 就能够在本地建立一个实时图像的http server，提供了VLC，streamer，javascript的实时视频播放方式。具体的安装步骤请参考树梅派实验室的好文： <a href="http://shumeipai.nxez.com/2013/10/04/raspberry-pi-mjpg-streamer-network-monitoring.html" target="_blank" rel="external">http://shumeipai.nxez.com/2013/10/04/raspberry-pi-mjpg-streamer-network-monitoring.html</a></p>
+<p>#End</p>
+<p>树梅派还有很多拓展的功能，主要是基于linux的mini server，开源的好东西数不胜数，也为我们这些爱折腾的家伙提供很多材料，希望自己以后也能为开源做出一点点贡献，加油！！！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="搞定树梅派">搞定树梅派</h1><h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”">最新系统镜像文件</a></p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#查看SD卡的对应的设备名称</span></span><br><span class="line">df -l</span><br><span class="line"><span class="preprocessor">#先把SD卡的各个分区卸载</span></span><br><span class="line">umount /media/vdaming/xxxx</span><br><span class="line"><span class="preprocessor">#用dd把下载解压好的系统镜像写入SD卡</span></span><br><span class="line">sudo dd bs=<span class="number">4</span>M if=xxxxx.img of=/dev/sdb</span><br></pre></td></tr></table></figure>
+<h2 id="在windows上把树梅派系统写入SD卡">在windows上把树梅派系统写入SD卡</h2><p>可以是用软件<a href="http://sourceforge.net/projects/win32diskimager/files/Archive/win32diskimager-v0.9-binary.zip/download">Win32DiskImager</a> 轻松搞定，或者使用<a href="http://www.alexpage.de/usb-image-tool/download/">USB Image Tool</a>, 具体使用就不再介绍了。</p>
+<h2 id="配置raspberrypi">配置raspberrypi</h2><p>插上SD卡，启动树梅派，远程SSH登录(pi/raspberry)上去，使用命令<code>sudo raspi-config</code>配置相关的参数比如: timezone, lang, overlock….  然后reboot， 配置为国内的软件源，然后apt-get update, 然后安装自己常用的工具比如vim, vnc…</p>
+<h3 id="国内的软件源地址">国内的软件源地址</h3><p>中山大学<br>Raspbian <a href="http://mirror.sysu.edu.cn/raspbian/raspbian/">http://mirror.sysu.edu.cn/raspbian/raspbian/</a><br>中国科学技术大学<br>Raspbian <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a><br>清华大学<br>Raspbian <a href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a><br>华中科技大学<br>Raspbian <a href="http://mirrors.hustunique.com/raspbian/raspbian/">http://mirrors.hustunique.com/raspbian/raspbian/</a><br>Arch Linux ARM <a href="http://mirrors.hustunique.com/archlinuxarm/">http://mirrors.hustunique.com/archlinuxarm/</a><br>大连东软信息学院源（北方用户）<br>Raspbian <a href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a><br>重庆大学源（中西部用户）<br>Raspbian <a href="http://mirrors.cqu.edu.cn/Raspbian/raspbian/">http://mirrors.cqu.edu.cn/Raspbian/raspbian/</a></p>]]>
+    
+    </summary>
+    
+      <category term="RaspberryPi" scheme="http://www.vdaming.cn/tags/RaspberryPi/"/>
+    
+      <category term="Tool" scheme="http://www.vdaming.cn/categories/Tool/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hello world in Android Studio]]></title>

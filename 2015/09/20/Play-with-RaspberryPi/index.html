@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Play with RaspberryPi | VdaMing&#39;s Blog</title>
+  <meta name="author" content="Vdaming">
+  
+  <meta name="description" content="Write something to make life better">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Play with RaspberryPi"/>
+  <meta property="og:site_name" content="VdaMing&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f16fce25f8a58e8590e046bbaeb4ea88";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">VdaMing&#39;s Blog</a></h1>
+  <h2><a href="/">Success belongs to the persevering</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+    <li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-20T09:11:35.000Z"><a href="/2015/09/20/Play-with-RaspberryPi/">2015-09-20</a></time>
+      
+      
+  
+    <h1 class="title">Play with RaspberryPi</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="搞定树梅派">搞定树梅派</h1><h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”" target="_blank" rel="external">最新系统镜像文件</a></p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#查看SD卡的对应的设备名称</span></span><br><span class="line">df -l</span><br><span class="line"><span class="preprocessor">#先把SD卡的各个分区卸载</span></span><br><span class="line">umount /media/vdaming/xxxx</span><br><span class="line"><span class="preprocessor">#用dd把下载解压好的系统镜像写入SD卡</span></span><br><span class="line">sudo dd bs=<span class="number">4</span>M if=xxxxx.img of=/dev/sdb</span><br></pre></td></tr></table></figure>
+<h2 id="在windows上把树梅派系统写入SD卡">在windows上把树梅派系统写入SD卡</h2><p>可以是用软件<a href="http://sourceforge.net/projects/win32diskimager/files/Archive/win32diskimager-v0.9-binary.zip/download" target="_blank" rel="external">Win32DiskImager</a> 轻松搞定，或者使用<a href="http://www.alexpage.de/usb-image-tool/download/" target="_blank" rel="external">USB Image Tool</a>, 具体使用就不再介绍了。</p>
+<h2 id="配置raspberrypi">配置raspberrypi</h2><p>插上SD卡，启动树梅派，远程SSH登录(pi/raspberry)上去，使用命令<code>sudo raspi-config</code>配置相关的参数比如: timezone, lang, overlock….  然后reboot， 配置为国内的软件源，然后apt-get update, 然后安装自己常用的工具比如vim, vnc…</p>
+<h3 id="国内的软件源地址">国内的软件源地址</h3><p>中山大学<br>Raspbian <a href="http://mirror.sysu.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirror.sysu.edu.cn/raspbian/raspbian/</a><br>中国科学技术大学<br>Raspbian <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a><br>清华大学<br>Raspbian <a href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a><br>华中科技大学<br>Raspbian <a href="http://mirrors.hustunique.com/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.hustunique.com/raspbian/raspbian/</a><br>Arch Linux ARM <a href="http://mirrors.hustunique.com/archlinuxarm/" target="_blank" rel="external">http://mirrors.hustunique.com/archlinuxarm/</a><br>大连东软信息学院源（北方用户）<br>Raspbian <a href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a><br>重庆大学源（中西部用户）<br>Raspbian <a href="http://mirrors.cqu.edu.cn/Raspbian/raspbian/" target="_blank" rel="external">http://mirrors.cqu.edu.cn/Raspbian/raspbian/</a></p>
+<a id="more"></a>
+<h3 id="没有显示器怎么办">没有显示器怎么办</h3><p>在raspberry上安装tightvncserver:</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install tightvncserver</span><br><span class="line"><span class="preprocessor">#设置密码</span></span><br><span class="line">vncpasswd</span><br><span class="line"><span class="preprocessor">#启动vnc server</span></span><br><span class="line">sudo vncserver</span><br></pre></td></tr></table></figure>
+<p>在PC (ubuntu)上安装vnc viewer:</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install vncviewer</span><br><span class="line"><span class="preprocessor">#链接server</span></span><br><span class="line">vncviwer</span><br></pre></td></tr></table></figure>
+<p>启动vncviwer后输入IP和终端号和密码成功登入。。如图<br><img src="http://i1.tietuku.com/e8439990d4c9ede4.png" alt="图片1"></p>
+<h3 id="视频采集">视频采集</h3><p><a href="https://git.oschina.net/andyspider/Camkit" target="_blank" rel="external">Camkit</a><br>这个开源的camera组件提供了图像的采集，编码，转换，打包，发送功能的API，而且提供了一个例子程序，能够实现所有的过程并可以远程VLC 观看，关键是它是利用GPU实现编码转换的过程不会占用很多CPU，而且利用了H.264硬解,具体可以参考作者的介绍</p>
+<p><a href="http://sourceforge.net/projects/mjpg-streamer/" target="_blank" rel="external">Media-Streamer</a><br>同样很赞的一个开源图像采集和转换工具，可以下载sourceCode，按照介绍编译，然后运行脚本start.sh, 就能够在本地建立一个实时图像的http server，提供了VLC，streamer，javascript的实时视频播放方式。具体的安装步骤请参考树梅派实验室的好文： <a href="http://shumeipai.nxez.com/2013/10/04/raspberry-pi-mjpg-streamer-network-monitoring.html" target="_blank" rel="external">http://shumeipai.nxez.com/2013/10/04/raspberry-pi-mjpg-streamer-network-monitoring.html</a></p>
+<p>#End</p>
+<p>树梅派还有很多拓展的功能，主要是基于linux的mini server，开源的好东西数不胜数，也为我们这些爱折腾的家伙提供很多材料，希望自己以后也能为开源做出一点点贡献，加油！！！</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Tool/">Tool</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/RaspberryPi/">RaspberryPi</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+    
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+        <div class="ds-thread" data-thread-key="2015/09/20/Play-with-RaspberryPi/" data-title="Play with RaspberryPi" data-url="http://www.vdaming.cn/2015/09/20/Play-with-RaspberryPi/"></div>
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:'vdaming'};
+        (function() {
+           var ds = document.createElement('script');
+           ds.type = 'text/javascript';ds.async = true;
+           ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+           ds.charset = 'UTF-8';
+           (document.getElementsByTagName('head')[0] 
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+         })();
+       </script>
+    <!-- 多说公共JS代码 end -->
+  
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.vdaming.cn">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Tool/">Tool</a><small>4</small></li>
+  
+    <li><a href="/categories/Web/">Web</a><small>1</small></li>
+  
+    <li><a href="/categories/未分类/">未分类</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Android-Studio/">Android Studio</a><small>1</small></li>
+  
+    <li><a href="/tags/Git/">Git</a><small>2</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>2</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/RaspberryPi/">RaspberryPi</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2556730153&verifier=7ae58262&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://www.vdaming.cn" title="VdaMing's Blog">VdaMing's Blog</a></li>
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Vdaming
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
