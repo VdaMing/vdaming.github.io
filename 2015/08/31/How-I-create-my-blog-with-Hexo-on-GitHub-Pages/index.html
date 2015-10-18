@@ -53,7 +53,7 @@ var _hmt = _hmt || [];
     
       <li><a href="/about">About</a></li>
     
-    <li> <a href="/atom.xml">RSS</a> </li>
+  <li> <a href="/atom.xml">RSS</a> </li>
   </ul>
   <div class="clearfix"></div>
 </nav>
@@ -76,7 +76,7 @@ var _hmt = _hmt || [];
     </header>
     <div class="entry">
       
-        <h3 id="Why_would_me_like_to_create_the_blog?">Why would me like to create the blog?</h3><p>一年前，忘了为什么，突然觉的拥有自己的网站是多么酷炫的一件事情，于是二话没说在花生壳搞了个.com域名, 29/年。然后在sina的SAE上建起了自己的第一个blog <a href="http://www.vdaming.cn">Vdamings Blog</a>,是基于wordpress做的。因为SAE上有现成的模板code，点几下鼠标而已很方便，但是使用起来总觉得不是自己想要的那种，可能因为功能太多导致失去了自己想要的简单易用的特性。于是乎有了现在的新的blog，基于Hexo静态架构挂在github上，这下感觉对了，好用了，下面来谈谈该怎么用吧：</p>
+        <h3 id="Why_would_me_like_to_create_the_blog?">Why would me like to create the blog?</h3><p>一年前，忘了为什么，突然觉的拥有自己的网站是多么酷炫的一件事情，于是二话没说在花生壳搞了个.com域名, 29/年。然后在sina的SAE上建起了自己的第一个blog <a href="http://blog.vdaming.com">Vdamings Blog</a>,是基于wordpress做的。因为SAE上有现成的模板code，点几下鼠标而已很方便，但是使用起来总觉得不是自己想要的那种，可能因为功能太多导致失去了自己想要的简单易用的特性。于是乎有了现在的新的blog，基于Hexo静态架构挂在github上，这下感觉对了，好用了，下面来谈谈该怎么用吧：</p>
 <blockquote>
 <ul>
 <li>日子平淡无奇的过着, 很多美好的事情过去以后只能从脑海里回忆，渐渐忘掉，所以记下来留给明天回忆</li>
@@ -146,6 +146,22 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>新的文章产生在blog的安装目录/source/_posts/new-blog.md：<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: How I create my blog with Hexo on GitHub Pages</span><br><span class="line">date: 2015-08-31 22:07:58</span><br><span class="line"><span class="header">tags:</span><br><span class="line">---</span></span><br></pre></td></tr></table></figure></p>
 <p>titile是文章的标题，date 写博客的时间， tags是分类，分割线后面写正文，使用markdown格式。写完后重新部署一下就OK了：<br><code>$hexo d</code></p>
+<h3 id="加入Fork_me_on_github"><strong>加入Fork me on github</strong></h3><p>可以参照国外大神提供的代码，有各种样式和颜色可以选择，具体请参照页面<a href="https://github.com/blog/273-github-ribbons" target="_blank" rel="external">https://github.com/blog/273-github-ribbons</a><br>粘贴对应的代码到自己的博客中，例如我用的light的theme可以放到themes/hexo-theme-light/layout/layout.ejs的body标签中，重新部署就OK了!</p>
+<h3 id="替换googleapis的链接加快网站打开速度"><strong>替换googleapis的链接加快网站打开速度</strong></h3><p>Hexo中使用的很多前端的库，字体，js等需要从googleapis.com获取,但是国内是不能顺利的打开这个网站的，这样造成了网站打开变慢。所以可以使用国内的站点进行替换就OK了。<br>具体使用的站点是360网站卫士：<a href="http://libs.useso.com/" target="_blank" rel="external">http://libs.useso.com/</a> 和 又拍云： <a href="http://jscdn.upai.com/" target="_blank" rel="external">http://jscdn.upai.com/</a>, 只要对生成的文件进行批量替换即可。</p>
+<h3 id="添加widget的方法"><strong>添加widget的方法</strong></h3><p>基于我当前使用的light主题设置新的widget <strong>163music</strong>：</p>
+<ol>
+<li><p>在/themes/hexo-theme-light/layout/_widget/的目录下添加新的163music.ejs文件大致的格式如下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"widget tag"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h3</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span>音乐分享<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">frameborder</span>=<span class="value">"no"</span> <span class="attribute">border</span>=<span class="value">"0"</span> <span class="attribute">marginwidth</span>=<span class="value">"0"</span> <span class="attribute">marginheight</span>=<span class="value">"0"</span> <span class="attribute">width</span>=<span class="value">100%</span> <span class="attribute">height</span>=<span class="value">450</span> <span class="attribute">src</span>=<span class="value">"http://music.163.com/outchain/player?type=0&amp;id=81623516&amp;auto=1&amp;height=430"</span>&gt;</span><span class="tag">&lt;/<span class="title">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中的iframe链接是在网易云音乐的歌单生成外链中自动生成的，但是吧width改为了100% 自动填充满。</p>
+</li>
+<li><p>在/theme/hexo-theme-light/_config.yml中的widgets中加入163music, 重新部署hexo， OK！</p>
+</li>
+</ol>
+<h3 id="把自己的域名转到hexo_github_pages_的站点"><strong>把自己的域名转到hexo github pages 的站点</strong></h3><p>方法已经在github pages中有详细的介绍：<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/" target="_blank" rel="external">https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/</a><br>具体的步骤如下</p>
+<ol>
+<li>在/public/目录下添加一个名字为CNAME的文件，内容填上你的域名例如：blog.vdaming.com, 然后用<code>hexo d</code> 把新的文件部署到github上.</li>
+<li>在自己的域名服务商里设置第三方的NS地址，我使用的godaddy，域名用dnspod的，所以在godaddy域名设置中更新使用dnspod的NS. 然后在dnspod中把blog.vdaming.com设置为你自己的github的地址xxxx.github.io.的CNAME. 搞定，等待CNAME生效即可，大概几分钟就行了，打开blog.vdaming.com， 就能自动装箱github pages的页面了。</li>
+</ol>
 <h3 id="End"><strong>End</strong></h3><p>Hexo还有很多折腾的地方，主题，各种插件，独立域名等等，我也在学习和完善自己blog的过程中，一起学习一起进步。当前正在练习怎么用markdown, 那么fasion的东西一定得Get!</p>
 <p><strong>文章部分内容参照</strong><br><a href="https://hexo.io/" target="_blank" rel="external">Hexo</a><br><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">如何搭建一个独立博客</a></p>
 
@@ -186,7 +202,7 @@ var _hmt = _hmt || [];
   <h1 class="title">留言</h1>
 
   
-        <div class="ds-thread" data-thread-key="2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/" data-title="How I create my blog with Hexo on GitHub Pages" data-url="http://www.vdaming.cn/2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/"></div>
+        <div class="ds-thread" data-thread-key="2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/" data-title="How I create my blog with Hexo on GitHub Pages" data-url="http://blog.vdaming.com/2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/"></div>
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">
         var duoshuoQuery = {short_name:'vdaming'};
@@ -207,18 +223,19 @@ var _hmt = _hmt || [];
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="搜索">
-    <input type="hidden" name="q" value="site:www.vdaming.cn">
+  <form action="//www.baidu.com/s" method="get" accept-charset="utf-8">
+    <input type="search" name="wd" results="0" placeholder="搜索">
+    <input type="hidden" name="site" value="blog.vdaming.com">
   </form>
 </div>
+
 
   
 <div class="widget tag">
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Tool/">Tool</a><small>4</small></li>
+    <li><a href="/categories/Tool/">Tool</a><small>5</small></li>
   
     <li><a href="/categories/Web/">Web</a><small>1</small></li>
   
@@ -243,6 +260,8 @@ var _hmt = _hmt || [];
   
     <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
   
+    <li><a href="/tags/Python/">Python</a><small>1</small></li>
+  
     <li><a href="/tags/RaspberryPi/">RaspberryPi</a><small>1</small></li>
   
   </ul>
@@ -254,7 +273,17 @@ var _hmt = _hmt || [];
   <div class="widget tag">
 <h3 class="title">友情链接</h3>
 <ul class="entry">
-<li><a href="http://www.vdaming.cn" title="VdaMing's Blog">VdaMing's Blog</a></li>
+<li><a href="http://blog.vdaming.com" title="VdaMing's Blog">VdaMing's Blog</a></li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">音乐分享</h3>
+<ul class="entry">
+<li>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=450 src="http://music.163.com/outchain/player?type=0&id=81623516&auto=0&height=430"></iframe>
+</li>
 </ul>
 </div>
 
@@ -267,7 +296,7 @@ var _hmt = _hmt || [];
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="//upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
@@ -282,5 +311,7 @@ var _hmt = _hmt || [];
 })(jQuery);
 </script>
 
+<!--  <a href="https://github.com/vdaming"><img style="position: absolute; top: 0; left: 3; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a> -->
+  <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
 </body>
 </html>

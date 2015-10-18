@@ -3,9 +3,9 @@
   <title><![CDATA[VdaMing's Blog]]></title>
   <subtitle><![CDATA[Success belongs to the persevering]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://www.vdaming.cn/"/>
-  <updated>2015-09-25T15:07:26.781Z</updated>
-  <id>http://www.vdaming.cn/</id>
+  <link href="http://blog.vdaming.com/"/>
+  <updated>2015-09-26T15:27:07.834Z</updated>
+  <id>http://blog.vdaming.com/</id>
   
   <author>
     <name><![CDATA[Vdaming]]></name>
@@ -15,9 +15,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Study Python]]></title>
+    <link href="http://blog.vdaming.com/2015/09/26/Study-Python/"/>
+    <id>http://blog.vdaming.com/2015/09/26/Study-Python/</id>
+    <published>2015-09-26T15:00:18.000Z</published>
+    <updated>2015-09-26T15:27:07.834Z</updated>
+    <content type="html"><![CDATA[<h1 id="学习Python">学习Python</h1><p><strong>学习材料:</strong><br><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000" target="_blank" rel="external">Python教程</a></p>
+<p>python<br>Cpython<br>python xxx.py</p>
+<p>print ‘Hello’,1+2 </p>
+<p>input=raw_input(‘please input the value:’)</p>
+<p>#!/usr/bin/env python</p>
+<h1 id="-_coding:_utf-8_-">-<em>- coding: utf-8 -</em>-</h1><p>list and tuple</p>
+<p>条件判断和循环</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="学习Python">学习Python</h1><p><strong>学习材料:</strong><br><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac]]>
+    </summary>
+    
+      <category term="Python" scheme="http://blog.vdaming.com/tags/Python/"/>
+    
+      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Play with RaspberryPi]]></title>
-    <link href="http://www.vdaming.cn/2015/09/20/Play-with-RaspberryPi/"/>
-    <id>http://www.vdaming.cn/2015/09/20/Play-with-RaspberryPi/</id>
+    <link href="http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/"/>
+    <id>http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/</id>
     <published>2015-09-20T09:11:35.000Z</published>
     <updated>2015-09-25T15:07:26.781Z</updated>
     <content type="html"><![CDATA[<h1 id="搞定树梅派">搞定树梅派</h1><h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”" target="_blank" rel="external">最新系统镜像文件</a></p>
@@ -45,16 +69,16 @@
     
     </summary>
     
-      <category term="RaspberryPi" scheme="http://www.vdaming.cn/tags/RaspberryPi/"/>
+      <category term="RaspberryPi" scheme="http://blog.vdaming.com/tags/RaspberryPi/"/>
     
-      <category term="Tool" scheme="http://www.vdaming.cn/categories/Tool/"/>
+      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Hello world in Android Studio]]></title>
-    <link href="http://www.vdaming.cn/2015/09/08/Hello-world-in-Android-Studio/"/>
-    <id>http://www.vdaming.cn/2015/09/08/Hello-world-in-Android-Studio/</id>
+    <link href="http://blog.vdaming.com/2015/09/08/Hello-world-in-Android-Studio/"/>
+    <id>http://blog.vdaming.com/2015/09/08/Hello-world-in-Android-Studio/</id>
     <published>2015-09-08T12:38:25.000Z</published>
     <updated>2015-09-08T13:51:54.672Z</updated>
     <content type="html"><![CDATA[<p>之前写java的小程序或者是android的app都是用的Eclipse, 也有好久没写过android的东西了。现在<a href="http://guge.in" target="_blank" rel="external">google</a>在力推Android studio,所以也来体验一把，记录下在ubuntu安装android studio的过程，以及用到的工具。</p>
@@ -85,18 +109,18 @@
     
     </summary>
     
-      <category term="Android Studio" scheme="http://www.vdaming.cn/tags/Android-Studio/"/>
+      <category term="Android Studio" scheme="http://blog.vdaming.com/tags/Android-Studio/"/>
     
-      <category term="Tool" scheme="http://www.vdaming.cn/categories/Tool/"/>
+      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Markdown 用法]]></title>
-    <link href="http://www.vdaming.cn/2015/09/02/markdown/"/>
-    <id>http://www.vdaming.cn/2015/09/02/markdown/</id>
+    <link href="http://blog.vdaming.com/2015/09/02/markdown/"/>
+    <id>http://blog.vdaming.com/2015/09/02/markdown/</id>
     <published>2015-09-02T05:58:46.000Z</published>
-    <updated>2015-09-02T16:53:48.373Z</updated>
+    <updated>2015-10-18T01:23:59.437Z</updated>
     <content type="html"><![CDATA[<p>用Hexo搭完Blog，要开始记录一些东西了。下面会一点点的记录自己常用的markdown用法，now begin!</p>
 <h3 id="多级标题的使用"><strong>多级标题的使用</strong></h3><h4 id="用法示例">用法示例</h4><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># 一级标题</span></span><br><span class="line"><span class="preprocessor">## 二级标题</span></span><br><span class="line"><span class="preprocessor">### 三级标题</span></span><br><span class="line"><span class="preprocessor">#### 四级标题</span></span><br><span class="line"><span class="preprocessor">##### 五级标题</span></span><br><span class="line"><span class="preprocessor">###### 六级标题</span></span><br></pre></td></tr></table></figure>
 <h4 id="实际效果">实际效果</h4><blockquote>
@@ -135,6 +159,7 @@
 <p><a href="http://www.google.com" title="google" target="_blank" rel="external">我是google</a><br><a href="http://www.baidu.com" title="baidu" target="_blank" rel="external">我是百度</a><br>我是图片啦<br><img src="http://img-storage.qiniudn.com/15-9-2/6590323.jpg" alt="Tedy" title="tedy"><br><img src="http://img-storage.qiniudn.com/15-9-2/31875068.jpg" alt="W图片" title="W"></p>
 </blockquote>
 <hr>
+<h3 id="**嵌入网易云音乐">**嵌入网易云音乐</h3><hr>
 <h3 id="未完待续"><strong>未完待续</strong></h3><p>Lots of knowledge about markdown will be added with my step of learning it and writing with it…..</p>
 <hr>
 <h3 id="END"><strong>END</strong></h3><p>这边再加一个脚注：</p>
@@ -150,19 +175,19 @@
     
     </summary>
     
-      <category term="Markdown" scheme="http://www.vdaming.cn/tags/Markdown/"/>
+      <category term="Markdown" scheme="http://blog.vdaming.com/tags/Markdown/"/>
     
-      <category term="Tool" scheme="http://www.vdaming.cn/categories/Tool/"/>
+      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[How I create my blog with Hexo on GitHub Pages]]></title>
-    <link href="http://www.vdaming.cn/2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/"/>
-    <id>http://www.vdaming.cn/2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/</id>
+    <link href="http://blog.vdaming.com/2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/"/>
+    <id>http://blog.vdaming.com/2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/</id>
     <published>2015-08-31T14:07:58.000Z</published>
-    <updated>2015-09-02T16:54:44.373Z</updated>
-    <content type="html"><![CDATA[<h3 id="Why_would_me_like_to_create_the_blog?">Why would me like to create the blog?</h3><p>一年前，忘了为什么，突然觉的拥有自己的网站是多么酷炫的一件事情，于是二话没说在花生壳搞了个.com域名, 29/年。然后在sina的SAE上建起了自己的第一个blog <a href="http://www.vdaming.cn">Vdamings Blog</a>,是基于wordpress做的。因为SAE上有现成的模板code，点几下鼠标而已很方便，但是使用起来总觉得不是自己想要的那种，可能因为功能太多导致失去了自己想要的简单易用的特性。于是乎有了现在的新的blog，基于Hexo静态架构挂在github上，这下感觉对了，好用了，下面来谈谈该怎么用吧：</p>
+    <updated>2015-10-18T04:24:38.204Z</updated>
+    <content type="html"><![CDATA[<h3 id="Why_would_me_like_to_create_the_blog?">Why would me like to create the blog?</h3><p>一年前，忘了为什么，突然觉的拥有自己的网站是多么酷炫的一件事情，于是二话没说在花生壳搞了个.com域名, 29/年。然后在sina的SAE上建起了自己的第一个blog <a href="http://blog.vdaming.com">Vdamings Blog</a>,是基于wordpress做的。因为SAE上有现成的模板code，点几下鼠标而已很方便，但是使用起来总觉得不是自己想要的那种，可能因为功能太多导致失去了自己想要的简单易用的特性。于是乎有了现在的新的blog，基于Hexo静态架构挂在github上，这下感觉对了，好用了，下面来谈谈该怎么用吧：</p>
 <blockquote>
 <ul>
 <li>日子平淡无奇的过着, 很多美好的事情过去以后只能从脑海里回忆，渐渐忘掉，所以记下来留给明天回忆</li>
@@ -232,11 +257,27 @@
 </blockquote>
 <p>新的文章产生在blog的安装目录/source/_posts/new-blog.md：<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: How I create my blog with Hexo on GitHub Pages</span><br><span class="line">date: 2015-08-31 22:07:58</span><br><span class="line"><span class="header">tags:</span><br><span class="line">---</span></span><br></pre></td></tr></table></figure></p>
 <p>titile是文章的标题，date 写博客的时间， tags是分类，分割线后面写正文，使用markdown格式。写完后重新部署一下就OK了：<br><code>$hexo d</code></p>
+<h3 id="加入Fork_me_on_github"><strong>加入Fork me on github</strong></h3><p>可以参照国外大神提供的代码，有各种样式和颜色可以选择，具体请参照页面<a href="https://github.com/blog/273-github-ribbons" target="_blank" rel="external">https://github.com/blog/273-github-ribbons</a><br>粘贴对应的代码到自己的博客中，例如我用的light的theme可以放到themes/hexo-theme-light/layout/layout.ejs的body标签中，重新部署就OK了!</p>
+<h3 id="替换googleapis的链接加快网站打开速度"><strong>替换googleapis的链接加快网站打开速度</strong></h3><p>Hexo中使用的很多前端的库，字体，js等需要从googleapis.com获取,但是国内是不能顺利的打开这个网站的，这样造成了网站打开变慢。所以可以使用国内的站点进行替换就OK了。<br>具体使用的站点是360网站卫士：<a href="http://libs.useso.com/" target="_blank" rel="external">http://libs.useso.com/</a> 和 又拍云： <a href="http://jscdn.upai.com/" target="_blank" rel="external">http://jscdn.upai.com/</a>, 只要对生成的文件进行批量替换即可。</p>
+<h3 id="添加widget的方法"><strong>添加widget的方法</strong></h3><p>基于我当前使用的light主题设置新的widget <strong>163music</strong>：</p>
+<ol>
+<li><p>在/themes/hexo-theme-light/layout/_widget/的目录下添加新的163music.ejs文件大致的格式如下</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"widget tag"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h3</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span>音乐分享<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">frameborder</span>=<span class="value">"no"</span> <span class="attribute">border</span>=<span class="value">"0"</span> <span class="attribute">marginwidth</span>=<span class="value">"0"</span> <span class="attribute">marginheight</span>=<span class="value">"0"</span> <span class="attribute">width</span>=<span class="value">100%</span> <span class="attribute">height</span>=<span class="value">450</span> <span class="attribute">src</span>=<span class="value">"http://music.163.com/outchain/player?type=0&amp;id=81623516&amp;auto=1&amp;height=430"</span>&gt;</span><span class="tag">&lt;/<span class="title">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中的iframe链接是在网易云音乐的歌单生成外链中自动生成的，但是吧width改为了100% 自动填充满。</p>
+</li>
+<li><p>在/theme/hexo-theme-light/_config.yml中的widgets中加入163music, 重新部署hexo， OK！</p>
+</li>
+</ol>
+<h3 id="把自己的域名转到hexo_github_pages_的站点"><strong>把自己的域名转到hexo github pages 的站点</strong></h3><p>方法已经在github pages中有详细的介绍：<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/" target="_blank" rel="external">https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/</a><br>具体的步骤如下</p>
+<ol>
+<li>在/public/目录下添加一个名字为CNAME的文件，内容填上你的域名例如：blog.vdaming.com, 然后用<code>hexo d</code> 把新的文件部署到github上.</li>
+<li>在自己的域名服务商里设置第三方的NS地址，我使用的godaddy，域名用dnspod的，所以在godaddy域名设置中更新使用dnspod的NS. 然后在dnspod中把blog.vdaming.com设置为你自己的github的地址xxxx.github.io.的CNAME. 搞定，等待CNAME生效即可，大概几分钟就行了，打开blog.vdaming.com， 就能自动装箱github pages的页面了。</li>
+</ol>
 <h3 id="End"><strong>End</strong></h3><p>Hexo还有很多折腾的地方，主题，各种插件，独立域名等等，我也在学习和完善自己blog的过程中，一起学习一起进步。当前正在练习怎么用markdown, 那么fasion的东西一定得Get!</p>
 <p><strong>文章部分内容参照</strong><br><a href="https://hexo.io/" target="_blank" rel="external">Hexo</a><br><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">如何搭建一个独立博客</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h3 id="Why_would_me_like_to_create_the_blog?">Why would me like to create the blog?</h3><p>一年前，忘了为什么，突然觉的拥有自己的网站是多么酷炫的一件事情，于是二话没说在花生壳搞了个.com域名, 29/年。然后在sina的SAE上建起了自己的第一个blog <a href="http://www.vdaming.cn">Vdamings Blog</a>,是基于wordpress做的。因为SAE上有现成的模板code，点几下鼠标而已很方便，但是使用起来总觉得不是自己想要的那种，可能因为功能太多导致失去了自己想要的简单易用的特性。于是乎有了现在的新的blog，基于Hexo静态架构挂在github上，这下感觉对了，好用了，下面来谈谈该怎么用吧：</p>
+    <![CDATA[<h3 id="Why_would_me_like_to_create_the_blog?">Why would me like to create the blog?</h3><p>一年前，忘了为什么，突然觉的拥有自己的网站是多么酷炫的一件事情，于是二话没说在花生壳搞了个.com域名, 29/年。然后在sina的SAE上建起了自己的第一个blog <a href="http://blog.vdaming.com">Vdamings Blog</a>,是基于wordpress做的。因为SAE上有现成的模板code，点几下鼠标而已很方便，但是使用起来总觉得不是自己想要的那种，可能因为功能太多导致失去了自己想要的简单易用的特性。于是乎有了现在的新的blog，基于Hexo静态架构挂在github上，这下感觉对了，好用了，下面来谈谈该怎么用吧：</p>
 <blockquote>
 <ul>
 <li>日子平淡无奇的过着, 很多美好的事情过去以后只能从脑海里回忆，渐渐忘掉，所以记下来留给明天回忆</li>
@@ -256,18 +297,18 @@
     
     </summary>
     
-      <category term="Git" scheme="http://www.vdaming.cn/tags/Git/"/>
+      <category term="Git" scheme="http://blog.vdaming.com/tags/Git/"/>
     
-      <category term="Hexo" scheme="http://www.vdaming.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://blog.vdaming.com/tags/Hexo/"/>
     
-      <category term="Web" scheme="http://www.vdaming.cn/categories/Web/"/>
+      <category term="Web" scheme="http://blog.vdaming.com/categories/Web/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[How to use Git and GItHub]]></title>
-    <link href="http://www.vdaming.cn/2015/08/30/How-to-use-Git-and-GItHub/"/>
-    <id>http://www.vdaming.cn/2015/08/30/How-to-use-Git-and-GItHub/</id>
+    <link href="http://blog.vdaming.com/2015/08/30/How-to-use-Git-and-GItHub/"/>
+    <id>http://blog.vdaming.com/2015/08/30/How-to-use-Git-and-GItHub/</id>
     <published>2015-08-30T14:44:16.000Z</published>
     <updated>2015-09-02T16:54:12.057Z</updated>
     <content type="html"><![CDATA[<ol>
@@ -389,18 +430,18 @@
     
     </summary>
     
-      <category term="Git" scheme="http://www.vdaming.cn/tags/Git/"/>
+      <category term="Git" scheme="http://blog.vdaming.com/tags/Git/"/>
     
-      <category term="GitHub" scheme="http://www.vdaming.cn/tags/GitHub/"/>
+      <category term="GitHub" scheme="http://blog.vdaming.com/tags/GitHub/"/>
     
-      <category term="Tool" scheme="http://www.vdaming.cn/categories/Tool/"/>
+      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Hello Hexo!!!]]></title>
-    <link href="http://www.vdaming.cn/2015/08/30/Hello-Hexo/"/>
-    <id>http://www.vdaming.cn/2015/08/30/Hello-Hexo/</id>
+    <link href="http://blog.vdaming.com/2015/08/30/Hello-Hexo/"/>
+    <id>http://blog.vdaming.com/2015/08/30/Hello-Hexo/</id>
     <published>2015-08-30T14:08:26.000Z</published>
     <updated>2015-09-02T05:56:17.649Z</updated>
     <content type="html"><![CDATA[<p>First time use <strong>Hexo</strong> to setup my blog, and thanks the <strong>Hexo writer</strong> which let me have a place to recode my life and enjoy my life.</p>
@@ -413,9 +454,9 @@
     
     </summary>
     
-      <category term="Hexo" scheme="http://www.vdaming.cn/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://blog.vdaming.com/tags/Hexo/"/>
     
-      <category term="未分类" scheme="http://www.vdaming.cn/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+      <category term="未分类" scheme="http://blog.vdaming.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
     
   </entry>
   
