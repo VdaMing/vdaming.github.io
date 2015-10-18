@@ -120,7 +120,7 @@
     <link href="http://blog.vdaming.com/2015/09/02/markdown/"/>
     <id>http://blog.vdaming.com/2015/09/02/markdown/</id>
     <published>2015-09-02T05:58:46.000Z</published>
-    <updated>2015-10-18T01:23:59.437Z</updated>
+    <updated>2015-10-18T04:51:52.141Z</updated>
     <content type="html"><![CDATA[<p>用Hexo搭完Blog，要开始记录一些东西了。下面会一点点的记录自己常用的markdown用法，now begin!</p>
 <h3 id="多级标题的使用"><strong>多级标题的使用</strong></h3><h4 id="用法示例">用法示例</h4><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># 一级标题</span></span><br><span class="line"><span class="preprocessor">## 二级标题</span></span><br><span class="line"><span class="preprocessor">### 三级标题</span></span><br><span class="line"><span class="preprocessor">#### 四级标题</span></span><br><span class="line"><span class="preprocessor">##### 五级标题</span></span><br><span class="line"><span class="preprocessor">###### 六级标题</span></span><br></pre></td></tr></table></figure>
 <h4 id="实际效果">实际效果</h4><blockquote>
@@ -159,7 +159,7 @@
 <p><a href="http://www.google.com" title="google" target="_blank" rel="external">我是google</a><br><a href="http://www.baidu.com" title="baidu" target="_blank" rel="external">我是百度</a><br>我是图片啦<br><img src="http://img-storage.qiniudn.com/15-9-2/6590323.jpg" alt="Tedy" title="tedy"><br><img src="http://img-storage.qiniudn.com/15-9-2/31875068.jpg" alt="W图片" title="W"></p>
 </blockquote>
 <hr>
-<h3 id="**嵌入网易云音乐">**嵌入网易云音乐</h3><hr>
+<h3 id="嵌入网易云音乐"><strong>嵌入网易云音乐</strong></h3><hr>
 <h3 id="未完待续"><strong>未完待续</strong></h3><p>Lots of knowledge about markdown will be added with my step of learning it and writing with it…..</p>
 <hr>
 <h3 id="END"><strong>END</strong></h3><p>这边再加一个脚注：</p>
