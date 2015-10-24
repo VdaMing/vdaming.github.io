@@ -1,43 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[VdaMing's Blog]]></title>
-  <subtitle><![CDATA[Success belongs to the persevering]]></subtitle>
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://blog.vdaming.com/"/>
-  <updated>2015-10-21T14:17:37.699Z</updated>
-  <id>http://blog.vdaming.com/</id>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
   
-  <author>
-    <name><![CDATA[Vdaming]]></name>
-    
-  </author>
+  <title>搭建802.1x测试环境 | VdaMing&#39;s Blog</title>
+  <meta name="author" content="Vdaming">
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <meta name="description" content="Write something to make life better">
   
-  <entry>
-    <title><![CDATA[学习VIM]]></title>
-    <link href="http://blog.vdaming.com/2015/10/21/study-VIM/"/>
-    <id>http://blog.vdaming.com/2015/10/21/study-VIM/</id>
-    <published>2015-10-21T14:15:48.000Z</published>
-    <updated>2015-10-21T14:17:37.699Z</updated>
-    <content type="html"><![CDATA[<h1 id="vim_学习之路"><strong>vim 学习之路</strong></h1>]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="vim_学习之路"><strong>vim 学习之路</strong></h1>]]>
-    </summary>
-    
-      <category term="Vim" scheme="http://blog.vdaming.com/tags/Vim/"/>
-    
-      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
-    
-  </entry>
   
-  <entry>
-    <title><![CDATA[搭建802.1x测试环境]]></title>
-    <link href="http://blog.vdaming.com/2015/10/21/Set-up-freeradius-server/"/>
-    <id>http://blog.vdaming.com/2015/10/21/Set-up-freeradius-server/</id>
-    <published>2015-10-21T13:45:27.000Z</published>
-    <updated>2015-10-24T15:10:11.320Z</updated>
-    <content type="html"><![CDATA[<h1 id="起因"><strong>起因</strong></h1><p>最近公司开发新功能，要用到802.1x的认证环境，所以从网上搜了一堆的教程，使用freeradius测试802.1x 的EAP_SIM 认证，下面记录一下。</p>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="搭建802.1x测试环境"/>
+  <meta property="og:site_name" content="VdaMing&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f16fce25f8a58e8590e046bbaeb4ea88";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">VdaMing&#39;s Blog</a></h1>
+  <h2><a href="/">Success belongs to the persevering</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+  <li> <a href="/atom.xml">RSS</a> </li>
+  <li></li>
+  <li></li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-21T13:45:27.000Z"><a href="/2015/10/21/Set-up-freeradius-server/">2015-10-21</a></time>
+      
+      
+  
+    <h1 class="title">搭建802.1x测试环境</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="起因"><strong>起因</strong></h1><p>最近公司开发新功能，要用到802.1x的认证环境，所以从网上搜了一堆的教程，使用freeradius测试802.1x 的EAP_SIM 认证，下面记录一下。</p>
 <h1 id="802-1x,EAP"><strong>802.1x,EAP</strong></h1><p>WLAN 中的WPA-Enterprise，WPA2-Enterprise，802.1x认证都是使用了802.1x认证协议，需要radius server完成认证，授权，计费的功能，拓扑图如下<br>STA-&gt;AP-&gt;radiusServer, 当然server可以是在AP的lan端，也可以上架设在公网上使用。具体的认证使用了EAP的认证方法，包含EAP_PEAP, EAP_MD5, EAP_TLS, EAP_TTLS, EAP_SIM, EAP_AKA, EAP_AKA’等方法。</p>
 <h1 id="安装和配置freeradius"><strong>安装和配置freeradius</strong></h1><p>Freeradius 是一款开源的radius server 软件，安装和配置起来都挺方便的。</p>
 <h2 id="安装Freeradius"><strong>安装Freeradius</strong></h2><p>我使用的机器是ubuntu 14.04LTS 版本，可以直接使用APT-GET 命令安装，让ubuntu自动安装所需的软件和依赖，能使用的最新版本是2.1.12.<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">vdaming@vdaming-Lenovo-ubuntu:~$ sudo apt-get install freeradius</span><br><span class="line">正在读取软件包列表... 完成</span><br><span class="line">正在分析软件包的依赖关系树       </span><br><span class="line">正在读取状态信息... 完成       </span><br><span class="line">下列软件包是自动安装的并且现在不需要了：</span><br><span class="line">  hyphen-<span class="keyword">en</span>-<span class="keyword">us</span> libreoffice-<span class="keyword">help</span>-<span class="keyword">en</span>-gb libreoffice-<span class="keyword">help</span>-<span class="keyword">en</span>-<span class="keyword">us</span></span><br><span class="line">  libreoffice-<span class="keyword">help</span>-zh-cn libreoffice-l10n-<span class="keyword">en</span>-gb libreoffice-l10n-<span class="keyword">en</span>-za</span><br><span class="line">  libreoffice-l10n-zh-cn mythes-<span class="keyword">en</span>-au openoffice.org-hyphenation</span><br><span class="line"><span class="keyword">Use</span> 'apt-get autoremove' to remove them.</span><br><span class="line">将会安装下列额外的软件包：</span><br><span class="line">  freeradius-common freeradius-utils libfreeradius2</span><br><span class="line">建议安装的软件包：</span><br><span class="line">  freeradius-ldap freeradius-postgresql freeradius-mysql freeradius-krb5</span><br><span class="line">下列【新】软件包将被安装：</span><br><span class="line">  freeradius freeradius-common freeradius-utils libfreeradius2</span><br><span class="line">升级了 0 个软件包，新安装了 4 个软件包，要卸载 0 个软件包，有 1 个软件包未被升级。</span><br><span class="line">需要下载 0 B/813 kB 的软件包。</span><br><span class="line">解压缩后会消耗掉 3,254 kB 的额外空间。</span><br><span class="line">您希望继续执行吗？ [Y/<span class="keyword">n</span>] <span class="literal">y</span></span><br></pre></td></tr></table></figure></p>
@@ -56,471 +97,159 @@
 <li>如果sim卡的信息都填写正确的话，就能够顺利的连接上了，但是一般不会那么顺利，这时就可以参考radius server上打印的debug信息查看错误发生在了哪里，或者使用wireshark抓包检查认证流程，参考<strong>RFC4186</strong>.</li>
 </ol>
 <h1 id="END"><strong>END</strong></h1><p>OK， 就到这里了，并没有深入研究freeradius 使用mysql来配置用户，计费等信息的方法，以后用到的时候再了解吧，另外对于EAP_SIM,802.1x的介绍及基本的拓扑结构，认证流程都能在网上搜索的到，这里不再赘述。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="起因"><strong>起因</strong></h1><p>最近公司开发新功能，要用到802.1x的认证环境，所以从网上搜了一堆的教程，使用freeradius测试802.1x 的EAP_SIM 认证，下面记录一下。</p>
-<h1 id="802-1x,EAP"><strong>802.1x,EAP</strong></h1><p>WLAN 中的WPA-Enterprise，WPA2-Enterprise，802.1x认证都是使用了802.1x认证协议，需要radius server完成认证，授权，计费的功能，拓扑图如下<br>STA-&gt;AP-&gt;radiusServer, 当然server可以是在AP的lan端，也可以上架设在公网上使用。具体的认证使用了EAP的认证方法，包含EAP_PEAP, EAP_MD5, EAP_TLS, EAP_TTLS, EAP_SIM, EAP_AKA, EAP_AKA’等方法。</p>
-<h1 id="安装和配置freeradius"><strong>安装和配置freeradius</strong></h1><p>Freeradius 是一款开源的radius server 软件，安装和配置起来都挺方便的。</p>
-<h2 id="安装Freeradius"><strong>安装Freeradius</strong></h2><p>我使用的机器是ubuntu 14.04LTS 版本，可以直接使用APT-GET 命令安装，让ubuntu自动安装所需的软件和依赖，能使用的最新版本是2.1.12.<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">vdaming@vdaming-Lenovo-ubuntu:~$ sudo apt-get install freeradius</span><br><span class="line">正在读取软件包列表... 完成</span><br><span class="line">正在分析软件包的依赖关系树       </span><br><span class="line">正在读取状态信息... 完成       </span><br><span class="line">下列软件包是自动安装的并且现在不需要了：</span><br><span class="line">  hyphen-<span class="keyword">en</span>-<span class="keyword">us</span> libreoffice-<span class="keyword">help</span>-<span class="keyword">en</span>-gb libreoffice-<span class="keyword">help</span>-<span class="keyword">en</span>-<span class="keyword">us</span></span><br><span class="line">  libreoffice-<span class="keyword">help</span>-zh-cn libreoffice-l10n-<span class="keyword">en</span>-gb libreoffice-l10n-<span class="keyword">en</span>-za</span><br><span class="line">  libreoffice-l10n-zh-cn mythes-<span class="keyword">en</span>-au openoffice.org-hyphenation</span><br><span class="line"><span class="keyword">Use</span> 'apt-get autoremove' to remove them.</span><br><span class="line">将会安装下列额外的软件包：</span><br><span class="line">  freeradius-common freeradius-utils libfreeradius2</span><br><span class="line">建议安装的软件包：</span><br><span class="line">  freeradius-ldap freeradius-postgresql freeradius-mysql freeradius-krb5</span><br><span class="line">下列【新】软件包将被安装：</span><br><span class="line">  freeradius freeradius-common freeradius-utils libfreeradius2</span><br><span class="line">升级了 0 个软件包，新安装了 4 个软件包，要卸载 0 个软件包，有 1 个软件包未被升级。</span><br><span class="line">需要下载 0 B/813 kB 的软件包。</span><br><span class="line">解压缩后会消耗掉 3,254 kB 的额外空间。</span><br><span class="line">您希望继续执行吗？ [Y/<span class="keyword">n</span>] <span class="literal">y</span></span><br></pre></td></tr></table></figure></p>
-<p>安装以后，freeradius是被当作service启动的，配置文件主要在/etc/freeradius/目录下。</p>
-<h2 id="配置freeradius"><strong>配置freeradius</strong></h2><p>在/etc/freeradius/目录下是所有的配置文件，我们主要改动的是eap.conf,clients.conf,users 文件</p>
-<h3 id="添加新用户"><strong>添加新用户</strong></h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vdaming@vdaming-Lenovo-ubuntu:/etc/freeradius$ sudo vim users</span><br><span class="line">加入以下字段是给MD5，PEAP的认证添加vic用户，密码是1234</span><br><span class="line">"vic"    Cleartext-Password := "1234"</span><br><span class="line">         Reply-Message = "Hello, %&#123;User-Name&#125;"</span><br><span class="line"></span><br><span class="line">加入以下字段是给EAP_SIM 添加sim triplets信息</span><br><span class="line">"<span class="number">146001246107</span>7202@wlan.mnc001.mcc460.3gppnetwork.org" EAP-Type:=SIM</span><br><span class="line">        EAP-Sim-Rand1 = <span class="number">0x11111111111</span><span class="number">111111111111111</span>111111,</span><br><span class="line">        EAP-Sim-SRES1 = <span class="number">0x11223344</span>,</span><br><span class="line">        EAP-Sim-KC1 = <span class="number">0x112233445</span><span class="number">5667788</span>,</span><br><span class="line">        EAP-Sim-Rand2 = <span class="number">0x22222222222</span><span class="number">222222222222222</span>222222,</span><br><span class="line">        EAP-Sim-SRES2 = <span class="number">0x55667788</span>,</span><br><span class="line">        EAP-Sim-KC2 = <span class="number">0x88776655</span><span class="number">44332211</span>,</span><br><span class="line">        EAP-Sim-Rand3 = <span class="number">0x33333333</span><span class="number">33333333333</span><span class="number">33333333333</span>33,</span><br><span class="line">        EAP-Sim-SRES3 = <span class="number">0x11335577</span>,</span><br><span class="line">        EAP-Sim-KC3 = <span class="number">0x223344556</span><span class="number">6778899</span></span><br></pre></td></tr></table></figure>
-<p>对于eap_sim的sim卡信息需要根据不同的SIM卡生成出来，搞一个SIM卡的读卡器，使用软件<a href="http://agsm.sourceforge.net/download.html">agsim</a>生成3组值添加到users文件即可，用户名的话是IMSI加上对应的后缀，后缀中的mnc001, mcc460, 是取了IMSI的钱5位分割出来的。</p>
-<h3 id="添加允许radius_client_ip地址"><strong>添加允许radius client ip地址</strong></h3><p>这个要编辑文件clients.conf<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vdaming@vdaming-Lenovo-ubuntu:/etc/freeradius$ sudo vim clients.conf</span><br><span class="line">添加如下字段，是通过<span class="number">192.168</span>网段的所有client，密钥是<span class="number">1234</span>, 这个密钥就是AP上要填写的radius key。</span><br><span class="line">client <span class="number">192.168</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">16</span> &#123;</span><br><span class="line">        secret          = <span class="number">1234</span></span><br><span class="line">        shortname       = <span class="keyword">private</span>-network-<span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="添加EAP_SIM的支持"><strong>添加EAP_SIM的支持</strong></h3><p>这个要更改eap.conf<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">vdaming</span><span class="at_rule">@<span class="keyword">vdaming-Lenovo-ubuntu:/etc/freeradius$</span> sudo vim eap.conf</span><br><span class="line">在md5</span>&#123;&#125;后添加如下字段即可。</span><br><span class="line"><span class="tag">sim</span> <span class="rules">&#123;&#125;</span></span><br></pre></td></tr></table></figure></p>]]>
-    
-    </summary>
-    
-      <category term="Freeradius" scheme="http://blog.vdaming.com/tags/Freeradius/"/>
-    
-      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
-    
-  </entry>
+
+      
+    </div>
+    <footer>
+      
+        
   
-  <entry>
-    <title><![CDATA[Study Python]]></title>
-    <link href="http://blog.vdaming.com/2015/09/26/Study-Python/"/>
-    <id>http://blog.vdaming.com/2015/09/26/Study-Python/</id>
-    <published>2015-09-26T15:00:18.000Z</published>
-    <updated>2015-09-26T15:27:07.834Z</updated>
-    <content type="html"><![CDATA[<h1 id="学习Python">学习Python</h1><p><strong>学习材料:</strong><br><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000" target="_blank" rel="external">Python教程</a></p>
-<p>python<br>Cpython<br>python xxx.py</p>
-<p>print ‘Hello’,1+2 </p>
-<p>input=raw_input(‘please input the value:’)</p>
-<p>#!/usr/bin/env python</p>
-<h1 id="-_coding:_utf-8_-">-<em>- coding: utf-8 -</em>-</h1><p>list and tuple</p>
-<p>条件判断和循环</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="学习Python">学习Python</h1><p><strong>学习材料:</strong><br><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac]]>
-    </summary>
-    
-      <category term="Python" scheme="http://blog.vdaming.com/tags/Python/"/>
-    
-      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
-    
-  </entry>
+  <div class="categories">
+    <a href="/categories/Tool/">Tool</a>
+  </div>
+
+        
   
-  <entry>
-    <title><![CDATA[Play with RaspberryPi]]></title>
-    <link href="http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/"/>
-    <id>http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/</id>
-    <published>2015-09-20T09:11:35.000Z</published>
-    <updated>2015-09-25T15:07:26.781Z</updated>
-    <content type="html"><![CDATA[<h1 id="搞定树梅派">搞定树梅派</h1><h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”" target="_blank" rel="external">最新系统镜像文件</a></p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#查看SD卡的对应的设备名称</span></span><br><span class="line">df -l</span><br><span class="line"><span class="preprocessor">#先把SD卡的各个分区卸载</span></span><br><span class="line">umount /media/vdaming/xxxx</span><br><span class="line"><span class="preprocessor">#用dd把下载解压好的系统镜像写入SD卡</span></span><br><span class="line">sudo dd bs=<span class="number">4</span>M if=xxxxx.img of=/dev/sdb</span><br></pre></td></tr></table></figure>
-<h2 id="在windows上把树梅派系统写入SD卡">在windows上把树梅派系统写入SD卡</h2><p>可以是用软件<a href="http://sourceforge.net/projects/win32diskimager/files/Archive/win32diskimager-v0.9-binary.zip/download" target="_blank" rel="external">Win32DiskImager</a> 轻松搞定，或者使用<a href="http://www.alexpage.de/usb-image-tool/download/" target="_blank" rel="external">USB Image Tool</a>, 具体使用就不再介绍了。</p>
-<h2 id="配置raspberrypi">配置raspberrypi</h2><p>插上SD卡，启动树梅派，远程SSH登录(pi/raspberry)上去，使用命令<code>sudo raspi-config</code>配置相关的参数比如: timezone, lang, overlock….  然后reboot， 配置为国内的软件源，然后apt-get update, 然后安装自己常用的工具比如vim, vnc…</p>
-<h3 id="国内的软件源地址">国内的软件源地址</h3><p>中山大学<br>Raspbian <a href="http://mirror.sysu.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirror.sysu.edu.cn/raspbian/raspbian/</a><br>中国科学技术大学<br>Raspbian <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a><br>清华大学<br>Raspbian <a href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a><br>华中科技大学<br>Raspbian <a href="http://mirrors.hustunique.com/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.hustunique.com/raspbian/raspbian/</a><br>Arch Linux ARM <a href="http://mirrors.hustunique.com/archlinuxarm/" target="_blank" rel="external">http://mirrors.hustunique.com/archlinuxarm/</a><br>大连东软信息学院源（北方用户）<br>Raspbian <a href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a><br>重庆大学源（中西部用户）<br>Raspbian <a href="http://mirrors.cqu.edu.cn/Raspbian/raspbian/" target="_blank" rel="external">http://mirrors.cqu.edu.cn/Raspbian/raspbian/</a></p>
-<a id="more"></a>
-<h3 id="没有显示器怎么办">没有显示器怎么办</h3><p>在raspberry上安装tightvncserver:</p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install tightvncserver</span><br><span class="line"><span class="preprocessor">#设置密码</span></span><br><span class="line">vncpasswd</span><br><span class="line"><span class="preprocessor">#启动vnc server</span></span><br><span class="line">sudo vncserver</span><br></pre></td></tr></table></figure>
-<p>在PC (ubuntu)上安装vnc viewer:</p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install vncviewer</span><br><span class="line"><span class="preprocessor">#链接server</span></span><br><span class="line">vncviwer</span><br></pre></td></tr></table></figure>
-<p>启动vncviwer后输入IP和终端号和密码成功登入。。如图<br><img src="http://i1.tietuku.com/e8439990d4c9ede4.png" alt="图片1"></p>
-<h3 id="视频采集">视频采集</h3><p><a href="https://git.oschina.net/andyspider/Camkit" target="_blank" rel="external">Camkit</a><br>这个开源的camera组件提供了图像的采集，编码，转换，打包，发送功能的API，而且提供了一个例子程序，能够实现所有的过程并可以远程VLC 观看，关键是它是利用GPU实现编码转换的过程不会占用很多CPU，而且利用了H.264硬解,具体可以参考作者的介绍</p>
-<p><a href="http://sourceforge.net/projects/mjpg-streamer/" target="_blank" rel="external">Media-Streamer</a><br>同样很赞的一个开源图像采集和转换工具，可以下载sourceCode，按照介绍编译，然后运行脚本start.sh, 就能够在本地建立一个实时图像的http server，提供了VLC，streamer，javascript的实时视频播放方式。具体的安装步骤请参考树梅派实验室的好文： <a href="http://shumeipai.nxez.com/2013/10/04/raspberry-pi-mjpg-streamer-network-monitoring.html" target="_blank" rel="external">http://shumeipai.nxez.com/2013/10/04/raspberry-pi-mjpg-streamer-network-monitoring.html</a></p>
-<p>#End</p>
-<p>树梅派还有很多拓展的功能，主要是基于linux的mini server，开源的好东西数不胜数，也为我们这些爱折腾的家伙提供很多材料，希望自己以后也能为开源做出一点点贡献，加油！！！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="搞定树梅派">搞定树梅派</h1><h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”">最新系统镜像文件</a></p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#查看SD卡的对应的设备名称</span></span><br><span class="line">df -l</span><br><span class="line"><span class="preprocessor">#先把SD卡的各个分区卸载</span></span><br><span class="line">umount /media/vdaming/xxxx</span><br><span class="line"><span class="preprocessor">#用dd把下载解压好的系统镜像写入SD卡</span></span><br><span class="line">sudo dd bs=<span class="number">4</span>M if=xxxxx.img of=/dev/sdb</span><br></pre></td></tr></table></figure>
-<h2 id="在windows上把树梅派系统写入SD卡">在windows上把树梅派系统写入SD卡</h2><p>可以是用软件<a href="http://sourceforge.net/projects/win32diskimager/files/Archive/win32diskimager-v0.9-binary.zip/download">Win32DiskImager</a> 轻松搞定，或者使用<a href="http://www.alexpage.de/usb-image-tool/download/">USB Image Tool</a>, 具体使用就不再介绍了。</p>
-<h2 id="配置raspberrypi">配置raspberrypi</h2><p>插上SD卡，启动树梅派，远程SSH登录(pi/raspberry)上去，使用命令<code>sudo raspi-config</code>配置相关的参数比如: timezone, lang, overlock….  然后reboot， 配置为国内的软件源，然后apt-get update, 然后安装自己常用的工具比如vim, vnc…</p>
-<h3 id="国内的软件源地址">国内的软件源地址</h3><p>中山大学<br>Raspbian <a href="http://mirror.sysu.edu.cn/raspbian/raspbian/">http://mirror.sysu.edu.cn/raspbian/raspbian/</a><br>中国科学技术大学<br>Raspbian <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a><br>清华大学<br>Raspbian <a href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a><br>华中科技大学<br>Raspbian <a href="http://mirrors.hustunique.com/raspbian/raspbian/">http://mirrors.hustunique.com/raspbian/raspbian/</a><br>Arch Linux ARM <a href="http://mirrors.hustunique.com/archlinuxarm/">http://mirrors.hustunique.com/archlinuxarm/</a><br>大连东软信息学院源（北方用户）<br>Raspbian <a href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a><br>重庆大学源（中西部用户）<br>Raspbian <a href="http://mirrors.cqu.edu.cn/Raspbian/raspbian/">http://mirrors.cqu.edu.cn/Raspbian/raspbian/</a></p>]]>
+  <div class="tags">
+    <a href="/tags/Freeradius/">Freeradius</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-    </summary>
     
-      <category term="RaspberryPi" scheme="http://blog.vdaming.com/tags/RaspberryPi/"/>
     
-      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
     
-  </entry>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
   
-  <entry>
-    <title><![CDATA[Hello world in Android Studio]]></title>
-    <link href="http://blog.vdaming.com/2015/09/08/Hello-world-in-Android-Studio/"/>
-    <id>http://blog.vdaming.com/2015/09/08/Hello-world-in-Android-Studio/</id>
-    <published>2015-09-08T12:38:25.000Z</published>
-    <updated>2015-09-08T13:51:54.672Z</updated>
-    <content type="html"><![CDATA[<p>之前写java的小程序或者是android的app都是用的Eclipse, 也有好久没写过android的东西了。现在<a href="http://guge.in" target="_blank" rel="external">google</a>在力推Android studio,所以也来体验一把，记录下在ubuntu安装android studio的过程，以及用到的工具。</p>
-<h2 id="Google官方安装要求">Google官方安装要求</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Linux</span><br><span class="line">    GNOME <span class="operator">or</span> KDE desktop</span><br><span class="line">    GNU C Library (glibc) <span class="number">2.15</span> <span class="operator">or</span> later</span><br><span class="line">    <span class="number">2</span> GB RAM minimum, <span class="number">4</span> GB RAM recommended</span><br><span class="line">    <span class="number">400</span> MB hard disk <span class="constant">space</span></span><br><span class="line">    At least <span class="number">1</span> GB <span class="keyword">for</span> Android SDK, emulator <span class="keyword">system</span> images, <span class="operator">and</span> caches</span><br><span class="line">    <span class="number">1280</span> x <span class="number">800</span> minimum screen resolution</span><br><span class="line">    Oracle® Java Development Kit (JDK) <span class="number">7</span></span><br></pre></td></tr></table></figure>
-<h2 id="安装JDK">安装JDK</h2><p>从oracle官网下载JDK1.7<strong><a href="http://www.oracle.com/technetwork/java/javase/archive-139210.html" target="_blank" rel="external">链接</a></strong>,android 官方要求是JDK7，所以选择java SE7 下载<a href="http://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-i586.tar.gz" target="_blank" rel="external">jdk-7u80-linux-i586.tar.gz</a>。另外官方下载是需要登录到oracle的，注册个帐号就行了。</p>
-<h3 id="下载到本地目录，解压，设定环境变量：">下载到本地目录，解压，设定环境变量：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/java/jdk1.<span class="number">7.0</span>_80</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
-<p>把上面的export环境变量放入到/etc/profile的最后让它开机自动执行。</p>
-<h3 id="更新默认java命令">更新默认java命令</h3><p>有些ubuntu版本默认带有java，我们安装以后要用更新一下系统默认执行的版本：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install <span class="regexp">/usr/</span>bin<span class="regexp">/java java /</span>usr<span class="regexp">/lib/</span>java<span class="regexp">/jdk1.7.0_80/</span>bin/java <span class="number">300</span></span><br><span class="line">sudo update-alternatives --install <span class="regexp">/usr/</span>bin<span class="regexp">/javac javac /</span>usr<span class="regexp">/lib/</span>java<span class="regexp">/jdk1.7.0_80/</span>bin/javac <span class="number">300</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="测试一下是否安装OK">测试一下是否安装OK</h3><p>在命令行使用命令java –verion,查看能否正确显示java的版本信息。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vdaming@vdaming-Lenovo-ubuntu:/etc$ java -<span class="built_in">version</span></span><br><span class="line">java <span class="built_in">version</span> <span class="string">"1.7.0_80"</span></span><br><span class="line">Java<span class="params">(TM)</span> SE Runtime Environment <span class="params">(build <span class="number">1.7</span>.<span class="number">0</span>_80-b15)</span></span><br><span class="line">Java HotSpot<span class="params">(TM)</span> Server VM <span class="params">(build <span class="number">24.80</span>-b11, mixed mode)</span></span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h2 id="安装Android_Studio">安装Android Studio</h2><p>方法有很多，因为GFW的原因，下载都成为了问题，好在国内有很多网站提供原版的下载，很贴心：<br>AndroidDevTool: <a href="http://www.androiddevtools.cn/" target="_blank" rel="external">http://www.androiddevtools.cn/</a> 提供了很多android开发用到的SDK，studio, 教程等等非常不错的资源.你可以从上面下载单独的android studio，然后下载SDK， sdk tools, build platform 等等自行安装，避免了应为qiang的原因。<br>这里介绍从Google上直接下载包含了IDE，SDK TOOLS， android 6.0 platform, 6.0 emulator system image的完整包的安装，qiang的话可以用<strong>lantern</strong>突破，想用的话可以自行baidu.</p>
-<p>下载android-studio-ide-141.2178183-linux.zip完以后，解压到你想要安装的目录， 然后运行/studio.sh， OK 搞定！</p>
-<hr>
-<h2 id="你想多了！！！">你想多了！！！</h2><p>你会发现第一次启动总是会报错，这是因为GFW的原因，所以你需要在安装目录/bin/idea.properties的最后一句添加disable.android.first.run=true，OK搞定！</p>
-<h2 id="安装Android_SDK">安装Android SDK</h2><p>打开SDK manager，又是因为qiang的原因，很多的source都fetching 不到，所以需要把更新的源更换为国内的网站，然后就能顺利更新了，下面是应用andoirdDevTool网站的说明，想要最新的地址请到它的官网：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Android SDK在线更新镜像服务器</span><br><span class="line">   中国科学院开源协会镜像站地址:</span><br><span class="line">      IPV4<span class="regexp">/IPV6: http:/</span>/mirrors.opencas.cn 端口：<span class="number">80</span></span><br><span class="line">      IPV4<span class="regexp">/IPV6: http:/</span>/mirrors.opencas.org 端口：<span class="number">80</span></span><br><span class="line">      IPV4<span class="regexp">/IPV6: http:/</span>/mirrors.opencas.ac.cn 端口：<span class="number">80</span></span><br><span class="line"></span><br><span class="line">   上海GDG镜像服务器地址:</span><br><span class="line"><span class="label">      http:</span><span class="comment">//sdk.gdgshanghai.com 端口：8000</span></span><br><span class="line"></span><br><span class="line">   北京化工大学镜像服务器地址:</span><br><span class="line"><span class="label">       IPv4:</span> <span class="string">http:</span><span class="comment">//ubuntu.buct.edu.cn/ 端口：80</span></span><br><span class="line"><span class="label">       IPv4:</span> <span class="string">http:</span><span class="comment">//ubuntu.buct.cn/ 端口：80</span></span><br><span class="line"><span class="label">       IPv6:</span> <span class="string">http:</span><span class="comment">//ubuntu.buct6.edu.cn/ 端口：80</span></span><br><span class="line"></span><br><span class="line">   大连东软信息学院镜像服务器地址:\</span><br><span class="line"><span class="label">      http:</span><span class="comment">//mirrors.neusoft.edu.cn 端口：80</span></span><br><span class="line"></span><br><span class="line">   腾讯Bugly 镜像:</span><br><span class="line"><span class="label">      http:</span><span class="comment">//android-mirror.bugly.qq.com 端口：8080</span></span><br><span class="line">   腾讯镜像使用方法: <span class="string">http:</span><span class="comment">//android-mirror.bugly.qq.com:8080/include/usage.html</span></span><br><span class="line">使用方法：</span><br><span class="line">  启动 Android SDK Manager ，打开主界面，依次选择『Tools』、『Options...』，弹出『Android SDK Manager - Settings』窗口；在『Android SDK Manager - Settings』窗口中，在『HTTP Proxy Server」和&gt;「HTTP Proxy Port』输入框内填入上面镜像服务器地址(不包含<span class="string">http:</span><span class="comment">//，如下图)和端口，并且选中『Force https://... sources to be fetched using http://...』复选框。设置完成后单击『Close』按钮关闭『Android SDK Manager - Settings』窗口返回到主界面；</span></span><br><span class="line">依次选择『Packages』、『Reload』。</span><br></pre></td></tr></table></figure>
-<p> <img src="http://i1.tietuku.com/088503721c181f33.png" alt=""></p>
-<p>##END<br>Now i will start to write one new APP to earn money!!!</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>之前写java的小程序或者是android的app都是用的Eclipse, 也有好久没写过android的东西了。现在<a href="http://guge.in">google</a>在力推Android studio,所以也来体验一把，记录下在ubuntu安装android studio的过程，以及用到的工具。</p>
-<h2 id="Google官方安装要求">Google官方安装要求</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Linux</span><br><span class="line">    GNOME <span class="operator">or</span> KDE desktop</span><br><span class="line">    GNU C Library (glibc) <span class="number">2.15</span> <span class="operator">or</span> later</span><br><span class="line">    <span class="number">2</span> GB RAM minimum, <span class="number">4</span> GB RAM recommended</span><br><span class="line">    <span class="number">400</span> MB hard disk <span class="constant">space</span></span><br><span class="line">    At least <span class="number">1</span> GB <span class="keyword">for</span> Android SDK, emulator <span class="keyword">system</span> images, <span class="operator">and</span> caches</span><br><span class="line">    <span class="number">1280</span> x <span class="number">800</span> minimum screen resolution</span><br><span class="line">    Oracle® Java Development Kit (JDK) <span class="number">7</span></span><br></pre></td></tr></table></figure>
-<h2 id="安装JDK">安装JDK</h2><p>从oracle官网下载JDK1.7<strong><a href="http://www.oracle.com/technetwork/java/javase/archive-139210.html">链接</a></strong>,android 官方要求是JDK7，所以选择java SE7 下载<a href="http://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-i586.tar.gz">jdk-7u80-linux-i586.tar.gz</a>。另外官方下载是需要登录到oracle的，注册个帐号就行了。</p>
-<h3 id="下载到本地目录，解压，设定环境变量：">下载到本地目录，解压，设定环境变量：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/lib/java/jdk1.<span class="number">7.0</span>_80</span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
-<p>把上面的export环境变量放入到/etc/profile的最后让它开机自动执行。</p>
-<h3 id="更新默认java命令">更新默认java命令</h3><p>有些ubuntu版本默认带有java，我们安装以后要用更新一下系统默认执行的版本：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install <span class="regexp">/usr/</span>bin<span class="regexp">/java java /</span>usr<span class="regexp">/lib/</span>java<span class="regexp">/jdk1.7.0_80/</span>bin/java <span class="number">300</span></span><br><span class="line">sudo update-alternatives --install <span class="regexp">/usr/</span>bin<span class="regexp">/javac javac /</span>usr<span class="regexp">/lib/</span>java<span class="regexp">/jdk1.7.0_80/</span>bin/javac <span class="number">300</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="测试一下是否安装OK">测试一下是否安装OK</h3><p>在命令行使用命令java –verion,查看能否正确显示java的版本信息。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vdaming@vdaming-Lenovo-ubuntu:/etc$ java -<span class="built_in">version</span></span><br><span class="line">java <span class="built_in">version</span> <span class="string">"1.7.0_80"</span></span><br><span class="line">Java<span class="params">(TM)</span> SE Runtime Environment <span class="params">(build <span class="number">1.7</span>.<span class="number">0</span>_80-b15)</span></span><br><span class="line">Java HotSpot<span class="params">(TM)</span> Server VM <span class="params">(build <span class="number">24.80</span>-b11, mixed mode)</span></span><br></pre></td></tr></table></figure></p>]]>
-    
-    </summary>
-    
-      <category term="Android Studio" scheme="http://blog.vdaming.com/tags/Android-Studio/"/>
-    
-      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
-    
-  </entry>
+        <div class="ds-thread" data-thread-key="2015/10/21/Set-up-freeradius-server/" data-title="搭建802.1x测试环境" data-url="http://blog.vdaming.com/2015/10/21/Set-up-freeradius-server/"></div>
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:'vdaming'};
+        (function() {
+           var ds = document.createElement('script');
+           ds.type = 'text/javascript';ds.async = true;
+           ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+           ds.charset = 'UTF-8';
+           (document.getElementsByTagName('head')[0] 
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+         })();
+       </script>
+    <!-- 多说公共JS代码 end -->
   
-  <entry>
-    <title><![CDATA[Markdown 用法]]></title>
-    <link href="http://blog.vdaming.com/2015/09/02/markdown/"/>
-    <id>http://blog.vdaming.com/2015/09/02/markdown/</id>
-    <published>2015-09-02T05:58:46.000Z</published>
-    <updated>2015-10-18T04:51:52.141Z</updated>
-    <content type="html"><![CDATA[<p>用Hexo搭完Blog，要开始记录一些东西了。下面会一点点的记录自己常用的markdown用法，now begin!</p>
-<h3 id="多级标题的使用"><strong>多级标题的使用</strong></h3><h4 id="用法示例">用法示例</h4><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># 一级标题</span></span><br><span class="line"><span class="preprocessor">## 二级标题</span></span><br><span class="line"><span class="preprocessor">### 三级标题</span></span><br><span class="line"><span class="preprocessor">#### 四级标题</span></span><br><span class="line"><span class="preprocessor">##### 五级标题</span></span><br><span class="line"><span class="preprocessor">###### 六级标题</span></span><br></pre></td></tr></table></figure>
-<h4 id="实际效果">实际效果</h4><blockquote>
-<h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6></blockquote>
-<h2 id="<!-more->"><a id="more"></a></h2><h3 id="字体格式的使用"><strong>字体格式的使用</strong></h3><h4 id="粗体">粗体</h4><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">*</span><span class="keyword">*</span>这是粗体<span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">__这也是粗体__</span><br><span class="line"><span class="keyword">*</span>这是斜体<span class="keyword">*</span></span><br><span class="line">_这也是斜体_</span><br></pre></td></tr></table></figure>
-<h4 id="实际效果-1">实际效果</h4><blockquote>
-<p><strong>这是粗体</strong><br><strong>这也是粗体</strong><br><em>这是斜体</em><br><em>这也是斜体</em></p>
-</blockquote>
-<hr>
-<h3 id="一些特殊的线"><strong>一些特殊的线</strong></h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">--------    分隔线</span><br><span class="line"></span><span class="bullet">~</span>~我被删除了~~   删除线</span><br></pre></td></tr></table></figure>
-<h4 id="实际效果-2">实际效果</h4><blockquote>
-<h2 id="分隔线">分隔线</h2><p> 删除线<br><del>我被删除了</del>  </p>
-</blockquote>
-<hr>
-<h3 id="代码块"><strong>代码块</strong></h3><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">单行的代码使用前后加‘<span class="escape">`’</span>： <span class="escape">`e</span>cho <span class="string">"hello world"</span><span class="escape">`</span><br><span class="line"></span>多行的代码使用前后加‘<span class="escape">``</span><span class="escape">`’</span>：</span><br><span class="line">\<span class="escape">`\</span><span class="escape">`\</span><span class="escape">`</span><br><span class="line"></span>echo <span class="string">"hello world"</span></span><br><span class="line">echo <span class="string">"hello world again"</span></span><br><span class="line">\<span class="escape">`\</span><span class="escape">`\</span>`</span><br></pre></td></tr></table></figure>
-<h4 id="实际效果-3">实际效果</h4><blockquote>
-<p><code>echo &quot;hello world&quot;</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">echo</span> <span class="string">"hello world"</span></span><br><span class="line">&gt; <span class="built_in">echo</span> <span class="string">"hello world again"</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<hr>
-<h3 id="列表的使用"><strong>列表的使用</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">有序列表直接用序号：</span><br><span class="line"><span class="number">1.</span>我是第一列</span><br><span class="line"><span class="number">2.</span>我是第二列</span><br><span class="line"><span class="number">3.</span>我是第三列</span><br><span class="line">无序列表可以用+，-，*:</span><br><span class="line">+ 我是没顺序的</span><br><span class="line">- 我也是没顺序的</span><br><span class="line">* 我更是没序列的</span><br></pre></td></tr></table></figure>
-<h4 id="实际效果-4">实际效果</h4><blockquote>
-<p>1.我是第一列<br>2.我是第二列<br>3.我是第三列</p>
-<ul>
-<li>我是没顺序的</li>
-</ul>
-<ul>
-<li>我也是没顺序的</li>
-</ul>
-<ul>
-<li>我更是没序列的</li>
-</ul>
-</blockquote>
-<hr>
-<h3 id="链接的使用"><strong>链接的使用</strong></h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">普通链接可以用：</span><br><span class="line">[<span class="link_label">链接名称</span>](<span class="link_url">链接地址 "title"</span>)</span><br><span class="line">或者是：</span><br><span class="line">[<span class="link_label">链接名称</span>][<span class="link_reference">1</span>], 然后在其他地方用[1]: http://www.baidu.com  "baidu" </span><br><span class="line">图片链接可以用：</span><br><span class="line">![<span class="link_label">图片名称</span>](<span class="link_url">/path/to/img.jpg "图片Title"</span>)</span><br><span class="line">或者是</span><br><span class="line">![<span class="link_label">图片名称</span>][<span class="link_reference">1</span>], 然后在其他地方用[1]: /path/to/img.jpg "图片title"</span><br></pre></td></tr></table></figure>
-<h4 id="实际效果-5">实际效果</h4><blockquote>
-<p><a href="http://www.google.com" title="google" target="_blank" rel="external">我是google</a><br><a href="http://www.baidu.com" title="baidu" target="_blank" rel="external">我是百度</a><br>我是图片啦<br><img src="http://img-storage.qiniudn.com/15-9-2/6590323.jpg" alt="Tedy" title="tedy"><br><img src="http://img-storage.qiniudn.com/15-9-2/31875068.jpg" alt="W图片" title="W"></p>
-</blockquote>
-<hr>
-<h3 id="嵌入网易云音乐"><strong>嵌入网易云音乐</strong></h3><hr>
-<h3 id="未完待续"><strong>未完待续</strong></h3><p>Lots of knowledge about markdown will be added with my step of learning it and writing with it…..</p>
-<hr>
-<h3 id="END"><strong>END</strong></h3><p>这边再加一个脚注：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">脚注<span class="attr_selector">[^Demo]</span></span><br><span class="line"><span class="attr_selector">[^Demo]</span>这是一个脚注</span><br></pre></td></tr></table></figure>
-<h4 id="实际效果-6">实际效果</h4><p>脚注<a href="这是一个脚注">^Demo</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>用Hexo搭完Blog，要开始记录一些东西了。下面会一点点的记录自己常用的markdown用法，now begin!</p>
-<h3 id="多级标题的使用"><strong>多级标题的使用</strong></h3><h4 id="用法示例">用法示例</h4><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># 一级标题</span></span><br><span class="line"><span class="preprocessor">## 二级标题</span></span><br><span class="line"><span class="preprocessor">### 三级标题</span></span><br><span class="line"><span class="preprocessor">#### 四级标题</span></span><br><span class="line"><span class="preprocessor">##### 五级标题</span></span><br><span class="line"><span class="preprocessor">###### 六级标题</span></span><br></pre></td></tr></table></figure>
-<h4 id="实际效果">实际效果</h4><blockquote>
-<h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h3 id="三级标题">三级标题</h3><h4 id="四级标题">四级标题</h4><h5 id="五级标题">五级标题</h5><h6 id="六级标题">六级标题</h6></blockquote>
-<h2 id="<!-more->">]]>
-    
-    </summary>
-    
-      <category term="Markdown" scheme="http://blog.vdaming.com/tags/Markdown/"/>
-    
-      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
-    
-  </entry>
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <!--<form action="//www.baidu.com/s" method="get" accept-charset="utf-8">
+    <input type="search" name="wd" results="0" placeholder="搜索">
+    <input type="hidden" name="site" value="blog.vdaming.com">
+  </form>-->
+  <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=8311442465892085961' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+</div>
+
+
   
-  <entry>
-    <title><![CDATA[How I create my blog with Hexo on GitHub Pages]]></title>
-    <link href="http://blog.vdaming.com/2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/"/>
-    <id>http://blog.vdaming.com/2015/08/31/How-I-create-my-blog-with-Hexo-on-GitHub-Pages/</id>
-    <published>2015-08-31T14:07:58.000Z</published>
-    <updated>2015-10-18T04:24:38.204Z</updated>
-    <content type="html"><![CDATA[<h3 id="Why_would_me_like_to_create_the_blog?">Why would me like to create the blog?</h3><p>一年前，忘了为什么，突然觉的拥有自己的网站是多么酷炫的一件事情，于是二话没说在花生壳搞了个.com域名, 29/年。然后在sina的SAE上建起了自己的第一个blog <a href="http://blog.vdaming.com">Vdamings Blog</a>,是基于wordpress做的。因为SAE上有现成的模板code，点几下鼠标而已很方便，但是使用起来总觉得不是自己想要的那种，可能因为功能太多导致失去了自己想要的简单易用的特性。于是乎有了现在的新的blog，基于Hexo静态架构挂在github上，这下感觉对了，好用了，下面来谈谈该怎么用吧：</p>
-<blockquote>
-<ul>
-<li>日子平淡无奇的过着, 很多美好的事情过去以后只能从脑海里回忆，渐渐忘掉，所以记下来留给明天回忆</li>
-<li><strong>我是一个搞技术的，再好的记性比不过烂笔头，学一点及一点，以后用到的时候还能再翻一翻</strong></li>
-<li>Blog 真是一个装X利器，你懂的！！！</li>
-</ul>
-</blockquote>
-<p><strong> 上面全是扯淡，下面开始正题 </strong></p>
-<hr>
-<h3 id="What_is_Hexo?">What is Hexo?</h3><p>官方网站：<a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io/</a><br>Source Code: <a href="https://github.com/hexojs/hexo/" target="_blank" rel="external">https://github.com/hexojs/hexo/</a><br>Hexo is A fast, simple &amp; powerful blog framework as shown on its official website. It has following powerful features:</p>
-<blockquote>
-<ul>
-<li><strong>Blazing Fast</strong>: It is based on Node.js, and it brings you incredible generating speed. Hundreds of files take only seconds to build.</li>
-<li><strong>Markdown Support</strong>: support the popular text-to-HTML languages. If you don not know it now, please just <a href="https://www.baidu.com/s?tn=baidu&amp;wd=markdown" target="_blank" rel="external">Baidu</a> it.</li>
-<li><strong>One-Command Deployment</strong>: you just need know several commands to generate your blog and to deploy it to your GitHub Pages or other sites</li>
-<li><strong>Various Plugins</strong>: it support various plugins which makes it more powerful.<a id="more"></a>
-上面是总结官方的介绍，以及它的官网和source code, 其实在官网或者github上有所有我们安装使用它的介绍，足够能让我们在短时间搞定它，为了节省大家时间，现在总结成一下几点：<ol>
-<li>Hexo 是一套搭建个人博客的工具或者是框架，它能产生网站要用到的静态页面，然后你把产生的文件部署到GitHub page，再然后你的博客就建成了。</li>
-<li>安装：本文描述的是在ubuntu上安装的方法<br>前提必须要安装有Node.js 和 Git, 对于Git的按照请参照另一篇文章<a href="http://vdaming.github.io/2015/08/30/How-to-use-Git-and-GItHub/" target="_blank" rel="external">How to use Git and GItHub</a>.<br>安装node.js, 根据hexo官方的建议使用nvm安装：</li>
-</ol>
-</li>
-</ul>
-</blockquote>
-<p>cURL:</p>
-<blockquote>
-<p>   $ curl <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh</p>
-</blockquote>
-<p>Wget:</p>
-<blockquote>
-<p>   $ wget -qO- <a href="https://raw.github.com/creationix/nvm/master/install.sh" target="_blank" rel="external">https://raw.github.com/creationix/nvm/master/install.sh</a> | sh</p>
-</blockquote>
-<p>nvm 安装完成后再安装node.js</p>
-<blockquote>
-<p>   $nvm install 0.12</p>
-</blockquote>
-<p>这样V0.12的最新版本node.js就安装好了。<br>安装Hexo:</p>
-<blockquote>
-<p>   $npm install -g hexo-cli</p>
-</blockquote>
-<p>然后初始化一个自己的博客目录</p>
-<blockquote>
-<p>   $hexo init (folder)<br>   $cd (folder)<br>   $npm install</p>
-</blockquote>
-<p>大功告成，现在可使用下面的命令在本地查看你的博客了</p>
-<blockquote>
-<p>   $ hexo new “hello wold”//添加一篇博客<br>   $ hexo g //生成文件<br>   $ hexo s //在本地打开这个个http server</p>
-</blockquote>
-<p>然后访问 <a href="http://127.0.0.1:4000" target="_blank" rel="external">http://127.0.0.1:4000</a> 就能看到自己博客的样子了。至于有很多插件安装，主题配置的方法请参照这篇文章<a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">如何搭建一个独立博客</a></p>
-<h3 id="What_is_GitHub_pages">What is GitHub pages</h3><p>本地的博客网站配置完毕以后，要把它部署到公共空间上，GitHub pages就是这样的一个存放静态页面的网站，它提供了300M的免费空间，并且他本身就是存放在GitHub上的，和github一起使用，很是方便。<br>对于部署页面，需要以下步骤</p>
-<ol>
-<li>在GItHub 上注册一个帐号，create 一个空的特殊的repository，特殊在它的名字是xxxx.github.io, xxx可以自己定义。</li>
-<li><p>在Hexo的配置文件中_config.yml中填写部署的参数，在文件的最后补充如下代码</p>
-<blockquote>
-<p>deploy:<br>   type: git<br>   repository: <a href="https://github.com/VdaMing/vdaming.github.io.git" target="_blank" rel="external">https://github.com/VdaMing/vdaming.github.io.git</a> #填上自己创建的repository链接<br>   branch: master</p>
-</blockquote>
-</li>
-<li><p>用命令部署到github空间</p>
-<blockquote>
-<p>$hexo d</p>
-</blockquote>
-</li>
-</ol>
-<p>输入用户名密码，Done!<br>现在可以浏览器进入xxxx.github.io玩玩自己的博客吧！</p>
-<h3 id="Write_your_own_blog">Write your own blog</h3><p>但是写的博客要怎么提交呢？<br>Hexo使用marddown的格式写自己的博客，先使用命令创建一篇新博客：</p>
-<blockquote>
-<p>$hexo new “new blog”</p>
-</blockquote>
-<p>新的文章产生在blog的安装目录/source/_posts/new-blog.md：<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: How I create my blog with Hexo on GitHub Pages</span><br><span class="line">date: 2015-08-31 22:07:58</span><br><span class="line"><span class="header">tags:</span><br><span class="line">---</span></span><br></pre></td></tr></table></figure></p>
-<p>titile是文章的标题，date 写博客的时间， tags是分类，分割线后面写正文，使用markdown格式。写完后重新部署一下就OK了：<br><code>$hexo d</code></p>
-<h3 id="加入Fork_me_on_github"><strong>加入Fork me on github</strong></h3><p>可以参照国外大神提供的代码，有各种样式和颜色可以选择，具体请参照页面<a href="https://github.com/blog/273-github-ribbons" target="_blank" rel="external">https://github.com/blog/273-github-ribbons</a><br>粘贴对应的代码到自己的博客中，例如我用的light的theme可以放到themes/hexo-theme-light/layout/layout.ejs的body标签中，重新部署就OK了!</p>
-<h3 id="替换googleapis的链接加快网站打开速度"><strong>替换googleapis的链接加快网站打开速度</strong></h3><p>Hexo中使用的很多前端的库，字体，js等需要从googleapis.com获取,但是国内是不能顺利的打开这个网站的，这样造成了网站打开变慢。所以可以使用国内的站点进行替换就OK了。<br>具体使用的站点是360网站卫士：<a href="http://libs.useso.com/" target="_blank" rel="external">http://libs.useso.com/</a> 和 又拍云： <a href="http://jscdn.upai.com/" target="_blank" rel="external">http://jscdn.upai.com/</a>, 只要对生成的文件进行批量替换即可。</p>
-<h3 id="添加widget的方法"><strong>添加widget的方法</strong></h3><p>基于我当前使用的light主题设置新的widget <strong>163music</strong>：</p>
-<ol>
-<li><p>在/themes/hexo-theme-light/layout/_widget/的目录下添加新的163music.ejs文件大致的格式如下</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"widget tag"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h3</span> <span class="attribute">class</span>=<span class="value">"title"</span>&gt;</span>音乐分享<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"entry"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">frameborder</span>=<span class="value">"no"</span> <span class="attribute">border</span>=<span class="value">"0"</span> <span class="attribute">marginwidth</span>=<span class="value">"0"</span> <span class="attribute">marginheight</span>=<span class="value">"0"</span> <span class="attribute">width</span>=<span class="value">100%</span> <span class="attribute">height</span>=<span class="value">450</span> <span class="attribute">src</span>=<span class="value">"http://music.163.com/outchain/player?type=0&amp;id=81623516&amp;auto=1&amp;height=430"</span>&gt;</span><span class="tag">&lt;/<span class="title">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其中的iframe链接是在网易云音乐的歌单生成外链中自动生成的，但是吧width改为了100% 自动填充满。</p>
-</li>
-<li><p>在/theme/hexo-theme-light/_config.yml中的widgets中加入163music, 重新部署hexo， OK！</p>
-</li>
-</ol>
-<h3 id="把自己的域名转到hexo_github_pages_的站点"><strong>把自己的域名转到hexo github pages 的站点</strong></h3><p>方法已经在github pages中有详细的介绍：<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/" target="_blank" rel="external">https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/</a><br>具体的步骤如下</p>
-<ol>
-<li>在/public/目录下添加一个名字为CNAME的文件，内容填上你的域名例如：blog.vdaming.com, 然后用<code>hexo d</code> 把新的文件部署到github上.</li>
-<li>在自己的域名服务商里设置第三方的NS地址，我使用的godaddy，域名用dnspod的，所以在godaddy域名设置中更新使用dnspod的NS. 然后在dnspod中把blog.vdaming.com设置为你自己的github的地址xxxx.github.io.的CNAME. 搞定，等待CNAME生效即可，大概几分钟就行了，打开blog.vdaming.com， 就能自动装箱github pages的页面了。</li>
-</ol>
-<h3 id="End"><strong>End</strong></h3><p>Hexo还有很多折腾的地方，主题，各种插件，独立域名等等，我也在学习和完善自己blog的过程中，一起学习一起进步。当前正在练习怎么用markdown, 那么fasion的东西一定得Get!</p>
-<p><strong>文章部分内容参照</strong><br><a href="https://hexo.io/" target="_blank" rel="external">Hexo</a><br><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">如何搭建一个独立博客</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="Why_would_me_like_to_create_the_blog?">Why would me like to create the blog?</h3><p>一年前，忘了为什么，突然觉的拥有自己的网站是多么酷炫的一件事情，于是二话没说在花生壳搞了个.com域名, 29/年。然后在sina的SAE上建起了自己的第一个blog <a href="http://blog.vdaming.com">Vdamings Blog</a>,是基于wordpress做的。因为SAE上有现成的模板code，点几下鼠标而已很方便，但是使用起来总觉得不是自己想要的那种，可能因为功能太多导致失去了自己想要的简单易用的特性。于是乎有了现在的新的blog，基于Hexo静态架构挂在github上，这下感觉对了，好用了，下面来谈谈该怎么用吧：</p>
-<blockquote>
-<ul>
-<li>日子平淡无奇的过着, 很多美好的事情过去以后只能从脑海里回忆，渐渐忘掉，所以记下来留给明天回忆</li>
-<li><strong>我是一个搞技术的，再好的记性比不过烂笔头，学一点及一点，以后用到的时候还能再翻一翻</strong></li>
-<li>Blog 真是一个装X利器，你懂的！！！</li>
-</ul>
-</blockquote>
-<p><strong> 上面全是扯淡，下面开始正题 </strong></p>
-<hr>
-<h3 id="What_is_Hexo?">What is Hexo?</h3><p>官方网站：<a href="https://hexo.io/">https://hexo.io/</a><br>Source Code: <a href="https://github.com/hexojs/hexo/">https://github.com/hexojs/hexo/</a><br>Hexo is A fast, simple &amp; powerful blog framework as shown on its official website. It has following powerful features:</p>
-<blockquote>
-<ul>
-<li><strong>Blazing Fast</strong>: It is based on Node.js, and it brings you incredible generating speed. Hundreds of files take only seconds to build.</li>
-<li><strong>Markdown Support</strong>: support the popular text-to-HTML languages. If you don not know it now, please just <a href="https://www.baidu.com/s?tn=baidu&amp;wd=markdown">Baidu</a> it.</li>
-<li><strong>One-Command Deployment</strong>: you just need know several commands to generate your blog and to deploy it to your GitHub Pages or other sites</li>
-<li><strong>Various Plugins</strong>: it support various plugins which makes it more powerful.]]>
-    
-    </summary>
-    
-      <category term="Git" scheme="http://blog.vdaming.com/tags/Git/"/>
-    
-      <category term="Hexo" scheme="http://blog.vdaming.com/tags/Hexo/"/>
-    
-      <category term="Web" scheme="http://blog.vdaming.com/categories/Web/"/>
-    
-  </entry>
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
   
-  <entry>
-    <title><![CDATA[How to use Git and GItHub]]></title>
-    <link href="http://blog.vdaming.com/2015/08/30/How-to-use-Git-and-GItHub/"/>
-    <id>http://blog.vdaming.com/2015/08/30/How-to-use-Git-and-GItHub/</id>
-    <published>2015-08-30T14:44:16.000Z</published>
-    <updated>2015-09-02T16:54:12.057Z</updated>
-    <content type="html"><![CDATA[<ol>
-<li><strong>Git used locally:</strong><ul>
-<li><strong>Set up git in linux</strong> <ul>
-<li>sudo apt-get install git</li>
-<li>git config –global user.name “vdaming”//git 用户姓名</li>
-<li>git config –global user.email “xxxxxxxx@xxx.com” //用户邮箱</li>
-<li>ssh-keygen -t rsa -C “youremail”//输入两次密码后会产生一个本机的SSH key，然后填写到你注册的github账户上（登陆github系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys），然后就可以用SSH连接github了        </li>
-</ul>
-</li>
-<li><strong>Creat a local repository</strong><ul>
-<li>mkdir testGitHub</li>
-<li>git init// 把当前目录init为一个repository,会自动产生一个.git目录</li>
-<li>cd testGitHub &amp;&amp; touch README.md</li>
-<li>vim README.md // write something in it</li>
-<li>git add README.md //添加到git暂存区</li>
-<li>git commit -m “log” //改动提交到本地的repository 工作区</li>
-<li>vim README.md //继续更改文件</li>
-<li>git status //查看当前的改动</li>
-<li>git diff //查看具体的改动</li>
-<li>git add README.md &amp;&amp; git commit -m “log”//依然用add,commit,提交到repository</li>
-<li>git log//显示所有提交的版本号以及log内容</li>
-<li>git reflog//简短的实现所有提交过的log，版本</li>
-<li>git reset –hard 版本号 或者 git reset –hard HEAD^num, 回退到某个版本或者往前回退num个版本</li>
-<li>git checkout –filename //丢弃当前工作区的某个文件改动（退到还未做add前的最后版本）</li>
-<li>rm file &amp;&amp; git commit -m “log” //从repository 删除某个文件</li>
-<li>git checkout –file //rm后未add前时恢复文件<a id="more"></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>How to use GitHub</strong></li>
-</ol>
-<ul>
-<li><p><strong>From local to remote*</strong>   </p>
-<ul>
-<li><p>Create a repository first in the local as the “<strong>1. Git used locally</strong>“.</p>
-<ul>
-<li>Create an empty repository in the GitHub.com (easy to do)</li>
-<li>git remote add origin URL// URL is the repository address created in GitHub.com</li>
-<li>git push -u origin master// 把本地的master push 到远程的repository (-u is only used at the first time of push)</li>
-</ul>
-<ul>
-<li><strong>From remote to local</strong></li>
-</ul>
-<ul>
-<li>create a repository in the GitHub or fork from others’ repository</li>
-<li>git clone URL//the URL of remote, the repository will be added in the local</li>
-<li>git add &amp;&amp; git commit &amp;&amp; git push origin master //本地修改提交再更新到github</li>
-<li>git remote add upstream URL//URL 为仓库源地址，对于clone fork的仓库，需要考虑sync的问题</li>
-</ul>
-<ul>
-<li><strong>Master and Branch</strong></li>
-</ul>
-<ul>
-<li>git branch branch_name// 创建branch</li>
-<li>git checkout branch_name //切换到branch</li>
-<li>git checkout -b branch_name //创建并切换到branch</li>
-<li>git merge branch_name //merge branch 到当前的branch或master</li>
-<li>git checkout -d branch_name //删除branch</li>
-</ul>
-<ul>
-<li><strong>分支管理策略</strong></li>
-</ul>
-<p>通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢掉分支信息，现在我们来使用带参数 –no-ff来禁用”Fast forward”模式。：</p>
-<ol>
-<li>创建一个dev分支。</li>
-<li>修改readme.txt内容。</li>
-<li>添加到暂存区。</li>
-<li>切换回主分支(master)。</li>
-<li>合并dev分支，使用命令 git merge –no-ff  -m “注释” dev</li>
-<li>查看历史记录</li>
-</ol>
-<ul>
-<li><strong>多人协作工作模式</strong></li>
-</ul>
-<ol>
-<li>首先，可以试图用git push origin branch-name推送自己的修改.</li>
-<li>如果推送失败，则因为远程分支比你的本地更新早，需要先用git pull试图合并。</li>
-<li>如果合并有冲突，则需要解决冲突，并在本地提交。再用git push origin branch-name推送。</li>
-</ol>
-<ul>
-<li><strong>Note: origin 就是指remote的repository。</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>本文部分内容来自 ：</strong>《推荐！手把手教你使用Git》 <a href="http://blog.jobbole.com/78960/" target="_blank" rel="external">http://blog.jobbole.com/78960/</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<ol>
-<li><strong>Git used locally:</strong><ul>
-<li><strong>Set up git in linux</strong> <ul>
-<li>sudo apt-get install git</li>
-<li>git config –global user.name “vdaming”//git 用户姓名</li>
-<li>git config –global user.email “xxxxxxxx@xxx.com” //用户邮箱</li>
-<li>ssh-keygen -t rsa -C “youremail”//输入两次密码后会产生一个本机的SSH key，然后填写到你注册的github账户上（登陆github系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys），然后就可以用SSH连接github了        </li>
-</ul>
-</li>
-<li><strong>Creat a local repository</strong><ul>
-<li>mkdir testGitHub</li>
-<li>git init// 把当前目录init为一个repository,会自动产生一个.git目录</li>
-<li>cd testGitHub &amp;&amp; touch README.md</li>
-<li>vim README.md // write something in it</li>
-<li>git add README.md //添加到git暂存区</li>
-<li>git commit -m “log” //改动提交到本地的repository 工作区</li>
-<li>vim README.md //继续更改文件</li>
-<li>git status //查看当前的改动</li>
-<li>git diff //查看具体的改动</li>
-<li>git add README.md &amp;&amp; git commit -m “log”//依然用add,commit,提交到repository</li>
-<li>git log//显示所有提交的版本号以及log内容</li>
-<li>git reflog//简短的实现所有提交过的log，版本</li>
-<li>git reset –hard 版本号 或者 git reset –hard HEAD^num, 回退到某个版本或者往前回退num个版本</li>
-<li>git checkout –filename //丢弃当前工作区的某个文件改动（退到还未做add前的最后版本）</li>
-<li>rm file &amp;&amp; git commit -m “log” //从repository 删除某个文件</li>
-<li>git checkout –file //rm后未add前时恢复文件]]>
-    
-    </summary>
-    
-      <category term="Git" scheme="http://blog.vdaming.com/tags/Git/"/>
-    
-      <category term="GitHub" scheme="http://blog.vdaming.com/tags/GitHub/"/>
-    
-      <category term="Tool" scheme="http://blog.vdaming.com/categories/Tool/"/>
-    
-  </entry>
+    <li><a href="/categories/Tool/">Tool</a><small>7</small></li>
   
-  <entry>
-    <title><![CDATA[Hello Hexo!!!]]></title>
-    <link href="http://blog.vdaming.com/2015/08/30/Hello-Hexo/"/>
-    <id>http://blog.vdaming.com/2015/08/30/Hello-Hexo/</id>
-    <published>2015-08-30T14:08:26.000Z</published>
-    <updated>2015-09-02T05:56:17.649Z</updated>
-    <content type="html"><![CDATA[<p>First time use <strong>Hexo</strong> to setup my blog, and thanks the <strong>Hexo writer</strong> which let me have a place to recode my life and enjoy my life.</p>
-<blockquote>
-<p><strong><em>Good Good Study, Day Day Up!</em></strong></p>
-</blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[My first blog on the Hexo]]>
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://blog.vdaming.com/tags/Hexo/"/>
-    
-      <category term="未分类" scheme="http://blog.vdaming.com/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
-    
-  </entry>
+    <li><a href="/categories/Web/">Web</a><small>1</small></li>
   
-</feed>
+    <li><a href="/categories/未分类/">未分类</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Android-Studio/">Android Studio</a><small>1</small></li>
+  
+    <li><a href="/tags/Freeradius/">Freeradius</a><small>1</small></li>
+  
+    <li><a href="/tags/Git/">Git</a><small>2</small></li>
+  
+    <li><a href="/tags/GitHub/">GitHub</a><small>1</small></li>
+  
+    <li><a href="/tags/Hexo/">Hexo</a><small>2</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/tags/RaspberryPi/">RaspberryPi</a><small>1</small></li>
+  
+    <li><a href="/tags/Vim/">Vim</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2556730153&verifier=7ae58262&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://blog.vdaming.com" title="VdaMing's Blog">VdaMing's Blog</a></li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">音乐分享</h3>
+<ul class="entry">
+<li>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=450 src="http://music.163.com/outchain/player?type=0&id=81623516&auto=0&height=430"></iframe>
+</li>
+</ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Vdaming
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<!--  <a href="https://github.com/vdaming"><img style="position: absolute; top: 0; left: 3; border: 0;" src="https://camo.githubusercontent.com/c6625ac1f3ee0a12250227cf83ce904423abf351/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png"></a> -->
+  <a href="https://github.com/vdaming"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+</body>
+</html>
