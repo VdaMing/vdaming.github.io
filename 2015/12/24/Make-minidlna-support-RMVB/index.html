@@ -3,18 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Blog建设经历 | VdaMing&#39;s Blog</title>
+  <title>让minidlna支持rmvb格式 | VdaMing&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2015.10.31更改博客主题从light改为yelee">
+  <meta name="description" content="##转载自: http://segmentfault.com/a/1190000003024886
+最近想倒腾个DLNA Server，可惜minidlna不支持rmvb，郁闷，ffmpeg早就支持rmvb了，没办法，自己动手改代码吧！
+12tar zxvf minidlna-1.1.3.tar.gzsudo apt-get install build-essential libexif-dev">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blog建设经历">
-<meta property="og:url" content="http://blog.vdaming.com/2015/11/01/BlogSetUpRecord/index.html">
+<meta property="og:title" content="让minidlna支持rmvb格式">
+<meta property="og:url" content="http://blog.vdaming.com/2015/12/24/Make-minidlna-support-RMVB/index.html">
 <meta property="og:site_name" content="VdaMing's Blog">
-<meta property="og:description" content="2015.10.31更改博客主题从light改为yelee">
-<meta property="og:updated_time" content="2015-10-31T17:13:18.627Z">
+<meta property="og:description" content="##转载自: http://segmentfault.com/a/1190000003024886
+最近想倒腾个DLNA Server，可惜minidlna不支持rmvb，郁闷，ffmpeg早就支持rmvb了，没办法，自己动手改代码吧！
+12tar zxvf minidlna-1.1.3.tar.gzsudo apt-get install build-essential libexif-dev">
+<meta property="og:updated_time" content="2015-12-24T13:51:20.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog建设经历">
-<meta name="twitter:description" content="2015.10.31更改博客主题从light改为yelee">
+<meta name="twitter:title" content="让minidlna支持rmvb格式">
+<meta name="twitter:description" content="##转载自: http://segmentfault.com/a/1190000003024886
+最近想倒腾个DLNA Server，可惜minidlna不支持rmvb，郁闷，ffmpeg早就支持rmvb了，没办法，自己动手改代码吧！
+12tar zxvf minidlna-1.1.3.tar.gzsudo apt-get install build-essential libexif-dev">
   
     <link rel="alternative" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
   
@@ -199,11 +205,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-BlogSetUpRecord" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Make-minidlna-support-RMVB" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/01/BlogSetUpRecord/" class="article-date">
-  	<time datetime="2015-10-31T17:08:08.000Z" itemprop="datePublished">2015-11-01</time>
+      <a href="/2015/12/24/Make-minidlna-support-RMVB/" class="article-date">
+  	<time datetime="2015-12-24T13:46:31.000Z" itemprop="datePublished">2015-12-24</time>
 </a>
     </div>
   
@@ -216,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Blog建设经历
+      让minidlna支持rmvb格式
     </h1>
   
 
@@ -226,17 +232,31 @@
         
 
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-	</div>
-
         <div class="clearfix"></div>
       </div>
       
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="2015-10-31">2015.10.31</h3><h4 id="更改博客主题从light改为yelee">更改博客主题从<a href="https://hexo.io/hexo-theme-light" target="_blank" rel="external">light</a>改为<a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" rel="external">yelee</a></h4>
+        <p>##转载自: <a href="http://segmentfault.com/a/1190000003024886" target="_blank" rel="external">http://segmentfault.com/a/1190000003024886</a></p>
+<p>最近想倒腾个DLNA Server，可惜minidlna不支持rmvb，郁闷，ffmpeg早就支持rmvb了，没办法，自己动手改代码吧！</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf minidlna-<span class="number">1.1</span><span class="number">.3</span>.tar.gz</span><br><span class="line">sudo apt-<span class="built_in">get</span> install build-essential libexif-<span class="built_in">dev</span> libjpeg-<span class="built_in">dev</span> libid3tag0-<span class="built_in">dev</span> libFLAC-<span class="built_in">dev</span> libvorbis-<span class="built_in">dev</span> libsqlite3-<span class="built_in">dev</span> libavformat-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
+<p>metadata.c</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">else if<span class="list">( <span class="keyword">strncmp</span><span class="list">(<span class="keyword">ctx-&gt;iformatctx-&gt;name</span>, <span class="string">"matroska"</span>, <span class="number">8</span>)</span> == <span class="number">0</span> )</span></span><br><span class="line">xasprintf<span class="list">(<span class="keyword">&amp;amp</span><span class="comment">;m.mime, "video/x-matroska");</span></span><br><span class="line">else if<span class="list">( <span class="keyword">strcmp</span><span class="list">(<span class="keyword">ctx-&gt;iformatctx-&gt;name</span>, <span class="string">"flv"</span>)</span> == <span class="number">0</span> )</span></span><br><span class="line">xasprintf<span class="list">(<span class="keyword">&amp;m</span>.mime, <span class="string">"video/x-flv"</span>)</span><span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
+<p>之后添加</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">else if<span class="list">( <span class="keyword">strcmp</span><span class="list">(<span class="keyword">ctx-&gt;iformat-&gt;name</span>, <span class="string">"rm"</span>)</span> == <span class="number">0</span> )</span></span><br><span class="line">xasprintf<span class="list">(<span class="keyword">&amp;amp</span><span class="comment">;m.mime, "video/x-pn-realvideo");</span></span><br><span class="line">else if<span class="list">( <span class="keyword">strcmp</span><span class="list">(<span class="keyword">ctx-&gt;iformat-&gt;name</span>, <span class="string">"rmvb"</span>)</span> == <span class="number">0</span> )</span></span><br><span class="line">xasprintf<span class="list">(<span class="keyword">&amp;m</span>.mime, <span class="string">"video/x-pn-realvideo"</span>)</span><span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
+<p>upnpglobalvars.h</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"http-get:*:application/ogg:*"</span></span><br></pre></td></tr></table></figure>
+<p>修改为:</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"http-get:*:application/ogg:*,"</span><span class="string">\</span></span><br><span class="line"><span class="string">"http-get:*:video/x-pn-realvideo:*"</span></span><br></pre></td></tr></table></figure>
+<p>utils.c</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ends_with(<span class="type">file</span>, <span class="string">".flv"</span>) || ends_with(<span class="type">file</span>, <span class="string">".xvid"</span>)  ||</span><br></pre></td></tr></table></figure>
+<p>之后添加:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ends_with(<span class="type">file</span>, <span class="string">".rm"</span>)  || ends_with(<span class="type">file</span>, <span class="string">".rmvb"</span>)  ||</span><br></pre></td></tr></table></figure>
+<p>随后编译安装</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">./autogen.sh</span><br><span class="line">#如果提示You must have autoconf installed to compile minidlna.</span><br><span class="line">sudo apt-get <span class="operator"><span class="keyword">install</span> autoconf</span><br><span class="line">#如果提示You must have automake installed <span class="keyword">to</span> compile minidlna.</span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> automake</span><br><span class="line">#需要关闭本地语言包, 如果不加<span class="comment">--disable-nls会出现各种文件找不到如: mv: cannot stat `t-da.gmo': No such file or directory</span></span><br><span class="line">./configure <span class="comment">--disable-nls</span></span><br><span class="line">make</span><br><span class="line">sudo make <span class="keyword">install</span></span><br><span class="line"></span><br><span class="line">配置文件和<span class="number">1.0</span><span class="number">.24</span>差不多:</span><br><span class="line"></span><br><span class="line">cp minidlna.conf /usr/<span class="keyword">local</span>/sbin/minidlna.conf</span><br><span class="line"></span><br><span class="line">启动方式和<span class="number">1.0</span><span class="number">.24</span>有很大差异:</span><br><span class="line"></span><br><span class="line">#第一次启动使用-<span class="keyword">d</span> –v选项看有没有出错</span><br><span class="line">sudo /usr/<span class="keyword">local</span>/sbin/minidlnad -<span class="keyword">d</span> -v -<span class="keyword">f</span> /usr/<span class="keyword">local</span>/sbin/minidlna.conf</span><br><span class="line">#没出错就ctrl+<span class="keyword">c</span> 结束进程, 然后正常启动</span><br><span class="line">sudo /usr/<span class="keyword">local</span>/sbin/minidlnad -<span class="keyword">f</span> /usr/<span class="keyword">local</span>/sbin/minidlna.conf</span><br><span class="line">#如果需要刷新列表使用-R参数</span><br><span class="line">sudo /usr/<span class="keyword">local</span>/sbin/minidlnad –R -<span class="keyword">f</span> /usr/<span class="keyword">local</span>/sbin/minidlna.conf</span></span><br></pre></td></tr></table></figure>
+<p>说到底就是几句代码的事情，ffmpeg本身就是支持rmvb，但是minidlna居然没有加上这个支持。</p>
+
       
       
     </div>
@@ -245,13 +265,13 @@
   
     
 <div class="copyright">
-  <p><span>本文标题:</span><a href="/2015/11/01/BlogSetUpRecord/">Blog建设经历</a></p>
+  <p><span>本文标题:</span><a href="/2015/12/24/Make-minidlna-support-RMVB/">让minidlna支持rmvb格式</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Vdaming 的个人博客">Vdaming</a></p>
-  <p><span>发布时间:</span>2015年11月1日 - 01时11分</p>
-  <p><span>最后更新:</span>2015年11月1日 - 01时11分</p>
+  <p><span>发布时间:</span>2015年12月24日 - 21时12分</p>
+  <p><span>最后更新:</span>2015年12月24日 - 21时12分</p>
   <p>
-    <span>原始链接:</span><a href="/2015/11/01/BlogSetUpRecord/" title="Blog建设经历">http://blog.vdaming.com/2015/11/01/BlogSetUpRecord/</a>
-    <span class="btn" data-clipboard-text="原文: http://blog.vdaming.com/2015/11/01/BlogSetUpRecord/　　作者: Vdaming" title="点击复制文章链接">
+    <span>原始链接:</span><a href="/2015/12/24/Make-minidlna-support-RMVB/" title="让minidlna支持rmvb格式">http://blog.vdaming.com/2015/12/24/Make-minidlna-support-RMVB/</a>
+    <span class="btn" data-clipboard-text="原文: http://blog.vdaming.com/2015/12/24/Make-minidlna-support-RMVB/　　作者: Vdaming" title="点击复制文章链接">
         <i class="fa fa-clipboard"></i>
     </span>
   </p>
@@ -276,16 +296,10 @@
 
 <nav id="article-nav">
   
-    <div id="article-nav-newer" class="article-nav-title">
-      <a href="/2015/12/24/Make-minidlna-support-RMVB/">
-        让minidlna支持rmvb格式
-      </a>
-    </div>
-  
   
     <div id="article-nav-older" class="article-nav-title">
-      <a href="/2015/10/21/study-VIM/">
-        学习VIM
+      <a href="/2015/11/01/BlogSetUpRecord/">
+        Blog建设经历
       </a>
     </div>
   
@@ -298,7 +312,7 @@
 <!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
 <div id="toc" class="toc-article">
 <strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2015-10-31"><span class="toc-number">1.</span> <span class="toc-text">2015.10.31</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#更改博客主题从light改为yelee"><span class="toc-number">1.1.</span> <span class="toc-text">更改博客主题从light改为yelee</span></a></li></ol></li></ol>
+
 </div>
 <style type="text/css">
   .left-col .switch-btn {
@@ -351,7 +365,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2015/11/01/BlogSetUpRecord/" data-title="Blog建设经历" data-url="http://blog.vdaming.com/2015/11/01/BlogSetUpRecord/"></div>
+	<div class="ds-thread" data-thread-key="2015/12/24/Make-minidlna-support-RMVB/" data-title="让minidlna支持rmvb格式" data-url="http://blog.vdaming.com/2015/12/24/Make-minidlna-support-RMVB/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -387,16 +401,14 @@
 
   
   
-    
     <div  class="post-nav-button">
-    <a href="/2015/12/24/Make-minidlna-support-RMVB/" title="上一篇: 让minidlna支持rmvb格式">
-    <i class="fa fa-angle-left"></i>
-    </a>
-    <a href="/2015/10/21/study-VIM/" title="下一篇: 学习VIM">
+    <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+    <a href="/2015/11/01/BlogSetUpRecord/" title="下一篇: Blog建设经历">
     <i class="fa fa-angle-right"></i>
     </a>
     </div>
   
+    
 </div>
       <footer id="footer">
   <div class="outer">

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Success belongs to the persevering]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.vdaming.com/"/>
-  <updated>2015-10-31T17:13:18.627Z</updated>
+  <updated>2015-12-24T13:51:20.955Z</updated>
   <id>http://blog.vdaming.com/</id>
   
   <author>
@@ -13,6 +13,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[让minidlna支持rmvb格式]]></title>
+    <link href="http://blog.vdaming.com/2015/12/24/Make-minidlna-support-RMVB/"/>
+    <id>http://blog.vdaming.com/2015/12/24/Make-minidlna-support-RMVB/</id>
+    <published>2015-12-24T13:46:31.000Z</published>
+    <updated>2015-12-24T13:51:20.955Z</updated>
+    <content type="html"><![CDATA[<p>##转载自: <a href="http://segmentfault.com/a/1190000003024886" target="_blank" rel="external">http://segmentfault.com/a/1190000003024886</a></p>
+<p>最近想倒腾个DLNA Server，可惜minidlna不支持rmvb，郁闷，ffmpeg早就支持rmvb了，没办法，自己动手改代码吧！</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf minidlna-<span class="number">1.1</span><span class="number">.3</span>.tar.gz</span><br><span class="line">sudo apt-<span class="built_in">get</span> install build-essential libexif-<span class="built_in">dev</span> libjpeg-<span class="built_in">dev</span> libid3tag0-<span class="built_in">dev</span> libFLAC-<span class="built_in">dev</span> libvorbis-<span class="built_in">dev</span> libsqlite3-<span class="built_in">dev</span> libavformat-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
+<p>metadata.c</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">else if<span class="list">( <span class="keyword">strncmp</span><span class="list">(<span class="keyword">ctx-&gt;iformatctx-&gt;name</span>, <span class="string">"matroska"</span>, <span class="number">8</span>)</span> == <span class="number">0</span> )</span></span><br><span class="line">xasprintf<span class="list">(<span class="keyword">&amp;amp</span><span class="comment">;m.mime, "video/x-matroska");</span></span><br><span class="line">else if<span class="list">( <span class="keyword">strcmp</span><span class="list">(<span class="keyword">ctx-&gt;iformatctx-&gt;name</span>, <span class="string">"flv"</span>)</span> == <span class="number">0</span> )</span></span><br><span class="line">xasprintf<span class="list">(<span class="keyword">&amp;m</span>.mime, <span class="string">"video/x-flv"</span>)</span><span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
+<p>之后添加</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">else if<span class="list">( <span class="keyword">strcmp</span><span class="list">(<span class="keyword">ctx-&gt;iformat-&gt;name</span>, <span class="string">"rm"</span>)</span> == <span class="number">0</span> )</span></span><br><span class="line">xasprintf<span class="list">(<span class="keyword">&amp;amp</span><span class="comment">;m.mime, "video/x-pn-realvideo");</span></span><br><span class="line">else if<span class="list">( <span class="keyword">strcmp</span><span class="list">(<span class="keyword">ctx-&gt;iformat-&gt;name</span>, <span class="string">"rmvb"</span>)</span> == <span class="number">0</span> )</span></span><br><span class="line">xasprintf<span class="list">(<span class="keyword">&amp;m</span>.mime, <span class="string">"video/x-pn-realvideo"</span>)</span><span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
+<p>upnpglobalvars.h</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"http-get:*:application/ogg:*"</span></span><br></pre></td></tr></table></figure>
+<p>修改为:</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"http-get:*:application/ogg:*,"</span><span class="string">\</span></span><br><span class="line"><span class="string">"http-get:*:video/x-pn-realvideo:*"</span></span><br></pre></td></tr></table></figure>
+<p>utils.c</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ends_with(<span class="type">file</span>, <span class="string">".flv"</span>) || ends_with(<span class="type">file</span>, <span class="string">".xvid"</span>)  ||</span><br></pre></td></tr></table></figure>
+<p>之后添加:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ends_with(<span class="type">file</span>, <span class="string">".rm"</span>)  || ends_with(<span class="type">file</span>, <span class="string">".rmvb"</span>)  ||</span><br></pre></td></tr></table></figure>
+<p>随后编译安装</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">./autogen.sh</span><br><span class="line">#如果提示You must have autoconf installed to compile minidlna.</span><br><span class="line">sudo apt-get <span class="operator"><span class="keyword">install</span> autoconf</span><br><span class="line">#如果提示You must have automake installed <span class="keyword">to</span> compile minidlna.</span><br><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">install</span> automake</span><br><span class="line">#需要关闭本地语言包, 如果不加<span class="comment">--disable-nls会出现各种文件找不到如: mv: cannot stat `t-da.gmo': No such file or directory</span></span><br><span class="line">./configure <span class="comment">--disable-nls</span></span><br><span class="line">make</span><br><span class="line">sudo make <span class="keyword">install</span></span><br><span class="line"></span><br><span class="line">配置文件和<span class="number">1.0</span><span class="number">.24</span>差不多:</span><br><span class="line"></span><br><span class="line">cp minidlna.conf /usr/<span class="keyword">local</span>/sbin/minidlna.conf</span><br><span class="line"></span><br><span class="line">启动方式和<span class="number">1.0</span><span class="number">.24</span>有很大差异:</span><br><span class="line"></span><br><span class="line">#第一次启动使用-<span class="keyword">d</span> –v选项看有没有出错</span><br><span class="line">sudo /usr/<span class="keyword">local</span>/sbin/minidlnad -<span class="keyword">d</span> -v -<span class="keyword">f</span> /usr/<span class="keyword">local</span>/sbin/minidlna.conf</span><br><span class="line">#没出错就ctrl+<span class="keyword">c</span> 结束进程, 然后正常启动</span><br><span class="line">sudo /usr/<span class="keyword">local</span>/sbin/minidlnad -<span class="keyword">f</span> /usr/<span class="keyword">local</span>/sbin/minidlna.conf</span><br><span class="line">#如果需要刷新列表使用-R参数</span><br><span class="line">sudo /usr/<span class="keyword">local</span>/sbin/minidlnad –R -<span class="keyword">f</span> /usr/<span class="keyword">local</span>/sbin/minidlna.conf</span></span><br></pre></td></tr></table></figure>
+<p>说到底就是几句代码的事情，ffmpeg本身就是支持rmvb，但是minidlna居然没有加上这个支持。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>##转载自: <a href="http://segmentfault.com/a/1190000003024886" target="_blank" rel="external">http://segmentfault.com/a/1190000003024886</a>]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Blog建设经历]]></title>
