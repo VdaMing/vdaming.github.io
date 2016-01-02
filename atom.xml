@@ -195,8 +195,9 @@
     <link href="http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/"/>
     <id>http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/</id>
     <published>2015-09-20T09:11:35.000Z</published>
-    <updated>2016-01-02T12:43:23.093Z</updated>
-    <content type="html"><![CDATA[<h1 id="搞定树梅派">搞定树梅派</h1><h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”" target="_blank" rel="external">最新系统镜像文件</a></p>
+    <updated>2016-01-02T13:51:24.125Z</updated>
+    <content type="html"><![CDATA[<h1 id="搞定树梅派">搞定树梅派</h1><h2 id="GPIO硬件对应图">GPIO硬件对应图</h2><p><img src="http://i4.tietuku.com/560a99a9a616174c.png" alt="Raspberry gpio 图"></p>
+<h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”" target="_blank" rel="external">最新系统镜像文件</a></p>
 <ol>
 <li>查看SD卡的对应的设备名称<br><code>df -h</code></li>
 <li>先把SD卡的各个分区卸载<br><code>umount /media/vdaming/xxxx</code></li>
@@ -223,7 +224,8 @@
 <p>树梅派还有很多拓展的功能，主要是基于linux的mini server，开源的好东西数不胜数，也为我们这些爱折腾的家伙提供很多材料，希望自己以后也能为开源做出一点点贡献，加油！！！</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="搞定树梅派">搞定树梅派</h1><h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”">最新系统镜像文件</a></p>
+    <![CDATA[<h1 id="搞定树梅派">搞定树梅派</h1><h2 id="GPIO硬件对应图">GPIO硬件对应图</h2><p><img src="http://i4.tietuku.com/560a99a9a616174c.png" alt="Raspberry gpio 图"></p>
+<h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”">最新系统镜像文件</a></p>
 <ol>
 <li>查看SD卡的对应的设备名称<br><code>df -h</code></li>
 <li>先把SD卡的各个分区卸载<br><code>umount /media/vdaming/xxxx</code></li>
