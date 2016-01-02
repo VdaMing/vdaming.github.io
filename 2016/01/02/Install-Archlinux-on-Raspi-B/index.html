@@ -3,18 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello Hexo!!! | VdaMing&#39;s Blog</title>
+  <title>Install_Archlinux_on_Raspi_B+ | VdaMing&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="My first blog on the Hexo">
+  <meta name="description" content="树梅派B+制作Arch linux系统步骤
+从官网，或者是国内的镜像站比如清华大学http://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-latest.tar.gz下载最新的arch linux arm镜像文件
+按照官方给出的步骤制作SD卡
+Replace sdX in the following instructi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Hexo!!!">
-<meta property="og:url" content="http://blog.vdaming.com/2015/08/30/Hello-Hexo/index.html">
+<meta property="og:title" content="Install_Archlinux_on_Raspi_B+">
+<meta property="og:url" content="http://blog.vdaming.com/2016/01/02/Install-Archlinux-on-Raspi-B/index.html">
 <meta property="og:site_name" content="VdaMing's Blog">
-<meta property="og:description" content="My first blog on the Hexo">
-<meta property="og:updated_time" content="2015-09-02T05:56:17.649Z">
+<meta property="og:description" content="树梅派B+制作Arch linux系统步骤
+从官网，或者是国内的镜像站比如清华大学http://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-latest.tar.gz下载最新的arch linux arm镜像文件
+按照官方给出的步骤制作SD卡
+Replace sdX in the following instructi">
+<meta property="og:updated_time" content="2016-01-02T12:55:01.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello Hexo!!!">
-<meta name="twitter:description" content="My first blog on the Hexo">
+<meta name="twitter:title" content="Install_Archlinux_on_Raspi_B+">
+<meta name="twitter:description" content="树梅派B+制作Arch linux系统步骤
+从官网，或者是国内的镜像站比如清华大学http://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-latest.tar.gz下载最新的arch linux arm镜像文件
+按照官方给出的步骤制作SD卡
+Replace sdX in the following instructi">
   
     <link rel="alternative" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
   
@@ -199,11 +208,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Hello-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Install-Archlinux-on-Raspi-B" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/30/Hello-Hexo/" class="article-date">
-  	<time datetime="2015-08-30T14:08:26.000Z" itemprop="datePublished">2015-08-30</time>
+      <a href="/2016/01/02/Install-Archlinux-on-Raspi-B/" class="article-date">
+  	<time datetime="2016-01-02T12:44:29.000Z" itemprop="datePublished">2016-01-02</time>
 </a>
     </div>
   
@@ -216,7 +225,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello Hexo!!!
+      Install_Archlinux_on_Raspi_B+
     </h1>
   
 
@@ -225,13 +234,13 @@
       <div class="article-info article-info-post">
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/未分类/">未分类</a>
+	<a class="article-category-link" href="/categories/Tool/">Tool</a>
 	</div>
 
 
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RaspberryPi/">RaspberryPi</a></li></ul>
 	</div>
 
         <div class="clearfix"></div>
@@ -240,10 +249,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>First time use <strong>Hexo</strong> to setup my blog, and thanks the <strong>Hexo writer</strong> which let me have a place to recode my life and enjoy my life.</p>
-<blockquote>
-<p><strong><em>Good Good Study, Day Day Up!</em></strong></p>
+        <h1 id="树梅派B+制作Arch_linux系统步骤">树梅派B+制作Arch linux系统步骤</h1><ol>
+<li>从<a href="http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-latest.tar.gz" target="_blank" rel="external">官网</a>，或者是国内的镜像站比如清华大学<em><a href="http://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-latest.tar.gz" target="_blank" rel="external">http://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-latest.tar.gz</a></em>下载最新的arch linux arm镜像文件</li>
+<li>按照官方给出的步骤制作SD卡<blockquote>
+<p>Replace sdX in the following instructions with the device name for the SD card as it appears on your computer.</p>
+<ol>
+<li>Start fdisk to partition the SD card:<br><code>fdisk /dev/sdX</code></li>
+<li>At the fdisk prompt, delete old partitions and create a new one:<br>a. Type <em>o</em>. This will clear out any partitions on the drive.<br>b. Type <em>p</em> to list partitions. There should be no partitions left.<br>c. Type <em>n</em>, then <em>p</em> for primary, <em>1</em> for the first partition on the drive, press ENTER to accept the default first sector, then type <em>+100M</em> for the last sector.<br>d. Type <em>t</em>, then <em>c</em> to set the first partition to type W95 FAT32 (LBA).<br>e. Type <em>n</em>, then <em>p</em> for primary, <em>2</em> for the second partition on the drive, and then press ENTER twice to accept the default first and last sector.<br>f. Write the partition table and exit by typing <em>w</em>.</li>
+<li>Create and mount the FAT filesystem:<br><code>mkfs.vfat /dev/sdX1</code><br><code>mkdir boot</code><br><code>mount /dev/sdX1 boot</code></li>
+<li>Create and mount the ext4 filesystem:<br><code>mkfs.ext4 /dev/sdX2</code><br><code>mkdir root</code><br><code>mount /dev/sdX2 root</code></li>
+<li>Download and extract the root filesystem (as root, not via sudo):<br><code>wget http://archlinuxarm.org/os/ArchLinuxARM-rpi-latest.tar.gz</code><br><code>bsdtar -xpf ArchLinuxARM-rpi-latest.tar.gz -C root</code><br><code>sync</code></li>
+<li>Move boot files to the first partition:<br><code>mv root/boot/* boot</code></li>
+<li>Unmount the two partitions:<br><code>umount boot root</code></li>
+<li>Insert the SD card into the Raspberry Pi, connect ethernet, and apply 5V power.</li>
+<li>Use the serial console or SSH to the IP address given to the board by your router.</li>
+<li>Login as the default user alarm with the password alarm.The default root password is root.</li>
+</ol>
 </blockquote>
+</li>
+</ol>
 
       
       
@@ -253,13 +277,13 @@
   
     
 <div class="copyright">
-  <p><span>本文标题:</span><a href="/2015/08/30/Hello-Hexo/">Hello Hexo!!!</a></p>
+  <p><span>本文标题:</span><a href="/2016/01/02/Install-Archlinux-on-Raspi-B/">Install_Archlinux_on_Raspi_B+</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Vdaming 的个人博客">Vdaming</a></p>
-  <p><span>发布时间:</span>2015年8月30日 - 22时08分</p>
-  <p><span>最后更新:</span>2015年9月2日 - 13时09分</p>
+  <p><span>发布时间:</span>2016年1月2日 - 20时01分</p>
+  <p><span>最后更新:</span>2016年1月2日 - 20时01分</p>
   <p>
-    <span>原始链接:</span><a href="/2015/08/30/Hello-Hexo/" title="Hello Hexo!!!">http://blog.vdaming.com/2015/08/30/Hello-Hexo/</a>
-    <span class="btn" data-clipboard-text="原文: http://blog.vdaming.com/2015/08/30/Hello-Hexo/　　作者: Vdaming" title="点击复制文章链接">
+    <span>原始链接:</span><a href="/2016/01/02/Install-Archlinux-on-Raspi-B/" title="Install_Archlinux_on_Raspi_B+">http://blog.vdaming.com/2016/01/02/Install-Archlinux-on-Raspi-B/</a>
+    <span class="btn" data-clipboard-text="原文: http://blog.vdaming.com/2016/01/02/Install-Archlinux-on-Raspi-B/　　作者: Vdaming" title="点击复制文章链接">
         <i class="fa fa-clipboard"></i>
     </span>
   </p>
@@ -284,12 +308,12 @@
 
 <nav id="article-nav">
   
-    <div id="article-nav-newer" class="article-nav-title">
-      <a href="/2015/08/30/How-to-use-Git-and-GItHub/">
-        How to use Git and GItHub
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2015/12/24/Make-minidlna-support-RMVB/">
+        让minidlna支持rmvb格式
       </a>
     </div>
-  
   
 </nav>
 
@@ -300,7 +324,7 @@
 <!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
 <div id="toc" class="toc-article">
 <strong class="toc-title">文章目录</strong>
-
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#树梅派B+制作Arch_linux系统步骤"><span class="toc-number">1.</span> <span class="toc-text">树梅派B+制作Arch linux系统步骤</span></a></li></ol>
 </div>
 <style type="text/css">
   .left-col .switch-btn {
@@ -353,7 +377,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2015/08/30/Hello-Hexo/" data-title="Hello Hexo!!!" data-url="http://blog.vdaming.com/2015/08/30/Hello-Hexo/"></div>
+	<div class="ds-thread" data-thread-key="2016/01/02/Install-Archlinux-on-Raspi-B/" data-title="Install_Archlinux_on_Raspi_B+" data-url="http://blog.vdaming.com/2016/01/02/Install-Archlinux-on-Raspi-B/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -388,13 +412,13 @@
 
 
   
-    <div  class="post-nav-button">
-    <a href="/2015/08/30/How-to-use-Git-and-GItHub/" title="上一篇: How to use Git and GItHub">
-    <i class="fa fa-angle-left"></i>
-    </a>
-    <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
-    </div>
   
+    <div  class="post-nav-button">
+    <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+    <a href="/2015/12/24/Make-minidlna-support-RMVB/" title="下一篇: 让minidlna支持rmvb格式">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
   
     
 </div>

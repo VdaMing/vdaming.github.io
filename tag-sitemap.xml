@@ -16,13 +16,6 @@
     </url>
 
     <url>
-        <loc>http://blog.vdaming.com/tags/RaspberryPi/</loc>
-        <lastmod>2015-09-25T15:07:26.781Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://blog.vdaming.com/tags/Git/</loc>
         <lastmod>2015-10-18T04:24:38.204Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -60,6 +53,13 @@
     <url>
         <loc>http://blog.vdaming.com/tags/Hexo/</loc>
         <lastmod>2015-10-31T17:13:18.627Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blog.vdaming.com/tags/RaspberryPi/</loc>
+        <lastmod>2016-01-02T12:55:01.960Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
