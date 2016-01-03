@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Success belongs to the persevering]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.vdaming.com/"/>
-  <updated>2016-01-02T12:55:01.960Z</updated>
+  <updated>2016-01-03T06:06:56.833Z</updated>
   <id>http://blog.vdaming.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Install_Archlinux_on_Raspi_B+]]></title>
+    <title><![CDATA[Install Archlinux on Raspi B+]]></title>
     <link href="http://blog.vdaming.com/2016/01/02/Install-Archlinux-on-Raspi-B/"/>
     <id>http://blog.vdaming.com/2016/01/02/Install-Archlinux-on-Raspi-B/</id>
     <published>2016-01-02T12:44:29.000Z</published>
-    <updated>2016-01-02T12:55:01.960Z</updated>
+    <updated>2016-01-03T06:06:56.833Z</updated>
     <content type="html"><![CDATA[<h1 id="树梅派B+制作Arch_linux系统步骤">树梅派B+制作Arch linux系统步骤</h1><ol>
 <li>从<a href="http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-latest.tar.gz" target="_blank" rel="external">官网</a>，或者是国内的镜像站比如清华大学<em><a href="http://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-latest.tar.gz" target="_blank" rel="external">http://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-latest.tar.gz</a></em>下载最新的arch linux arm镜像文件</li>
 <li>按照官方给出的步骤制作SD卡<blockquote>
