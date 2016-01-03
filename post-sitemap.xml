@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/</loc>
+        <lastmod>2016-01-03T16:17:40.528Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blog.vdaming.com/2016/01/02/Install-Archlinux-on-Raspi-B/</loc>
         <lastmod>2016-01-03T06:06:56.833Z</lastmod>
         <changefreq>weekly</changefreq>
