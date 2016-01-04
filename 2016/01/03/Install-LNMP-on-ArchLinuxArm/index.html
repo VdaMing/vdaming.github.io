@@ -8,7 +8,7 @@
   <meta name="description" content="在ArchlinuxArm上安装LNMP
 安装LNMP参照网上的教程，遇到了几点问题:
 
-ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/。需要在/etc/pacman.d/mirrorlist中把">
+ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/ 。需要在/etc/pacman.d/mirrorlist中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Install LNMP on ArchLinuxArm">
 <meta property="og:url" content="http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/index.html">
@@ -16,14 +16,14 @@ ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问
 <meta property="og:description" content="在ArchlinuxArm上安装LNMP
 安装LNMP参照网上的教程，遇到了几点问题:
 
-ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/。需要在/etc/pacman.d/mirrorlist中把">
-<meta property="og:updated_time" content="2016-01-03T16:17:40.528Z">
+ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/ 。需要在/etc/pacman.d/mirrorlist中">
+<meta property="og:updated_time" content="2016-01-04T14:36:10.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Install LNMP on ArchLinuxArm">
 <meta name="twitter:description" content="在ArchlinuxArm上安装LNMP
 安装LNMP参照网上的教程，遇到了几点问题:
 
-ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/。需要在/etc/pacman.d/mirrorlist中把">
+ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/ 。需要在/etc/pacman.d/mirrorlist中">
   
     <link rel="alternative" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
   
@@ -252,21 +252,21 @@ ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问
         <h1 id="在ArchlinuxArm上安装LNMP">在ArchlinuxArm上安装LNMP</h1><hr>
 <h2 id="安装LNMP">安装LNMP</h2><p>参照网上的<a href="http://blog.csdn.net/spaceship20008/article/details/8456601" target="_blank" rel="external">教程</a>，遇到了几点问题:</p>
 <ol>
-<li>ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源<a href="http://mirrors.ustc.edu.cn/archlinuxarm/。需要在/etc/pacman.d/mirrorlist中把原来的server注释掉，把国内的地址加到最后即可，记得地址后面要有跟着`$arch/$repo`以便适应不同的平台。" target="_blank" rel="external">http://mirrors.ustc.edu.cn/archlinuxarm/。需要在/etc/pacman.d/mirrorlist中把原来的server注释掉，把国内的地址加到最后即可，记得地址后面要有跟着`$arch/$repo`以便适应不同的平台。</a></li>
+<li>ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源<a href="http://mirrors.ustc.edu.cn/archlinuxarm/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/archlinuxarm/</a> 。需要在/etc/pacman.d/mirrorlist中把原来的server注释掉，把国内的地址加到最后即可，记得地址后面要有跟着<code>$arch/$repo</code>以便适应不同的平台。</li>
 <li>教程中提到使用<code>pacman -S php php-cgi php-fpm php-curl php-gd php-mcrypt mysql mysql-clients nginx</code>即可但是<code>php-curl</code>这个包会找不到，然后把它拿掉就可以了，后面再看这个是干嘛的吧。</li>
 <li>安装mysql时会提示是安装mariadb还是percona，这两个都是兼容mysql的升级版本，最后选择大家常用的mariadb，至于为什么，以后知道了在补充。</li>
 </ol>
 <h2 id="配置Nginx">配置Nginx</h2><blockquote>
 <p>NGINX is an open source web server and reverse proxy that excels at large-scale web integration, application security, and web acceleration</p>
 </blockquote>
-<p>配置文件的路径在/etc/nginx/nginx.conf,配置的每个Directives中的name，parameter在<a href="http://www.w3cbus.com/docs/nginx/master/en/" target="_blank" rel="external">W3Cbus</a>上和官方的wiki上的<a href="https://www.nginx.com/resources/wiki/start/" target="_blank" rel="external">Geting started</a>上有很好的介绍,下面贴出目前使用的配置</p>
+<p>配置文件的路径在/etc/nginx/nginx.conf,配置的每个Directives中的name，parameter在<a href="http://nginx.org/en/docs/" target="_blank" rel="external">这里</a>上和官方的wiki上的<a href="https://www.nginx.com/resources/wiki/start/" target="_blank" rel="external">Geting started</a>上有很好的介绍,下面贴出目前使用的配置</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">server</span> &#123;</span><br><span class="line">       <span class="title">listen</span>       <span class="number">80</span>;</span><br><span class="line">       <span class="title">server_name</span>  localhost;</span><br><span class="line"></span><br><span class="line">       <span class="comment">#charset koi8-r;</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">       <span class="title">location</span> / &#123;</span><br><span class="line">           <span class="title">root</span>   /usr/share/nginx/html;</span><br><span class="line">           <span class="title">index</span>  index.html index.htm index.php;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="title">error_page</span>  <span class="number">404</span>              /<span class="number">404</span>.html;</span><br><span class="line"></span><br><span class="line">       <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">       <span class="comment">#</span></span><br><span class="line">       <span class="title">error_page</span>   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /50x.html;</span><br><span class="line">       <span class="title">location</span> = /50x.html &#123;</span><br><span class="line">           <span class="title">root</span>   /usr/share/nginx/html;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">       <span class="comment">#</span></span><br><span class="line">       <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">       <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">       <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">       <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">       <span class="comment">#</span></span><br><span class="line">       <span class="title">location</span> <span class="regexp">~ \.php$</span> &#123;</span><br><span class="line">           <span class="title">root</span>           /usr/share/nginx/html;</span><br><span class="line">           <span class="comment">#fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">           <span class="title">fastcgi_pass</span>   <span class="url">unix:/run/php-fpm/php-fpm.sock</span>;</span><br><span class="line">           <span class="title">fastcgi_index</span>  index.php;</span><br><span class="line">           <span class="title">fastcgi_param</span>  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">           <span class="comment">#fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">           <span class="title">fastcgi_param</span>  SCRIPT_NAME      <span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">           <span class="title">include</span>        fastcgi_params;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="php-fpm配置">php-fpm配置</h2><p>首先是php-fpm, php-cgi, cgi, fastcgi的关系是什么，segmental Fault上有个很好的解释<a href="http://segmentfault.com/q/1010000000256516" target="_blank" rel="external">搞不清FastCgi与PHP-fpm之间是个什么样的关系</a>,总结下来就是: cgi,fastcgi是协议; php-cgi是php的解释器，是实现cgi的程序; php-fpm是fastcgi的实现，是用来管理php-cgi的。那nginx上要能访问php的网页就要通过代理传给php-fpm去调度php-cgi解释php的脚本，然后返回数据给nginx.</p>
 <ol>
-<li>php-pfm怎么配置的？ 配置文件的路径是/etc/php/php-fpm.conf,具体每个配置项的含义可以参考W3Cbus上的<a href="http://www.w3cbus.com/docs/php/master/cn/install.fpm.html" target="_blank" rel="external">介绍</a>, 目前使用的都是默认配置，其中listen = /run/php-fpm/php-fpm.sock和listen = 127.0.0.1:9000，要选择一个，并且和Nginx中的配置保持一致。</li>
+<li>php-pfm怎么配置的？ 配置文件的路径是/etc/php/php-fpm.conf,具体每个配置项的含义可以参考<a href="http://php.net/manual/zh/install.fpm.php" target="_blank" rel="external">这里</a>, 目前使用的都是默认配置，其中listen = /run/php-fpm/php-fpm.sock和listen = 127.0.0.1:9000，要选择一个，并且和Nginx中的配置保持一致。</li>
 <li>在Nginx的配置中fastcgi的fastcgi_pass 要填入php-fpm.conf中的listen地址， 对于socket的方式要在前面添加<code>unix:</code>即<code>fastcgi_pass   unix:/run/php-fpm/php-fpm.sock</code></li>
 </ol>
-<h2 id="验证php+Nginx">验证php+Nginx</h2><p>使用<code>systemctl enable php-fpm.service</code>添加php-pfm到自启动服务<br>使用<code>systemctl enable nginx.service</code>添加nginx到自启动服务<br>使用<code>systemctl start php-fpm.service</code>启动php-fpm<br>使用<code>systemctl start nginx.service</code>启动nginx<br>在nginx网站目录添加index.php文件里面填写<code>&lt;?php phpinfo();?&gt;</code>,浏览器中访问<a href="http://127.0.0.1/和http://127.0.0.1/index.php，如果显示正确的页面表示设定都OK了！" target="_blank" rel="external">http://127.0.0.1/和http://127.0.0.1/index.php，如果显示正确的页面表示设定都OK了！</a></p>
+<h2 id="验证php+Nginx">验证php+Nginx</h2><p>使用<code>systemctl enable php-fpm.service</code>添加php-pfm到自启动服务<br>使用<code>systemctl enable nginx.service</code>添加nginx到自启动服务<br>使用<code>systemctl start php-fpm.service</code>启动php-fpm<br>使用<code>systemctl start nginx.service</code>启动nginx<br>在nginx网站目录添加index.php文件里面填写<code>&lt;?php phpinfo();?&gt;</code>,浏览器中访问 <a href="http://127.0.0.1/" target="_blank" rel="external">http://127.0.0.1/</a> 和 <a href="http://127.0.0.1/index.php" target="_blank" rel="external">http://127.0.0.1/index.php</a> 如果显示正确的页面表示设定都OK了！</p>
 <h2 id="未完待续">未完待续</h2>
       
       
@@ -279,7 +279,7 @@ ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问
   <p><span>本文标题:</span><a href="/2016/01/03/Install-LNMP-on-ArchLinuxArm/">Install LNMP on ArchLinuxArm</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Vdaming 的个人博客">Vdaming</a></p>
   <p><span>发布时间:</span>2016年1月3日 - 23时01分</p>
-  <p><span>最后更新:</span>2016年1月4日 - 00时01分</p>
+  <p><span>最后更新:</span>2016年1月4日 - 22时01分</p>
   <p>
     <span>原始链接:</span><a href="/2016/01/03/Install-LNMP-on-ArchLinuxArm/" title="Install LNMP on ArchLinuxArm">http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/</a>
     <span class="btn" data-clipboard-text="原文: http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/　　作者: Vdaming" title="点击复制文章链接">
