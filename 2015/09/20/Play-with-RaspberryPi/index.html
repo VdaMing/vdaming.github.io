@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Play with RaspberryPi | VdaMing&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="搞定树梅派GPIO硬件对应图
+在ubuntu上把树梅派系统写入SD卡最新系统镜像文件
+
+查看SD卡的对应的设备名称df -h
+先把SD卡的各个分区卸载umount /media/vdaming/xxxx
+用dd把下载解压好的系统镜像写入SD卡sudo dd bs=4M if=xxxxx.img of=/dev/sdb 
+
+##备份树梅派系统
+
+SD卡插到linux PC上，先查看存储设备路径sud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Play with RaspberryPi">
+<meta property="og:url" content="http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/index.html">
+<meta property="og:site_name" content="VdaMing's Blog">
+<meta property="og:description" content="搞定树梅派GPIO硬件对应图
+在ubuntu上把树梅派系统写入SD卡最新系统镜像文件
+
+查看SD卡的对应的设备名称df -h
+先把SD卡的各个分区卸载umount /media/vdaming/xxxx
+用dd把下载解压好的系统镜像写入SD卡sudo dd bs=4M if=xxxxx.img of=/dev/sdb 
+
+##备份树梅派系统
+
+SD卡插到linux PC上，先查看存储设备路径sud">
+<meta property="og:image" content="http://i4.tietuku.com/560a99a9a616174c.png">
+<meta property="og:image" content="http://i1.tietuku.com/e8439990d4c9ede4.png">
+<meta property="og:updated_time" content="2016-01-13T12:55:38.349Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Play with RaspberryPi">
+<meta name="twitter:description" content="搞定树梅派GPIO硬件对应图
+在ubuntu上把树梅派系统写入SD卡最新系统镜像文件
+
+查看SD卡的对应的设备名称df -h
+先把SD卡的各个分区卸载umount /media/vdaming/xxxx
+用dd把下载解压好的系统镜像写入SD卡sudo dd bs=4M if=xxxxx.img of=/dev/sdb 
+
+##备份树梅派系统
+
+SD卡插到linux PC上，先查看存储设备路径sud">
+  
+    <link rel="alternative" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Vdaming</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Success belongs to the persevering</p>
+		
+				
+
+
+		
+			<div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">所有文章</a></li>
+				        
+							<li><a href="/tags/">标签云</a></li>
+				        
+							<li><a href="/about/">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:840234240@qq.com" title="Email"></a></li>
+					        
+								<li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/vdaming" title="新浪微博"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/vdaming" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Android-Studio/" style="font-size: 10px;">Android Studio</a> <a href="/tags/Freeradius/" style="font-size: 10px;">Freeradius</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/PHP-Nginx/" style="font-size: 10px;">PHP,Nginx</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RaspberryPi/" style="font-size: 15px;">RaspberryPi</a> <a href="/tags/VPN-SS-PPTP/" style="font-size: 10px;">VPN SS PPTP</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">胡乱瞎搞</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Vdaming</a></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<a href="/" class="profilepic">
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			</a>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">Vdaming</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Success belongs to the persevering</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/tags/">标签云</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+						<ul class="social">
+							
+								<li id="Email"><a class="Email" target="_blank" href="mailto:840234240@qq.com" title="Email"></a></li>
+					        
+								<li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/vdaming" title="新浪微博"></a></li>
+					        
+								<li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/vdaming" title="GitHub"></a></li>
+					        
+								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+					        
+						</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Play-with-RaspberryPi" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/20/Play-with-RaspberryPi/" class="article-date">
+  	<time datetime="2015-09-20T09:11:35.000Z" itemprop="datePublished">2015-09-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Play with RaspberryPi
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Tool/">Tool</a>
+	</div>
+
+
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RaspberryPi/">RaspberryPi</a></li></ul>
+	</div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="搞定树梅派">搞定树梅派</h1><h2 id="GPIO硬件对应图">GPIO硬件对应图</h2><p><img src="http://i4.tietuku.com/560a99a9a616174c.png" alt="Raspberry gpio 图"></p>
+<h2 id="在ubuntu上把树梅派系统写入SD卡">在ubuntu上把树梅派系统写入SD卡</h2><p><a href="http://downloads.raspberrypi.org/raspbian_latest  “树梅派官网”" target="_blank" rel="external">最新系统镜像文件</a></p>
+<ol>
+<li>查看SD卡的对应的设备名称<br><code>df -h</code></li>
+<li>先把SD卡的各个分区卸载<br><code>umount /media/vdaming/xxxx</code></li>
+<li>用dd把下载解压好的系统镜像写入SD卡<br><code>sudo dd bs=4M if=xxxxx.img of=/dev/sdb</code> </li>
+</ol>
+<p>##备份树梅派系统</p>
+<ol>
+<li>SD卡插到linux PC上，先查看存储设备路径<br><code>sudo fdisk -h</code><br><code>mount</code><br><code>df -h</code></li>
+<li>卸载SD卡<br><code>umount /dev/sdx1</code><br><code>umount /dev/sdx2</code> </li>
+<li>备份<br><code>sudo dd if=/dev/sdx | gzip &gt; rpi_backup_img.gz</code></li>
+</ol>
+<h2 id="在windows上把树梅派系统写入SD卡">在windows上把树梅派系统写入SD卡</h2><p>可以是用软件<a href="http://sourceforge.net/projects/win32diskimager/files/Archive/win32diskimager-v0.9-binary.zip/download" target="_blank" rel="external">Win32DiskImager</a> 轻松搞定，或者使用<a href="http://www.alexpage.de/usb-image-tool/download/" target="_blank" rel="external">USB Image Tool</a>, 具体使用就不再介绍了。</p>
+<h2 id="配置raspberrypi">配置raspberrypi</h2><p>插上SD卡，启动树梅派，远程SSH登录(pi/raspberry)上去，使用命令<code>sudo raspi-config</code>配置相关的参数比如: timezone, lang, overlock….  然后reboot， 配置为国内的软件源，然后apt-get update, 然后安装自己常用的工具比如vim, vnc…</p>
+<h3 id="国内的软件源地址">国内的软件源地址</h3><p>中山大学<br>Raspbian <a href="http://mirror.sysu.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirror.sysu.edu.cn/raspbian/raspbian/</a><br>中国科学技术大学<br>Raspbian <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a><br>清华大学<br>Raspbian <a href="http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</a><br>华中科技大学<br>Raspbian <a href="http://mirrors.hustunique.com/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.hustunique.com/raspbian/raspbian/</a><br>Arch Linux ARM <a href="http://mirrors.hustunique.com/archlinuxarm/" target="_blank" rel="external">http://mirrors.hustunique.com/archlinuxarm/</a><br>大连东软信息学院源（北方用户）<br>Raspbian <a href="http://mirrors.neusoft.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.neusoft.edu.cn/raspbian/raspbian/</a><br>重庆大学源（中西部用户）<br>Raspbian <a href="http://mirrors.cqu.edu.cn/Raspbian/raspbian/" target="_blank" rel="external">http://mirrors.cqu.edu.cn/Raspbian/raspbian/</a></p>
+<a id="more"></a>
+<h3 id="没有显示器怎么办">没有显示器怎么办</h3><p>在raspberry上安装tightvncserver:</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install tightvncserver</span><br><span class="line"><span class="preprocessor">#设置密码</span></span><br><span class="line">vncpasswd</span><br><span class="line"><span class="preprocessor">#启动vnc server</span></span><br><span class="line">sudo vncserver</span><br></pre></td></tr></table></figure>
+<p>在PC (ubuntu)上安装vnc viewer:</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install vncviewer</span><br><span class="line"><span class="preprocessor">#链接server</span></span><br><span class="line">vncviwer</span><br></pre></td></tr></table></figure>
+<p>启动vncviwer后输入IP和终端号和密码成功登入。。如图<br><img src="http://i1.tietuku.com/e8439990d4c9ede4.png" alt="图片1"></p>
+<h3 id="视频采集">视频采集</h3><p><a href="https://git.oschina.net/andyspider/Camkit" target="_blank" rel="external">Camkit</a><br>这个开源的camera组件提供了图像的采集，编码，转换，打包，发送功能的API，而且提供了一个例子程序，能够实现所有的过程并可以远程VLC 观看，关键是它是利用GPU实现编码转换的过程不会占用很多CPU，而且利用了H.264硬解,具体可以参考作者的介绍</p>
+<p><a href="http://sourceforge.net/projects/mjpg-streamer/" target="_blank" rel="external">Media-Streamer</a><br>同样很赞的一个开源图像采集和转换工具，可以下载sourceCode，按照介绍编译，然后运行脚本start.sh, 就能够在本地建立一个实时图像的http server，提供了VLC，streamer，javascript的实时视频播放方式。具体的安装步骤请参考树梅派实验室的好文： <a href="http://shumeipai.nxez.com/2013/10/04/raspberry-pi-mjpg-streamer-network-monitoring.html" target="_blank" rel="external">http://shumeipai.nxez.com/2013/10/04/raspberry-pi-mjpg-streamer-network-monitoring.html</a></p>
+<p>#End</p>
+<p>树梅派还有很多拓展的功能，主要是基于linux的mini server，开源的好东西数不胜数，也为我们这些爱折腾的家伙提供很多材料，希望自己以后也能为开源做出一点点贡献，加油！！！</p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+<div class="copyright">
+  <p><span>本文标题:</span><a href="/2015/09/20/Play-with-RaspberryPi/">Play with RaspberryPi</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Vdaming 的个人博客">Vdaming</a></p>
+  <p><span>发布时间:</span>2015年9月20日 - 17时09分</p>
+  <p><span>最后更新:</span>2016年1月13日 - 20时01分</p>
+  <p>
+    <span>原始链接:</span><a href="/2015/09/20/Play-with-RaspberryPi/" title="Play with RaspberryPi">http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/</a>
+    <span class="btn" data-clipboard-text="原文: http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/　　作者: Vdaming" title="点击复制文章链接">
+        <i class="fa fa-clipboard"></i>
+    </span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
+  <script src="/js/clipboard.min.js"></script>
+  <script> var clipboard = new Clipboard('.btn'); </script>
+</div>
+<style type="text/css">
+  .copyright p .btn {
+    margin-left: 1em;
+  }
+  .copyright:hover p .btn::after {
+    content: "复制"
+  }
+  .copyright p .btn:hover {
+      color: gray;
+      cursor: pointer;
+    };
+</style>
+
+
+
+<nav id="article-nav">
+  
+    <div id="article-nav-newer" class="article-nav-title">
+      <a href="/2015/09/26/Study-Python/">
+        Study Python
+      </a>
+    </div>
+  
+  
+    <div id="article-nav-older" class="article-nav-title">
+      <a href="/2015/09/08/Hello-world-in-Android-Studio/">
+        Hello world in Android Studio
+      </a>
+    </div>
+  
+</nav>
+
+  
+</article>
+
+<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
+<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
+<div id="toc" class="toc-article">
+<strong class="toc-title">文章目录</strong>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#搞定树梅派"><span class="toc-number">1.</span> <span class="toc-text">搞定树梅派</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GPIO硬件对应图"><span class="toc-number">1.1.</span> <span class="toc-text">GPIO硬件对应图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在ubuntu上把树梅派系统写入SD卡"><span class="toc-number">1.2.</span> <span class="toc-text">在ubuntu上把树梅派系统写入SD卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在windows上把树梅派系统写入SD卡"><span class="toc-number">1.3.</span> <span class="toc-text">在windows上把树梅派系统写入SD卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置raspberrypi"><span class="toc-number">1.4.</span> <span class="toc-text">配置raspberrypi</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#国内的软件源地址"><span class="toc-number">1.4.1.</span> <span class="toc-text">国内的软件源地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没有显示器怎么办"><span class="toc-number">1.4.2.</span> <span class="toc-text">没有显示器怎么办</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视频采集"><span class="toc-number">1.4.3.</span> <span class="toc-text">视频采集</span></a></li></ol></li></ol></li></ol>
+</div>
+<style type="text/css">
+  .left-col .switch-btn {
+    display: none;
+  }
+  .left-col .switch-area {
+    display: none;
+  }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script type="text/javascript">
+  var toc_button= document.getElementById("tocButton");
+  var toc_div= document.getElementById("toc");
+  /* Show or hide toc when click on tocButton.
+  通过点击设置的按钮显示或者隐藏文章目录.*/
+  toc_button.onclick=function(){
+  if(toc_div.style.display=="none"){
+  toc_div.style.display="block";
+  toc_button.value="隐藏目录";
+  document.getElementById("switch-btn").style.display="none";
+  document.getElementById("switch-area").style.display="none";
+  }
+  else{
+  toc_div.style.display="none";
+  toc_button.value="显示目录";
+  document.getElementById("switch-btn").style.display="block";
+  document.getElementById("switch-area").style.display="block";
+  }
+  }
+</script>
+
+
+<div class="share">
+	<div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+	</div>
+	<script>
+	window._bd_share_config={
+		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+	</script>
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2015/09/20/Play-with-RaspberryPi/" data-title="Play with RaspberryPi" data-url="http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"vdaming"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+    #scroll {
+      display: none;
+    }
+    </style>
+    <div class="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    </div>
+
+
+  
+  
+    
+    <div  class="post-nav-button">
+    <a href="/2015/09/26/Study-Python/" title="上一篇: Study Python">
+    <i class="fa fa-angle-left"></i>
+    </a>
+    <a href="/2015/09/08/Hello-world-in-Android-Studio/" title="下一篇: Hello world in Android Studio">
+    <i class="fa fa-angle-right"></i>
+    </a>
+    </div>
+  
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 Vdaming
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a>
+        </div>
+    </div>
+    <div class="visit">
+	  <span id="busuanzi_container_site_pv" stype='display:none'>  
+	    <span id="site-total-visit" >本站总访问量
+		<span id="busuanzi_value_site_pv"></span>次 
+		</span>
+	  <span id="busuanzi_container_site_uv" style='display:none'>
+        <span id="site-visit" >你是第 
+        <span id="busuanzi_value_site_uv"></span>个小伙伴
+        </span>
+      </span>
+      <span id="busuanzi_container_page_pv" style='display:none'>
+        <span id="page-visit">, 本页阅读量: 
+        <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var backgroundList = ["url(/background/bg-1.jpg)", "url(/background/bg-2.jpg)","url(/background/bg-3.jpg)","url(/background/bg-4.jpg)","url(/background/bg-5.jpg)"];
+  var background = Math.floor(Math.random() * backgroundList.length);
+  $("body").css({"background": backgroundList[background], "background-attachment": "fixed", "background-size": "cover"});
+</script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
