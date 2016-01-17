@@ -3,7 +3,7 @@ date: 2016-01-02 20:44:29
 tags: RaspberryPi
 category: Tool
 ---
-# 树梅派B+制作Arch linux系统步骤
+## 树梅派B+制作Arch linux系统步骤
 
 1. 从[官网](http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-latest.tar.gz)，或者是国内的镜像站比如清华大学*http://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-latest.tar.gz*下载最新的arch linux arm镜像文件
 2. 按照官方给出的步骤制作SD卡

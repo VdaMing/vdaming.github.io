@@ -3,18 +3,15 @@ date: 2016-01-13 21:28:54
 tags: VPN SS PPTP 
 category: tool
 ---
-# Install VPN on the VPS
+记录VPS 上安装各种fan墙工具的方法.
 ## SS
 SS项目地址 https:/github.com/shadowsocks/shadowsocks 已经被清空了，[wiki](https://github.com/shadowsocks/shadowsocks/wiki)还是可以用的。源码还好有人[备份](https://github.com/ziggear/shadowsocks)了.
-
 ### 安装SS on ubuntu:
-
 ```
 apt-get install python-pip
 pip install shadowsocks
 ```
 里面包含了client: sslocal和server: ssserver
-
 ### 启动SS server
 可以写一个json格式的配置文件server和client都可以用，然后用`ssserver -c xxxx.json -d start`
 配置如下
@@ -30,7 +27,6 @@ pip install shadowsocks
 }
 
 ```
-
 也可以直接用命令行加参数启动: ` ssserver -s xx.xx.xx.xx -p xxx -k xxxx -m rc4-md5 -t 300 -d start`
 
 ### 配置client
@@ -45,7 +41,6 @@ Android:
 
 ## PPTP VPN
 安装过程主要参考这里： https://help.ubuntu.com/community/PPTPServer
-
 > First we need to install pptp server using apt-get
 > 
 > `# sudo apt-get install pptpd`
@@ -115,6 +110,7 @@ Android:
 2. ppp0 设备找不到，log中提醒用命令`mknod ppp c 108 0`添加device节点
 3. log中提示找不到ppp-generic 模块，是因为很多VPS上kernel没有把ppp相关的模块编译进来比如tun，ppp-generic. 只要让VPS服务商添加一下就OK了
 
-
 ## openVPN
 PPTP已经不安全了，所以想到用[openvpn](http://www.openvpn.net/)
+
+## To be continued

@@ -3,16 +3,16 @@ date: 2015-10-21 21:45:27
 categories: Tool
 tags: [Freeradius] 
 ---
-# **起因**
+## **起因**
 最近公司开发新功能，要用到802.1x的认证环境，所以从网上搜了一堆的教程，使用freeradius测试802.1x 的EAP_SIM 认证，下面记录一下。
 
-# **802.1x,EAP**
+## **802.1x,EAP**
 WLAN 中的WPA-Enterprise，WPA2-Enterprise，802.1x认证都是使用了802.1x认证协议，需要radius server完成认证，授权，计费的功能，拓扑图如下
 STA->AP->radiusServer, 当然server可以是在AP的lan端，也可以上架设在公网上使用。具体的认证使用了EAP的认证方法，包含EAP_PEAP, EAP_MD5, EAP_TLS, EAP_TTLS, EAP_SIM, EAP_AKA, EAP_AKA'等方法。
 
-# **安装和配置freeradius**
+## **安装和配置freeradius**
 Freeradius 是一款开源的radius server 软件，安装和配置起来都挺方便的。
-## **安装Freeradius**
+### **安装Freeradius**
 我使用的机器是ubuntu 14.04LTS 版本，可以直接使用APT-GET 命令安装，让ubuntu自动安装所需的软件和依赖，能使用的最新版本是2.1.12.
 ```
 vdaming@vdaming-Lenovo-ubuntu:~$ sudo apt-get install freeradius
@@ -36,9 +36,9 @@ Use 'apt-get autoremove' to remove them.
 您希望继续执行吗？ [Y/n] y
 ```
 安装以后，freeradius是被当作service启动的，配置文件主要在/etc/freeradius/目录下。
-## **配置freeradius**
+### **配置freeradius**
 在/etc/freeradius/目录下是所有的配置文件，我们主要改动的是eap.conf,clients.conf,users 文件
-### **添加新用户**
+#### **添加新用户**
 ```
 vdaming@vdaming-Lenovo-ubuntu:/etc/freeradius$ sudo vim users
 加入以下字段是给MD5，PEAP的认证添加vic用户，密码是1234
@@ -60,7 +60,7 @@ vdaming@vdaming-Lenovo-ubuntu:/etc/freeradius$ sudo vim users
 
 对于eap_sim的sim卡信息需要根据不同的SIM卡生成出来，搞一个SIM卡的读卡器，使用软件[agsim](http://agsm.sourceforge.net/download.html)生成3组值添加到users文件即可，用户名的话是IMSI加上对应的后缀，后缀中的mnc001, mcc460, 是取了IMSI的钱5位分割出来的。
 
-### **添加允许radius client ip地址**
+#### **添加允许radius client ip地址**
 这个要编辑文件clients.conf
 ```
 vdaming@vdaming-Lenovo-ubuntu:/etc/freeradius$ sudo vim clients.conf
@@ -72,7 +72,7 @@ client 192.168.0.0/16 {
 
 ```
 
-### **添加EAP_SIM的支持**
+#### **添加EAP_SIM的支持**
 这个要更改eap.conf
 ```
 vdaming@vdaming-Lenovo-ubuntu:/etc/freeradius$ sudo vim eap.conf
@@ -80,7 +80,7 @@ vdaming@vdaming-Lenovo-ubuntu:/etc/freeradius$ sudo vim eap.conf
 sim {}
 ```
 <!--more-->
-### **测试改动是否OK**
+#### **测试改动是否OK**
 使用freeradius的测试命令来模拟一个客户端给server发送EAP-REQUEST, 检查server是否能正常回复。
 ```
 先要重启一下freeradius service 让配置的改动生效，或者是把当前的freeradius service先top掉，再手动启动freeradius带上-X的参数打开所有的debug信息。
@@ -524,11 +524,11 @@ rad_recv: Access-Accept packet from host 127.0.0.1 port 1812, id=103, length=32
 ```
 
 
-# **测试手机sim卡认证**
+## **测试手机sim卡认证**
 配置和简单测试OK后，开始使用手机来模拟测试。
 1. 在AP上配置使用WPA/WPA2,或者802.1x的认证方法，输入radius server的IP和密钥。
 2. 使用支持EAP_SIM的手机，基本上android4.0的手机都支持，然后搜索到设置好的SSID，连接时选择EAP_SIM的认证方法，选择正确的sim卡（如果是双卡槽的话），链接即可。
 3. 如果sim卡的信息都填写正确的话，就能够顺利的连接上了，但是一般不会那么顺利，这时就可以参考radius server上打印的debug信息查看错误发生在了哪里，或者使用wireshark抓包检查认证流程，参考**RFC4186**.
 
-# **END**
+## **END**
 OK， 就到这里了，并没有深入研究freeradius 使用mysql来配置用户，计费等信息的方法，以后用到的时候再了解吧，另外对于EAP_SIM,802.1x的介绍及基本的拓扑结构，认证流程都能在网上搜索的到，这里不再赘述。

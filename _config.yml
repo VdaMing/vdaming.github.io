@@ -7,7 +7,7 @@ title: VdaMing's Blog
 subtitle: Success belongs to the persevering
 description: Write something to make life better
 author: Vdaming 
-language: zh-CN
+language: zh-Hans
 timezone: 
 
 # URL
@@ -65,13 +65,14 @@ pagination_dir: page
 ## Themes: http://hexo.io/themes/
 #theme: landscape
 #theme: jacman
-#theme: hexo-theme-light
+theme: next
 #theme: hexo-theme-next
-theme: yelee
+#theme: yelee
+#theme: maupassant
 
 plugins: 
  - hexo-generator-feed
-#- hexo-generator-sitemap
+# - hexo-generator-sitemap
 sitemap:
   path: sitemap.xml
 duoshuo_shortname: vdaming
@@ -86,3 +87,10 @@ deploy:
   type: git
   repository: https://github.com/VdaMing/vdaming.github.io.git
   branch: master
+
+#add for theme-next to use external links
+links_title: Links
+links:
+	Vdaming's blog: http://blog.vdaming.com
+
+#avatar: /images/avatar.png

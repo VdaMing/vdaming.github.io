@@ -3,7 +3,6 @@ date: 2015-09-20 17:11:35
 categories: Tool
 tags: RaspberryPi
 ---
-# 搞定树梅派
 ## GPIO硬件对应图
 ![Raspberry gpio 图](http://i4.tietuku.com/560a99a9a616174c.png)
 

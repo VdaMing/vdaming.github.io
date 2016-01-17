@@ -3,10 +3,6 @@ date: 2016-01-03 23:29:53
 tags: PHP,Nginx
 category: Tool
 ---
-# 在ArchlinuxArm上安装LNMP
-
-------
-
 ## 安装LNMP
 参照网上的[教程](http://blog.csdn.net/spaceship20008/article/details/8456601)，遇到了几点问题:
 1. ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/ 。需要在/etc/pacman.d/mirrorlist中把原来的server注释掉，把国内的地址加到最后即可，记得地址后面要有跟着`$arch/$repo`以便适应不同的平台。
@@ -16,7 +12,6 @@ category: Tool
 ## 配置Nginx
 [Nginx文档](http://nginx.org/en/docs/)
 > NGINX is an open source web server and reverse proxy that excels at large-scale web integration, application security, and web acceleration
-
 配置文件的路径在/etc/nginx/nginx.conf,配置的每个Directives中的name，parameter在[这里](http://nginx.org/en/docs/)上和官方的wiki上的[Geting started](https://www.nginx.com/resources/wiki/start/)上有很好的介绍,下面贴出目前使用的配置
 
 ```
