@@ -7,8 +7,48 @@
     </url>
 
     <url>
+        <loc>http://blog.vdaming.com/2015/08/30/How-to-use-Git-and-GItHub/</loc>
+        <lastmod>2016-01-17T10:22:19.679Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/</loc>
+        <lastmod>2016-01-17T10:18:24.106Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blog.vdaming.com/2015/10/21/Set-up-freeradius-server/</loc>
+        <lastmod>2016-01-17T10:17:38.167Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/</loc>
+        <lastmod>2016-01-17T10:14:51.161Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blog.vdaming.com/2016/01/02/Install-Archlinux-on-Raspi-B/</loc>
+        <lastmod>2016-01-17T10:13:56.850Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blog.vdaming.com/2016/01/13/Install-VPN-on-the-VPS/</loc>
-        <lastmod>2016-01-13T14:28:21.108Z</lastmod>
+        <lastmod>2016-01-17T10:13:11.406Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -47,47 +87,7 @@
     </url>
 
     <url>
-        <loc>http://blog.vdaming.com/2015/10/21/Set-up-freeradius-server/</loc>
-        <lastmod>2016-01-13T12:55:38.349Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://blog.vdaming.com/2015/09/20/Play-with-RaspberryPi/</loc>
-        <lastmod>2016-01-13T12:55:38.349Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://blog.vdaming.com/2015/12/24/Make-minidlna-support-RMVB/</loc>
-        <lastmod>2016-01-13T12:55:38.349Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/</loc>
-        <lastmod>2016-01-13T12:55:38.349Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://blog.vdaming.com/2016/01/02/Install-Archlinux-on-Raspi-B/</loc>
-        <lastmod>2016-01-13T12:55:38.349Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://blog.vdaming.com/2015/08/30/How-to-use-Git-and-GItHub/</loc>
         <lastmod>2016-01-13T12:55:38.349Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

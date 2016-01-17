@@ -1,256 +1,333 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Install LNMP on ArchLinuxArm | VdaMing&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在ArchlinuxArm上安装LNMP
-安装LNMP参照网上的教程，遇到了几点问题:
+<!doctype html>
 
-ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/ 。需要在/etc/pacman.d/mirrorlist中">
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="google8589c132d3a856e0.html" />
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="PHP,Nginx," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="VdaMing's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="安装LNMP参照网上的教程，遇到了几点问题:
+
+ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/ 。需要在/etc/pacman.d/mirrorlist中把原来的server注释掉，把国内的地址加">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Install LNMP on ArchLinuxArm">
 <meta property="og:url" content="http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/index.html">
 <meta property="og:site_name" content="VdaMing's Blog">
-<meta property="og:description" content="在ArchlinuxArm上安装LNMP
-安装LNMP参照网上的教程，遇到了几点问题:
+<meta property="og:description" content="安装LNMP参照网上的教程，遇到了几点问题:
 
-ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/ 。需要在/etc/pacman.d/mirrorlist中">
-<meta property="og:updated_time" content="2016-01-13T12:55:38.349Z">
+ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/ 。需要在/etc/pacman.d/mirrorlist中把原来的server注释掉，把国内的地址加">
+<meta property="og:updated_time" content="2016-01-17T10:14:51.161Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Install LNMP on ArchLinuxArm">
-<meta name="twitter:description" content="在ArchlinuxArm上安装LNMP
-安装LNMP参照网上的教程，遇到了几点问题:
+<meta name="twitter:description" content="安装LNMP参照网上的教程，遇到了几点问题:
 
-ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/ 。需要在/etc/pacman.d/mirrorlist中">
-  
-    <link rel="alternative" href="/atom.xml" title="VdaMing&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源http://mirrors.ustc.edu.cn/archlinuxarm/ 。需要在/etc/pacman.d/mirrorlist中把原来的server注释掉，把国内的地址加">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 13357064,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Install LNMP on ArchLinuxArm | VdaMing's Blog </title>
 </head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/img/avatar.png" class="js-avatar">
-			
-		</a>
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">Vdaming</a></h1>
-		</hgroup>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-		
-		<p class="header-subtitle">Success belongs to the persevering</p>
-		
-				
+  
 
 
-		
-			<div id="switch-btn" class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-72537163-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
-		<div id="switch-area" class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives/">所有文章</a></li>
-				        
-							<li><a href="/tags/">标签云</a></li>
-				        
-							<li><a href="/about/">关于我</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<ul class="social">
-							
-								<li id="Email"><a class="Email" target="_blank" href="mailto:840234240@qq.com" title="Email"></a></li>
-					        
-								<li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/vdaming" title="新浪微博"></a></li>
-					        
-								<li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/vdaming" title="GitHub"></a></li>
-					        
-								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-					        
-						</ul>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android-Studio/" style="font-size: 10px;">Android Studio</a> <a href="/tags/Freeradius/" style="font-size: 10px;">Freeradius</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/PHP-Nginx/" style="font-size: 10px;">PHP,Nginx</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RaspberryPi/" style="font-size: 15px;">RaspberryPi</a> <a href="/tags/VPN-SS-PPTP/" style="font-size: 10px;">VPN SS PPTP</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-			        
-			        </div>
-				</section>
-				
 
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">胡乱瞎搞</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?5f90e440f3f577b0ea788d2a08576b29";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">VdaMing's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Success belongs to the persevering</p>
 </div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Vdaming</a></h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<a href="/" class="profilepic">
-				<img lazy-src="/img/avatar.png" class="js-avatar">
-			</a>
-			<hgroup>
-			  <h1 class="header-author"><a href="/" title="回到主页">Vdaming</a></h1>
-			</hgroup>
-			
-			<p class="header-subtitle">Success belongs to the persevering</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives/">所有文章</a></li>
-		        
-					<li><a href="/tags/">标签云</a></li>
-		        
-					<li><a href="/about/">关于我</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-						<ul class="social">
-							
-								<li id="Email"><a class="Email" target="_blank" href="mailto:840234240@qq.com" title="Email"></a></li>
-					        
-								<li id="新浪微博"><a class="新浪微博" target="_blank" href="http://weibo.com/vdaming" title="新浪微博"></a></li>
-					        
-								<li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/vdaming" title="GitHub"></a></li>
-					        
-								<li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-					        
-						</ul>
-			</nav>
-		</header>				
-	</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
 </nav>
-      <div class="body-wrap"><article id="post-Install-LNMP-on-ArchLinuxArm" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/03/Install-LNMP-on-ArchLinuxArm/" class="article-date">
-  	<time datetime="2016-01-03T15:29:53.000Z" itemprop="datePublished">2016-01-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+
   
-    <h1 class="article-title" itemprop="name">
-      Install LNMP on ArchLinuxArm
-    </h1>
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Install LNMP on ArchLinuxArm
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-03T23:29:53+08:00" content="2016-01-03">
+              2016-01-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Tool/" itemprop="url" rel="index">
+                    <span itemprop="name">Tool</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/03/Install-LNMP-on-ArchLinuxArm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/03/Install-LNMP-on-ArchLinuxArm/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
       </header>
-      
-      <div class="article-info article-info-post">
-        
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Tool/">Tool</a>
-	</div>
-
-
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP-Nginx/">PHP,Nginx</a></li></ul>
-	</div>
-
-        <div class="clearfix"></div>
-      </div>
-      
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-        <h1 id="在ArchlinuxArm上安装LNMP">在ArchlinuxArm上安装LNMP</h1><hr>
-<h2 id="安装LNMP">安装LNMP</h2><p>参照网上的<a href="http://blog.csdn.net/spaceship20008/article/details/8456601" target="_blank" rel="external">教程</a>，遇到了几点问题:</p>
+      
+
+      
+        <h2 id="安装LNMP">安装LNMP</h2><p>参照网上的<a href="http://blog.csdn.net/spaceship20008/article/details/8456601" target="_blank" rel="external">教程</a>，遇到了几点问题:</p>
 <ol>
 <li>ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问不到的，所以要更改为国内的镜像站，测试了几个后，最后使用的是中科大的源<a href="http://mirrors.ustc.edu.cn/archlinuxarm/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/archlinuxarm/</a> 。需要在/etc/pacman.d/mirrorlist中把原来的server注释掉，把国内的地址加到最后即可，记得地址后面要有跟着<code>$arch/$repo</code>以便适应不同的平台。</li>
 <li>教程中提到使用<code>pacman -S php php-cgi php-fpm php-curl php-gd php-mcrypt mysql mysql-clients nginx</code>即可但是<code>php-curl</code>这个包会找不到，然后把它拿掉就可以了，后面再看这个是干嘛的吧。</li>
@@ -258,9 +335,8 @@ ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问
 </ol>
 <h2 id="配置Nginx">配置Nginx</h2><p><a href="http://nginx.org/en/docs/" target="_blank" rel="external">Nginx文档</a></p>
 <blockquote>
-<p>NGINX is an open source web server and reverse proxy that excels at large-scale web integration, application security, and web acceleration</p>
+<p>NGINX is an open source web server and reverse proxy that excels at large-scale web integration, application security, and web acceleration<br>配置文件的路径在/etc/nginx/nginx.conf,配置的每个Directives中的name，parameter在<a href="http://nginx.org/en/docs/" target="_blank" rel="external">这里</a>上和官方的wiki上的<a href="https://www.nginx.com/resources/wiki/start/" target="_blank" rel="external">Geting started</a>上有很好的介绍,下面贴出目前使用的配置</p>
 </blockquote>
-<p>配置文件的路径在/etc/nginx/nginx.conf,配置的每个Directives中的name，parameter在<a href="http://nginx.org/en/docs/" target="_blank" rel="external">这里</a>上和官方的wiki上的<a href="https://www.nginx.com/resources/wiki/start/" target="_blank" rel="external">Geting started</a>上有很好的介绍,下面贴出目前使用的配置</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">server</span> &#123;</span><br><span class="line">       <span class="title">listen</span>       <span class="number">80</span>;</span><br><span class="line">       <span class="title">server_name</span>  localhost;</span><br><span class="line"></span><br><span class="line">       <span class="comment">#charset koi8-r;</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">       <span class="title">location</span> / &#123;</span><br><span class="line">           <span class="title">root</span>   /usr/share/nginx/html;</span><br><span class="line">           <span class="title">index</span>  index.html index.htm index.php;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="title">error_page</span>  <span class="number">404</span>              /<span class="number">404</span>.html;</span><br><span class="line"></span><br><span class="line">       <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">       <span class="comment">#</span></span><br><span class="line">       <span class="title">error_page</span>   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /50x.html;</span><br><span class="line">       <span class="title">location</span> = /50x.html &#123;</span><br><span class="line">           <span class="title">root</span>   /usr/share/nginx/html;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">       <span class="comment">#</span></span><br><span class="line">       <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">       <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">       <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">       <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">       <span class="comment">#</span></span><br><span class="line">       <span class="title">location</span> <span class="regexp">~ \.php$</span> &#123;</span><br><span class="line">           <span class="title">root</span>           /usr/share/nginx/html;</span><br><span class="line">           <span class="comment">#fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">           <span class="title">fastcgi_pass</span>   <span class="url">unix:/run/php-fpm/php-fpm.sock</span>;</span><br><span class="line">           <span class="title">fastcgi_index</span>  index.php;</span><br><span class="line">           <span class="title">fastcgi_param</span>  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">           <span class="comment">#fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">           <span class="title">fastcgi_param</span>  SCRIPT_NAME      <span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">           <span class="title">include</span>        fastcgi_params;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="php-fpm配置">php-fpm配置</h2><p><a href="http://php.net/manual/zh/" target="_blank" rel="external">PHP手册</a><br>首先是php-fpm, php-cgi, cgi, fastcgi的关系是什么，segmental Fault上有个很好的解释<a href="http://segmentfault.com/q/1010000000256516" target="_blank" rel="external">搞不清FastCgi与PHP-fpm之间是个什么样的关系</a>,总结下来就是: cgi,fastcgi是协议; php-cgi是php的解释器，是实现cgi的程序; php-fpm是fastcgi的实现，是用来管理php-cgi的。那nginx上要能访问php的网页就要通过代理传给php-fpm去调度php-cgi解释php的脚本，然后返回数据给nginx.</p>
 <ol>
@@ -271,253 +347,490 @@ ArchlinuxArm的软件源设定，由于官方的mirror.archlinuxarm.org是访问
 <h2 id="MySQL配置">MySQL配置</h2><p><a href="http://dev.mysql.com/doc/refman/5.7/en/" target="_blank" rel="external">MySQL 5.7 Reference Manual</a><br><a href="https://wiki.archlinux.org/index.php/MySQL" target="_blank" rel="external">MySQL on ArchWiki</a></p>
 <h2 id="未完待续">未完待续</h2>
       
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP-Nginx/" rel="tag">#PHP,Nginx</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/02/Install-Archlinux-on-Raspi-B/" rel="next" title="Install Archlinux on Raspi B+">
+                <i class="fa fa-chevron-left"></i> Install Archlinux on Raspi B+
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/13/Install-VPN-on-the-VPS/" rel="prev" title="Install VPN on the VPS">
+                Install VPN on the VPS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/01/03/Install-LNMP-on-ArchLinuxArm/"
+     data-title="Install LNMP on ArchLinuxArm"
+     data-content=""
+     data-url="http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
     </div>
-    
   </div>
-  
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-<div class="copyright">
-  <p><span>本文标题:</span><a href="/2016/01/03/Install-LNMP-on-ArchLinuxArm/">Install LNMP on ArchLinuxArm</a></p>
-  <p><span>文章作者:</span><a href="/" title="访问 Vdaming 的个人博客">Vdaming</a></p>
-  <p><span>发布时间:</span>2016年1月3日 - 23时01分</p>
-  <p><span>最后更新:</span>2016年1月13日 - 20时01分</p>
-  <p>
-    <span>原始链接:</span><a href="/2016/01/03/Install-LNMP-on-ArchLinuxArm/" title="Install LNMP on ArchLinuxArm">http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/</a>
-    <span class="btn" data-clipboard-text="原文: http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/　　作者: Vdaming" title="点击复制文章链接">
-        <i class="fa fa-clipboard"></i>
-    </span>
-  </p>
-  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。</p>
-  <script src="/js/clipboard.min.js"></script>
-  <script> var clipboard = new Clipboard('.btn'); </script>
-</div>
-<style type="text/css">
-  .copyright p .btn {
-    margin-left: 1em;
-  }
-  .copyright:hover p .btn::after {
-    content: "复制"
-  }
-  .copyright p .btn:hover {
-      color: gray;
-      cursor: pointer;
-    };
-</style>
-
-
-
-<nav id="article-nav">
-  
-    <div id="article-nav-newer" class="article-nav-title">
-      <a href="/2016/01/13/Install-VPN-on-the-VPS/">
-        Install VPN on the VPS
-      </a>
-    </div>
-  
-  
-    <div id="article-nav-older" class="article-nav-title">
-      <a href="/2016/01/02/Install-Archlinux-on-Raspi-B/">
-        Install Archlinux on Raspi B+
-      </a>
-    </div>
-  
-</nav>
-
-  
-</article>
-
-<!-- 默认显示文章目录，在文章---前输入toc: false关闭目录 -->
-<!-- Show TOC and tocButton in default, Hide TOC via putting "toc: false" before "---" at [post].md -->
-<div id="toc" class="toc-article">
-<strong class="toc-title">文章目录</strong>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#在ArchlinuxArm上安装LNMP"><span class="toc-number">1.</span> <span class="toc-text">在ArchlinuxArm上安装LNMP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装LNMP"><span class="toc-number">1.1.</span> <span class="toc-text">安装LNMP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Nginx"><span class="toc-number">1.2.</span> <span class="toc-text">配置Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php-fpm配置"><span class="toc-number">1.3.</span> <span class="toc-text">php-fpm配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证php+Nginx"><span class="toc-number">1.4.</span> <span class="toc-text">验证php+Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL配置"><span class="toc-number">1.5.</span> <span class="toc-text">MySQL配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#未完待续"><span class="toc-number">1.6.</span> <span class="toc-text">未完待续</span></a></li></ol></li></ol>
-</div>
-<style type="text/css">
-  .left-col .switch-btn {
-    display: none;
-  }
-  .left-col .switch-area {
-    display: none;
-  }
-</style>
-
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-<script type="text/javascript">
-  var toc_button= document.getElementById("tocButton");
-  var toc_div= document.getElementById("toc");
-  /* Show or hide toc when click on tocButton.
-  通过点击设置的按钮显示或者隐藏文章目录.*/
-  toc_button.onclick=function(){
-  if(toc_div.style.display=="none"){
-  toc_div.style.display="block";
-  toc_button.value="隐藏目录";
-  document.getElementById("switch-btn").style.display="none";
-  document.getElementById("switch-area").style.display="none";
-  }
-  else{
-  toc_div.style.display="none";
-  toc_button.value="显示目录";
-  document.getElementById("switch-btn").style.display="block";
-  document.getElementById("switch-area").style.display="block";
-  }
-  }
-</script>
-
-
-<div class="share">
-	<div class="bdsharebuttonbox">
-	<a href="#" class="bds_more" data-cmd="more"></a>
-	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-	<a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
-	<a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-	<a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-	</div>
-	<script>
-	window._bd_share_config={
-		"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-	</script>
-</div>
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/01/03/Install-LNMP-on-ArchLinuxArm/" data-title="Install LNMP on ArchLinuxArm" data-url="http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"vdaming"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
-
-
-
-    <style type="text/css">
-    #scroll {
-      display: none;
-    }
-    </style>
-    <div class="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#ds-thread" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
-    </div>
-
-
-  
-  
-    
-    <div  class="post-nav-button">
-    <a href="/2016/01/13/Install-VPN-on-the-VPS/" title="上一篇: Install VPN on the VPS">
-    <i class="fa fa-angle-left"></i>
-    </a>
-    <a href="/2016/01/02/Install-Archlinux-on-Raspi-B/" title="下一篇: Install Archlinux on Raspi B+">
-    <i class="fa fa-angle-right"></i>
-    </a>
-    </div>
-  
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-      <div class="footer-left">
-        &copy; 2016 Vdaming
+      <div class="ds-thread" data-thread-key="2016/01/03/Install-LNMP-on-ArchLinuxArm/"
+           data-title="Install LNMP on ArchLinuxArm" data-url="http://blog.vdaming.com/2016/01/03/Install-LNMP-on-ArchLinuxArm/">
       </div>
-        <div class="footer-right">
-          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a>
+    
+  </div>
+
+
         </div>
-    </div>
-    <div class="visit">
-	  <span id="busuanzi_container_site_pv" stype='display:none'>  
-	    <span id="site-total-visit" >本站总访问量
-		<span id="busuanzi_value_site_pv"></span>次 
-		</span>
-	  <span id="busuanzi_container_site_uv" style='display:none'>
-        <span id="site-visit" >你是第 
-        <span id="busuanzi_value_site_uv"></span>个小伙伴
-        </span>
-      </span>
-      <span id="busuanzi_container_page_pv" style='display:none'>
-        <span id="page-visit">, 本页阅读量: 
-        <span id="busuanzi_value_page_pv"></span>
-        </span>
-      </span>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-</footer>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Vdaming" />
+          <p class="site-author-name" itemprop="name">Vdaming</p>
+          <p class="site-description motion-element" itemprop="description">Write something to make life better</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://www.github.com/vdaming/" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/vdaming/" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.vdaming.com" target="_blank">Vdaming's blog</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装LNMP"><span class="nav-number">1.</span> <span class="nav-text">安装LNMP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Nginx"><span class="nav-number">2.</span> <span class="nav-text">配置Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php-fpm配置"><span class="nav-number">3.</span> <span class="nav-text">php-fpm配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证php+Nginx"><span class="nav-number">4.</span> <span class="nav-text">验证php+Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL配置"><span class="nav-number">5.</span> <span class="nav-text">MySQL配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续"><span class="nav-number">6.</span> <span class="nav-text">未完待续</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
 
     </div>
-    
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  </aside>
 
 
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+        
+      </div>
+    </main>
 
-<script type="text/javascript">
-  var backgroundList = ["url(/background/bg-1.jpg)", "url(/background/bg-2.jpg)","url(/background/bg-3.jpg)","url(/background/bg-4.jpg)","url(/background/bg-5.jpg)"];
-  var background = Math.floor(Math.random() * backgroundList.length);
-  $("body").css({"background": backgroundList[background], "background-attachment": "fixed", "background-size": "cover"});
-</script>
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
-<div class="scroll" id="scroll">
-<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vdaming</span>
 </div>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
   </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"vdaming"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
 </body>
 </html>

@@ -7,15 +7,29 @@
     </url>
     
     <url>
-        <loc>http://blog.vdaming.com/tags/index.html</loc>
-        <lastmod>2016-01-13T12:55:38.349Z</lastmod>
+        <loc>http://blog.vdaming.com/404.html</loc>
+        <lastmod>2016-01-17T09:06:59.772Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>http://blog.vdaming.com/about/index.html</loc>
-        <lastmod>2016-01-13T12:55:38.349Z</lastmod>
+        <lastmod>2016-01-17T09:03:41.074Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.vdaming.com/categories/index.html</loc>
+        <lastmod>2016-01-17T08:58:59.578Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://blog.vdaming.com/tags/index.html</loc>
+        <lastmod>2016-01-17T08:56:31.556Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
