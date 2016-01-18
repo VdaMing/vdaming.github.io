@@ -210,10 +210,11 @@
     <link href="http://blog.vdaming.com/2015/10/21/study-VIM/"/>
     <id>http://blog.vdaming.com/2015/10/21/study-VIM/</id>
     <published>2015-10-21T14:15:48.000Z</published>
-    <updated>2016-01-13T12:55:38.349Z</updated>
-    <content type="html"><![CDATA[<h1 id="vim_学习之路"><strong>vim 学习之路</strong></h1>]]></content>
+    <updated>2016-01-18T12:01:45.823Z</updated>
+    <content type="html"><![CDATA[<p>[learn-vim]<a href="https://github.com/dofy/learn-vim" target="_blank" rel="external">https://github.com/dofy/learn-vim</a><br>控制台运行 vimtutor 这是 vim 官方实操教程<br><a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">简明 Vim 练级攻略</a> 很不错的入门教程<br><a href="https://github.com/mhinz/vim-galore" target="_blank" rel="external">vim galore</a> 更新频繁，vim 进阶必读<br><a href="http://liuzhijun.iteye.com/category/270228" target="_blank" rel="external">每日一Vim</a> 共 30 篇，内容比较全</p>
+]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="vim_学习之路"><strong>vim 学习之路</strong></h1>]]>
+    <![CDATA[<p>[learn-vim]<a href="https://github.com/dofy/learn-vim" target="_blank" rel="external">https://github.com/dofy/learn-vim</a><br>控制台运行 vimt]]>
     </summary>
     
       <category term="Vim" scheme="http://blog.vdaming.com/tags/Vim/"/>
